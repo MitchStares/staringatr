@@ -13,10 +13,10 @@
     
     <item>
       <title>The Grammer of Graphics - Plotting your data with ggplot!</title>
-      <link>/data-exploration-and-manipulation/data-manipulation/grammar-of-graphics/</link>
+      <link>/the-grammar-of-graphics/grammar-of-graphics/</link>
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/data-exploration-and-manipulation/data-manipulation/grammar-of-graphics/</guid>
+      <guid>/the-grammar-of-graphics/grammar-of-graphics/</guid>
       <description>ResourcesThe Grammar of ggplotBasic plotsCustomising your graphGrids and BackgroundAxis LinesPanel lines/gridsLabelsA Proper examplePlotting our analysed dataWeeds (ANOVA bar graph)Tadpoles (linear regression)Nest Dataset (Logistic Regression/GLM)By now you should be fairly familiar with the R environment and decently familiar with tidyverse. You should be able to perform basic data manipulations, analyses and in general, understand the general concepts of working with data in R.</description>
     </item>
     

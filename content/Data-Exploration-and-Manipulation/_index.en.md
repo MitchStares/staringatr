@@ -7,6 +7,6 @@ chapter: true
 
 ### Chapter 1
 
-# Basics
+# Data Exploration and Manipulation
 
-Discover what this Hugo theme is all about and the core-concepts behind it.
+Exploring data in its native format and manipulating it using Tidyverse

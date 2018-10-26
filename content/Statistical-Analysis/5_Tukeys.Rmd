@@ -1,0 +1,63 @@
+---
+title: "Tukeys HSD"
+weight: 15
+date: '2018-10-26'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+```{r message=FALSE, warning=FALSE, include=FALSE}
+weeds<-read.csv("../../resources/datafiles/weeds.csv")
+library(tidyverse)
+weeds <- rename(weeds, flowers = flowers.m3)
+frogsp<-read.csv("../../resources/datafiles/frogs.csv", header=TRUE)
+enviro<-read.csv("../../resources/datafiles/frog_environmental.csv", header=TRUE)
+insect <- read.csv("../../resources/datafiles/insecticide.csv", header=TRUE)
+weeds.aov <- aov(flowers~species, data=weeds)
+
+insect.aov<-aov(species.richness~fragment, data=insect)
+shapiro.test(insect.aov$residuals)
+bartlett.test(species.richness ~ fragment, data=insect)
+```
+#### 5. Tukey's HSD  
+
+All of our analyses so far have showed us that species has an influence on flower abundance. But without conducting an extra test, we cannot be certain which species are statistically significant from each other when it comes to their effect on flower abundance
+
+```{r}
+TukeyHSD(weeds.aov) 
+```
+
+This is showing us whether the two compared means are significantly different from each other (p adj).  
+
+This will give us the print out for the whole analysis. If we want only one factor to be displayed, simply include the **which = ** agument and specify what factor
+
+```{r}
+TukeyHSD(weeds.aov, which = "species") # this will give us only the species column
+```
+
+While handy and quick, its hard to interpret the print out of this test, particularly in analyses with multi-leveled factors.  
+
+The following Tukeys HSD test comes from the package **agricolae**. I personally only use this package for the Tukeys HSD letter report function.
+
+```{r message=FALSE, warning=FALSE}
+library(agricolae)
+HSD.test(weeds.aov, "species", console=TRUE) # HSD.test() requires you to state the factor, as well as print the output to the console (console=TRUE)
+```
+
+As mentioned, this specific Tukey's function can only do a single specified factor (to my knowledge). These Tukey's tests are options for single factor significance. For an interaction significance, you will need to consider alternative post-hoc methods.  
+
+An interesting method of visualising the interaction term is using the **interaction.plot()** command. Specifying the three columns you want to see. 
+
+```{r}
+interaction.plot(weeds$species, weeds$weeds, weeds$flowers)
+```
+
+In this example, we see the increase in number of flowers, with a markedly higher increase in native. The significant increase in species is only present in Oleria in native areas.
+
+
+**Write Ok in the following box to continue:**  
+{1:SHORTANSWER:=Ok}

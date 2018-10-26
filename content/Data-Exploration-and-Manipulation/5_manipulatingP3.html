@@ -1,0 +1,57 @@
+---
+title: "Manipulating data part 3"
+weight: 11
+date: '2018-10-26'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<div id="removing-items" class="section level4">
+<h4>Removing Items</h4>
+<p>By now, we have quite a few objects in our R environment that aren’t being used. The <strong>remove()</strong> command does exactly that….removes objects from the R environment. This helps for making things nice and tidy, specifically in our environment window.</p>
+<pre class="r"><code>remove(frogfull, froginner, enviro_filter) # Removes all three objects we just generated</code></pre>
+<p>Use this in the console to “one off” remove an item.</p>
+</div>
+<div id="the-summarise-function" class="section level4">
+<h4>The Summarise Function</h4>
+<p>This is an extremely useful function that lets you create different summaries of columns. You can also nest other functions within it to apply them to your columns.</p>
+<pre class="r"><code>sum_data &lt;- summarise(weeds, mean(flowers))  # We&#39;ll start simple. Generates the mean of the flower column
+
+sum_data &lt;- summarise(group_by(weeds, species), mean(flowers)) 
+# Using the group_by() function within summarise lets you get summaries for groups, in this case &quot;species&quot;
+
+sum_data &lt;- summarise(group_by(weeds,species, soil), mean(flowers), sd(flowers), se=sd(flowers/sqrt(n())))
+# Grouped by with species &amp; soil, generating mean, standard deviation &amp; standard error of flowers</code></pre>
+<p>The last example generates the mean, sd and se for each factor combination in our dataset. This is pretty useful, particularly for generating bar graphs.</p>
+<p>However, its a little complex and can be in a much nicer format.</p>
+<p><strong>Use the summarise() function on the insecticide dataset to answer the following question</strong>
+<strong>Question: In the large fragment, what is the median species richness</strong></p>
+<p>{1:SHORTANSWER:=12}</p>
+</div>
+<div id="the-pipe-function" class="section level4">
+<h4>The Pipe Function</h4>
+<p>This lets you run multiple different functions on one dataset without having to use the intermediate steps you would have to use in base R.<br />
+You start with the data you want to apply the functions to, followed by a pipe %&gt;%. After each pipe you must go to the next line.</p>
+<p>This is useful for large messy functions with multiple nested parts. It separates everything out and makes it easier to follow.</p>
+<p>A pipe is simply a &gt; nested within two percentage, %, symbols. The keyboard shortcut for this is <strong>Ctrl</strong> + <strong>SHIFT</strong> + <strong>M</strong></p>
+<pre class="r"><code>sum_data &lt;- weeds %&gt;% 
+  group_by(species, soil) %&gt;% 
+  summarise(max(flowers))
+
+# You start with the data you want to apply the functions to, followed by a pipe. After each pipe you must go to the next line   
+# In this example, we grouped the data by species and soil, then performed the summarise function to generate the max number for each combination
+
+new_data &lt;- weeds %&gt;% 
+  mutate(binary = soil == &quot;sandstone&quot;) %&gt;% 
+  filter(weeds == &quot;native&quot;)
+
+# As you can see, we can do this with most of the stuff we have already learnt
+# This will generate a binary outcome (true/false) for soil with TRUE as &quot;sandstone&quot;. Followed by filtering for &quot;native&quot; weeds</code></pre>
+<p>Piping is incredibly useful and much easier to read.</p>
+<p><strong>You will notice, that because we specified the data in the first line, we did not have to specify the data in the other lines, only the columns</strong></p>
+<p><strong>Write finished in the following box to continue:</strong><br />
+{1:SHORTANSWER:=finished}</p>
+</div>

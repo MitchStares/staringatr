@@ -1,0 +1,92 @@
+---
+title: "Two-factor Analysis of Variance"
+weight: 14
+date: '2018-10-26'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<div id="two-factors-and-transformations" class="section level4">
+<h4>4. Two-factors and Transformations</h4>
+<p>To conduct an two-factor ANOVA is pretty straightforward.</p>
+<pre class="r"><code>weeds.aov2 &lt;- aov(flowers ~ species + soil, data = weeds) # two-factor anova (without interaction)
+summary(weeds.aov2)</code></pre>
+<pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## species      2   2369  1184.3   9.272 0.000436 ***
+## soil         1    239   238.5   1.867 0.178720    
+## Residuals   44   5620   127.7                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>This example constructs an ANOVA with two factors, but does not include the interaction term. If we want the interaction term, simply replace the <strong>+</strong> sign with an asterisk * .</p>
+<pre class="r"><code>weeds.aov2 &lt;- aov(flowers ~ species * soil, data = weeds) # two-factor anova (with interaction)
+summary(weeds.aov2)</code></pre>
+<pre><code>##              Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## species       2   2369  1184.3   9.102 0.00052 ***
+## soil          1    239   238.5   1.833 0.18301    
+## species:soil  2    155    77.5   0.596 0.55574    
+## Residuals    42   5465   130.1                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Including the asterisk tells the formula to multiply both of the factors creating the interaction factor. It will automatically produce the results for factors independantly as well as the interaction term.</p>
+<p><strong>Don’t forget to check your assumptions</strong></p>
+<p>Everything stays the same for assumptions except the following modifications to Bartlett’s and Levene’s Tests.</p>
+<pre class="r"><code>bartlett.test(flowers ~ interaction(species, soil), data = weeds) # Add the interaction() argument to correctly analyse an interaction term</code></pre>
+<pre><code>## 
+##  Bartlett test of homogeneity of variances
+## 
+## data:  flowers by interaction(species, soil)
+## Bartlett&#39;s K-squared = 5.3304, df = 5, p-value = 0.3769</code></pre>
+<pre class="r"><code>leveneTest(flowers ~ species * soil, data = weeds) # same syntax as the normal formula</code></pre>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(&gt;F)
+## group  5    0.81 0.5492
+##       42</code></pre>
+<p><strong>Transformations</strong></p>
+<p>There are two methods to transform your response (Y) variable for an analysis.</p>
+<ol style="list-style-type: decimal">
+<li>Use a data manipulation technique such as <strong>mutate()</strong> to create a new column; or</li>
+<li>Transform the variable within the analysis formula (see below)</li>
+</ol>
+<p>For this example, we will be log transforming the flowers column within the weeds dataset.<br />
+<strong>NOTE: THIS MAKES NO SENSE AS IT IS NORMAL. IT IS JUST AN EXAMPLE!</strong></p>
+<pre class="r"><code>## Mutate Option ##
+weeds &lt;- mutate(weeds, logflowers = log(flowers)) # create new column called &quot;logflowers&quot;
+
+## Formula option ##
+weeds.aov.log &lt;- aov(log(flowers) ~ species * soil, data = weeds) # log(flowers) as our Y variable tells the anova to use a log transformed response.
+
+summary(weeds.aov.log)</code></pre>
+<pre><code>##              Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## species       2  2.842  1.4211  11.158 0.00013 ***
+## soil          1  0.239  0.2387   1.874 0.17831    
+## species:soil  2  0.247  0.1234   0.969 0.38792    
+## Residuals    42  5.349  0.1274                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<hr />
+<p><strong>Remember</strong><br />
+If you are testing assumptions, you must run the aov() (or general analysis) again with the new transformation and then extract residuals.</p>
+<pre class="r"><code>shapiro.test(log(weeds.aov$residuals)) #### DO NOT DO THIS!! ####</code></pre>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  log(weeds.aov$residuals)
+## W = 0.95759, p-value = 0.4422</code></pre>
+<pre class="r"><code>shapiro.test(weeds.aov.log$residuals) # Do this! #</code></pre>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  weeds.aov.log$residuals
+## W = 0.97792, p-value = 0.4951</code></pre>
+<p>See how those are different? The same thing applies to square root (sqrt) or square/cubic transformations (^2, ^3).</p>
+<p><strong>Construct a Two-factor ANOVA (with interaction) on the Insecticide dataset and answer the following:</strong></p>
+<p><strong>1. Is the data normal?</strong><br />
+{1:MULTICHOICE:Yes #Wrong~=No #OK}</p>
+<p><strong>2. What is the p-value for the Bartlett’s test?</strong><br />
+{1:SHORTANSWER:=0.1339}</p>
+<p><strong>3. Without transforming to normalise, what is the p-value for the interaction term?</strong><br />
+{1:SHORTANSWER:=0.03275}</p>
+</div>

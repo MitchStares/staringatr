@@ -7,6 +7,6 @@ pre: "<b>2. </b>"
 
 ### Chapter 2
 
-# Content
+# Statistical Analysis
 
-Find out how to create and organize your content quickly and intuitively.
+Text here

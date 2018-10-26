@@ -1,0 +1,114 @@
+---
+title: "ANOVA assumptions"
+weight: 12
+date: '2018-10-26'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+```{r message=FALSE, warning=FALSE, include=FALSE}
+weeds<-read.csv("../../resources/datafiles/weeds.csv")
+library(tidyverse)
+weeds <- rename(weeds, flowers = flowers.m3)
+frogsp<-read.csv("../../resources/datafiles/frogs.csv", header=TRUE)
+enviro<-read.csv("../../resources/datafiles/frog_environmental.csv", header=TRUE)
+insect <- read.csv("../../resources/datafiles/insecticide.csv", header=TRUE)
+weeds.aov <- aov(flowers~species, data=weeds)
+
+insect.aov<-aov(species.richness~fragment, data=insect)
+shapiro.test(insect.aov$residuals)
+bartlett.test(species.richness ~ fragment, data=insect)
+```
+
+#### 2. Assumptions of an ANOVA  
+
+**Normality:** Normality can be tested in two basic ways. Through visual inspection of residuals in a normal quantile (QQ) plot and histogram, OR, through a mathematical test such as a shapiro-wilks test.  
+
+To produce the two graphs for visual inspection of residuals we use the following commands:
+```{r message=FALSE, warning=FALSE}
+plot(weeds.aov, 2) # Normal quantile plot
+```
+
+The normal qq plot should display the residuals along the dotted line in a straight manner. In this example, it is pretty straight :)  
+
+Plotting the **aov()** object will generate 4 plots. The QQ plot is the second, so we can just specify the second one to avoid the other 3.
+
+Try removing the 2 and comma and see what the plot command does on its own. It does this because it is being applied to a statistical object (i.e. **aov()** ).  
+  
+  **NOTE: The plot command (without specifying 1-4) may require you to press "ENTER" in the console for each plot. Look in the console after running this command**  
+
+
+
+We can also produce a histogram of the residuals:
+```{r}
+hist(weeds.aov$residuals) # Histogram of residuals
+```
+
+To produce a histogram of the residuals, we simply need to specify the residuals column of our **aov()** object. Simple!  
+
+The reason this works is because the **aov()** object contains its own column for residuals (amongst other things). Try running **str()** on weeds.aov to see what columns it contains. The second one should be the residuals.
+
+Something "fun" to do, is to combine both of the graphs in the same window. This produces the same style of output we would get in JMP.
+```{r}
+## This may not work in a default notebook ##
+
+par(mfrow = c(1,2)) # This code put two plots in the same window
+hist(weeds.aov$residuals)
+plot(weeds.aov, 2)
+
+# If your using a notebook, the par() command wont work. 
+    ## Click the settings cog and select "chunk output in console"
+
+# If your future graphs keep using this two plot window, use the following command in the console to stop it.
+
+# dev.off()
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+dev.off
+```
+Running a shapiro-wilks test is a similar story. To produce a shapiro-wilks test requires the following code:
+```{r message=FALSE, warning=FALSE}
+shapiro.test(weeds.aov$residuals) # run a shapiro-wilks test on the residuals column of our anova object using the shapiro.test() function
+```
+
+With a shapiro-wilks test, if the result is significant, this means our data is NOT-NORMAL. In our case our data is normal.  
+
+**What is the shapiro-wilks p-value for an anova of species richness and fragment in the Insecticide dataset**  
+{1:SHORTANSWER:=0.01113}
+
+---
+
+**Homogeneity of Variance:** Homogeneity of variance is the other main assumption we are concerned with when conducting an ANOVA. Homogeneity of variance is the assumption that the variance between groups is relatively even. That is to say, all groups have similar variation between them. Similar to the assumption of normality, there are two ways to test homogeneity, a visual inspection of residuals and a statistical test.  
+
+To conduct a visual inspection of the residuals we simply use the following:
+```{r}
+plot(weeds.aov, 1) # using plot number 1 this time
+```
+
+Heterogenous variances are indicated by a non-random pattern in the residuals vs fitted plot. We look for an even spread of residuals along the Y axis for each of the levels in the X axis. We know species contains 3 levels ("Comprosma", "Oleria" & "Pultenaea") so we should see three columns of dots, with an even spread along the Y axis.  
+
+The other way to test this is to use a statistical test, such as a Cochrans or Bartletts test. For this module, we will be taking a departure from the typical Cochran's Test as there are other tests that (in my personal opinion) are more useful and WAY easier to conduct in R. The first of these will be a Bartlett's test.  
+
+```{r}
+bartlett.test(flowers ~ species, data = weeds)
+```
+
+Simple and easy!  
+
+This shows us that the variances are homogenous (i.e. a non-significant P value). The reason we may not use a Bartlett's test all of the time is because it is highly sensitive to departures from normality (i.e. non-normal datasets). If we suspect our data is not-normal or is slightly not-normal and want to test homogeneity of variance anyways, we can use a **Levene's Test** to account for this. I suggest reading up on the differences between bartlett's and levene's tests before using levene's. Here is how to do it anyway:
+
+```{r message=FALSE, warning=FALSE}
+library(car) # install the car package for this test
+leveneTest(flowers ~ species, data=weeds)
+```
+
+Again, simple and easy to use. Our P value is not significant which agrees with the Bartlett's test result.  
+
+
+**What is the bartlett p-value for the species richness by fragment analysis in the Insecticide dataset**  
+{1:SHORTANSWER:=0.1022}

@@ -1,0 +1,74 @@
+---
+title: "ANOVA assumptions"
+weight: 12
+date: '2018-10-26'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<div id="assumptions-of-an-anova" class="section level4">
+<h4>2. Assumptions of an ANOVA</h4>
+<p><strong>Normality:</strong> Normality can be tested in two basic ways. Through visual inspection of residuals in a normal quantile (QQ) plot and histogram, OR, through a mathematical test such as a shapiro-wilks test.</p>
+<p>To produce the two graphs for visual inspection of residuals we use the following commands:</p>
+<pre class="r"><code>plot(weeds.aov, 2) # Normal quantile plot</code></pre>
+<p><img src="/Statistical-Analysis/2_aovassumptions_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>The normal qq plot should display the residuals along the dotted line in a straight manner. In this example, it is pretty straight :)</p>
+<p>Plotting the <strong>aov()</strong> object will generate 4 plots. The QQ plot is the second, so we can just specify the second one to avoid the other 3.</p>
+<p>Try removing the 2 and comma and see what the plot command does on its own. It does this because it is being applied to a statistical object (i.e. <strong>aov()</strong> ).</p>
+<p><strong>NOTE: The plot command (without specifying 1-4) may require you to press “ENTER” in the console for each plot. Look in the console after running this command</strong></p>
+<p>We can also produce a histogram of the residuals:</p>
+<pre class="r"><code>hist(weeds.aov$residuals) # Histogram of residuals</code></pre>
+<p><img src="/Statistical-Analysis/2_aovassumptions_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>To produce a histogram of the residuals, we simply need to specify the residuals column of our <strong>aov()</strong> object. Simple!</p>
+<p>The reason this works is because the <strong>aov()</strong> object contains its own column for residuals (amongst other things). Try running <strong>str()</strong> on weeds.aov to see what columns it contains. The second one should be the residuals.</p>
+<p>Something “fun” to do, is to combine both of the graphs in the same window. This produces the same style of output we would get in JMP.</p>
+<pre class="r"><code>## This may not work in a default notebook ##
+
+par(mfrow = c(1,2)) # This code put two plots in the same window
+hist(weeds.aov$residuals)
+plot(weeds.aov, 2)</code></pre>
+<p><img src="/Statistical-Analysis/2_aovassumptions_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code># If your using a notebook, the par() command wont work. 
+    ## Click the settings cog and select &quot;chunk output in console&quot;
+
+# If your future graphs keep using this two plot window, use the following command in the console to stop it.
+
+# dev.off()</code></pre>
+<p>Running a shapiro-wilks test is a similar story. To produce a shapiro-wilks test requires the following code:</p>
+<pre class="r"><code>shapiro.test(weeds.aov$residuals) # run a shapiro-wilks test on the residuals column of our anova object using the shapiro.test() function</code></pre>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  weeds.aov$residuals
+## W = 0.98282, p-value = 0.6993</code></pre>
+<p>With a shapiro-wilks test, if the result is significant, this means our data is NOT-NORMAL. In our case our data is normal.</p>
+<p><strong>What is the shapiro-wilks p-value for an anova of species richness and fragment in the Insecticide dataset</strong><br />
+{1:SHORTANSWER:=0.01113}</p>
+<hr />
+<p><strong>Homogeneity of Variance:</strong> Homogeneity of variance is the other main assumption we are concerned with when conducting an ANOVA. Homogeneity of variance is the assumption that the variance between groups is relatively even. That is to say, all groups have similar variation between them. Similar to the assumption of normality, there are two ways to test homogeneity, a visual inspection of residuals and a statistical test.</p>
+<p>To conduct a visual inspection of the residuals we simply use the following:</p>
+<pre class="r"><code>plot(weeds.aov, 1) # using plot number 1 this time</code></pre>
+<p><img src="/Statistical-Analysis/2_aovassumptions_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Heterogenous variances are indicated by a non-random pattern in the residuals vs fitted plot. We look for an even spread of residuals along the Y axis for each of the levels in the X axis. We know species contains 3 levels (“Comprosma”, “Oleria” &amp; “Pultenaea”) so we should see three columns of dots, with an even spread along the Y axis.</p>
+<p>The other way to test this is to use a statistical test, such as a Cochrans or Bartletts test. For this module, we will be taking a departure from the typical Cochran’s Test as there are other tests that (in my personal opinion) are more useful and WAY easier to conduct in R. The first of these will be a Bartlett’s test.</p>
+<pre class="r"><code>bartlett.test(flowers ~ species, data = weeds)</code></pre>
+<pre><code>## 
+##  Bartlett test of homogeneity of variances
+## 
+## data:  flowers by species
+## Bartlett&#39;s K-squared = 0.15957, df = 2, p-value = 0.9233</code></pre>
+<p>Simple and easy!</p>
+<p>This shows us that the variances are homogenous (i.e. a non-significant P value). The reason we may not use a Bartlett’s test all of the time is because it is highly sensitive to departures from normality (i.e. non-normal datasets). If we suspect our data is not-normal or is slightly not-normal and want to test homogeneity of variance anyways, we can use a <strong>Levene’s Test</strong> to account for this. I suggest reading up on the differences between bartlett’s and levene’s tests before using levene’s. Here is how to do it anyway:</p>
+<pre class="r"><code>library(car) # install the car package for this test
+leveneTest(flowers ~ species, data=weeds)</code></pre>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(&gt;F)
+## group  2  0.3131 0.7327
+##       45</code></pre>
+<p>Again, simple and easy to use. Our P value is not significant which agrees with the Bartlett’s test result.</p>
+<p><strong>What is the bartlett p-value for the species richness by fragment analysis in the Insecticide dataset</strong><br />
+{1:SHORTANSWER:=0.1022}</p>
+</div>

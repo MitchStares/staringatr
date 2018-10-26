@@ -1,0 +1,68 @@
+---
+title: "Columns"
+weight: 8
+date: '2018-10-26'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+#### 2) Changing Columns  
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+weeds<-read.csv("../../resources/datafiles/weeds.csv")
+```
+
+Another important aspect of R coding syntax is refering to specific columns. This is done by using a **$** sign after specifying our dataset and then calling the column. Like so:
+
+```{r}
+head(weeds$flowers.m3) # This says to run the head() command but only on the flowers.m3 column
+```
+  
+Try this with some of the other commands above. *Note: Some of them will not work and will show NULL. This is because these are designed to view aspects of the data frame (e.g. names() )*  
+
+**Now we know how to refer to a column, we can fix any issues with importing incorrect data**
+
+```{r message=FALSE, warning=FALSE}
+
+# Pretend for a moment our data was input incorrectly
+weeds$species<-factor(weeds$species) # this would simply save the command factor() on the column species to our weeds object.
+
+# If we wanted an ordered factor, e.g. small < medium < large we can use the following
+    #example dataset
+sizes <- factor(c("small", "large", "large", "small", "medium", "medium")) # creating a single column factor with 3 levels
+sizes
+
+sizes <- ordered(sizes, levels = c("small", "medium", "large")) # ordering levels from small through to large.
+# Note: I did not need to specify column as this is a single column dataset. 
+sizes # Now the factor is ordered.
+
+weeds$species<-ordered(weeds$species, levels=c("Pultenaea", "Olearia", "Coprosma")) # This is an example with our data set, but this is nonsensical ordering so dont do this
+
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+weeds<-read.csv("../../resources/datafiles/weeds.csv")
+```
+By default, R will always sort in alphabetical order, which can be a pain when graphing. If you want ordered factors, or want to present factors along an X axis in a more logical order then the **ordered()** command or even **factor()** command where you specify levels is a good option.  
+
+If you want to change something to a continuous (numeric, integer etc.) its a little more complicated, but in general R shouldn't mess this up too often. A quick google search or **?numeric** will help answer this. 
+
+
+Once we can reference to specific columns we can do interesting things like plot a quick graph.  
+
+```{r}
+plot(weeds$flowers.m3 ~ weeds$soil) # This says to plot a graph with flowers.m3 by (~) soil. 
+# You should get a box and whisker plot.  
+
+hist(weeds$flowers.m3) # hist() is a command that only works on numeric (continuous) columns, and will show you a histogram
+```
+  
+Try replacing the column names in the **plot()** command to see what types of graphs you get. We will return to graphing at a later date, but this is a quick and easy way to view your data. 
+
+**Using the plot() command with the insecticide dataset answer the following question:**  
+**Question: What fragment size has a species richness outlier? (according to the box & whisker plot)**  
+
+{1:SHORTANSWER: =Small}

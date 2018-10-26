@@ -14,12 +14,22 @@
   
   <url>
     <loc>/data-exploration-and-manipulation/</loc>
-    <lastmod>2018-10-21T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/data-exploration-and-manipulation/1_packages/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/introduction-to-r/02_setting-up-your-workspace/</loc>
     <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/data-exploration-and-manipulation/2_columns/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -33,16 +43,67 @@
   </url>
   
   <url>
-    <loc>/statistical-analysis/</loc>
+    <loc>/data-exploration-and-manipulation/3_manipulatingp1/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/data-manipulation/grammar-of-graphics/</loc>
+    <loc>/data-exploration-and-manipulation/4_manipulatingp2/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/statistical-analysis/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/statistical-analysis/1_aov/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/data-exploration-and-manipulation/5_manipulatingp3/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/statistical-analysis/2_aovassumptions/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/the-grammar-of-graphics/grammar-of-graphics/</loc>
     <lastmod>2018-10-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>/statistical-analysis/3_anovaresults/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/statistical-analysis/4_twofactors/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/the-grammar-of-graphics/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/statistical-analysis/5_tukeys/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/statistical-analysis/6_linearregession/</loc>
+    <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/statistical-analysis/7_glms/</loc>
     <lastmod>2018-10-26T00:00:00+00:00</lastmod>
   </url>
   

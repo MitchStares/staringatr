@@ -6,9 +6,79 @@
     <description>Recent content in Statistical Analysis on Documentation for Hugo Learn Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
+    <lastBuildDate>Fri, 26 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/statistical-analysis/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Analysis of Variance</title>
+      <link>/statistical-analysis/1_aov/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/statistical-analysis/1_aov/</guid>
+      <description>1. Analysis of Variance (ANOVA)To begin our foray into statistics in R, we will start with the most basic and most useful analysis, Analysis of Variance (ANOVA). An ANOVA is used to test the effect of 1 or more categorical explanatory variables (X) on a continuous response variable (Y). The ANOVA tests the difference between the factors variance (distance from the grand mean) compared to the error variance. The variance for each point is squared and added together to generate the sum of squares, which is then used to generate the F ratio.</description>
+    </item>
+    
+    <item>
+      <title>ANOVA assumptions</title>
+      <link>/statistical-analysis/2_aovassumptions/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/statistical-analysis/2_aovassumptions/</guid>
+      <description>2. Assumptions of an ANOVANormality: Normality can be tested in two basic ways. Through visual inspection of residuals in a normal quantile (QQ) plot and histogram, OR, through a mathematical test such as a shapiro-wilks test.
+To produce the two graphs for visual inspection of residuals we use the following commands:
+plot(weeds.aov, 2) # Normal quantile plotThe normal qq plot should display the residuals along the dotted line in a straight manner.</description>
+    </item>
+    
+    <item>
+      <title>ANOVA Results</title>
+      <link>/statistical-analysis/3_anovaresults/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/statistical-analysis/3_anovaresults/</guid>
+      <description>3. ResultsOnce we know our data is normal and we have our aov() object, we can use one of two commands on this object to generate our statistical result. The normal way to do so is to use the anova() command.
+anova(weeds.aov) # run an anova on the object## Analysis of Variance Table## ## Response: flowers## Df Sum Sq Mean Sq F value Pr(&amp;gt;F) ## species 2 2368.</description>
+    </item>
+    
+    <item>
+      <title>Two-factor Analysis of Variance</title>
+      <link>/statistical-analysis/4_twofactors/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/statistical-analysis/4_twofactors/</guid>
+      <description>4. Two-factors and TransformationsTo conduct an two-factor ANOVA is pretty straightforward.
+weeds.aov2 &amp;lt;- aov(flowers ~ species + soil, data = weeds) # two-factor anova (without interaction)summary(weeds.aov2)## Df Sum Sq Mean Sq F value Pr(&amp;gt;F) ## species 2 2369 1184.3 9.272 0.000436 ***## soil 1 239 238.5 1.867 0.178720 ## Residuals 44 5620 127.7 ## ---## Signif. codes: 0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.</description>
+    </item>
+    
+    <item>
+      <title>Tukeys HSD</title>
+      <link>/statistical-analysis/5_tukeys/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/statistical-analysis/5_tukeys/</guid>
+      <description>5. Tukey’s HSDAll of our analyses so far have showed us that species has an influence on flower abundance. But without conducting an extra test, we cannot be certain which species are statistically significant from each other when it comes to their effect on flower abundance
+TukeyHSD(weeds.aov) ## Tukey multiple comparisons of means## 95% family-wise confidence level## ## Fit: aov(formula = flowers ~ species, data = weeds)## ## $species## diff lwr upr p adj## Olearia-Coprosma 12.</description>
+    </item>
+    
+    <item>
+      <title>Linear Regression</title>
+      <link>/statistical-analysis/6_linearregession/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/statistical-analysis/6_linearregession/</guid>
+      <description>6. Linear RegressionLinear regression is one of the most highly used statistical techniques in all of life and earth sciences. It is used to model the relationship between a response (Y) variable and a explanatory (X) variable. A linear regression is a special case of a linear model whereby both the response and explanatory variables are continuous. The ANOVA we just conducted is still considered as a linear model since the response variable is a linear (additive) combination of the effects of the explanatory variables.</description>
+    </item>
+    
+    <item>
+      <title>ANOVA assumptions</title>
+      <link>/statistical-analysis/7_glms/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/statistical-analysis/7_glms/</guid>
+      <description>7. Generalised Linear Models (GLMs)So far, we have been using linear models which assume that our response variable is continuous. In earth and life sciences (ecology in particular) we are often working with discrete data, such as count data and binomial (presence/absence) data.
+The linear models we have been using so far have been assuming a normal (or gaussian) distribution in our data. Generalised linear models (GLMs) allow us to fit alternative distributions to our data in order to more accurately analyse them.</description>
+    </item>
     
   </channel>
 </rss>

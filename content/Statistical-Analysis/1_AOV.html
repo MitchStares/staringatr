@@ -1,0 +1,26 @@
+---
+title: "Analysis of Variance"
+weight: 11
+date: '2018-10-26'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<div id="analysis-of-variance-anova" class="section level4">
+<h4>1. Analysis of Variance (ANOVA)</h4>
+<p>To begin our foray into statistics in R, we will start with the most basic and most useful analysis, <strong>Analysis of Variance (ANOVA)</strong>. An ANOVA is used to test the effect of 1 or more categorical explanatory variables (X) on a continuous response variable (Y). The ANOVA tests the difference between the factors variance (distance from the grand mean) compared to the error variance. The variance for each point is squared and added together to generate the sum of squares, which is then used to generate the <strong>F ratio</strong>. The <strong>F ratio</strong> is then compared to a critical value from a table of values (based of degrees of freedom) to determine the level of significance, or <strong>P value</strong>.</p>
+<p>In this module, we will be using a variety of datasets to test each analysis. These will be specified in each section before the code chunk in <strong>bold</strong>.</p>
+<p>For this analysis, we will be using the <strong>weeds</strong> dataset.</p>
+<p>To begin the analysis, we need to create an ANOVA object using the <strong>aov()</strong> command. This will tell any <strong>summary()</strong>, <strong>plot()</strong> or other commands that the object is specifically for an ANOVA and as such, will be treated as one.</p>
+<p>The syntax for almost all analyses in R is the same. Within our analysis command (<strong>aov()</strong> in this example) we write a line equation for our analysis:</p>
+<p><strong>y ~ x</strong></p>
+<p>This is simply your response variable (Y) and explanatory variable(s) (X) separated by a tilde ~. The tilde acts as an = sign for the analysis.</p>
+<pre class="r"><code>weeds.aov &lt;- aov(flowers ~ species, data=weeds) # flowers (Y variable) ~ species (X variable), then data =  weeds to direct it to our dataframe. 
+# call your object what ever you want, but I tend to name it something to remind me of the dataset/analysis as well as the statistical technique. </code></pre>
+<p>Now we have our <strong>aov()</strong> object, it is good practice to test the assumptions before we look at the results of the analysis. Having this workflow in place will hopefully prevent you from “forgetting” assumptions after seeing a significant result.</p>
+<p><strong>Write Ok in the following box to continue:</strong><br />
+{1:SHORTANSWER:=Ok}</p>
+</div>

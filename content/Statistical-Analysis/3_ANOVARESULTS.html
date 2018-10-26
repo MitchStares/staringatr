@@ -1,0 +1,35 @@
+---
+title: "ANOVA Results"
+weight: 13
+date: '2018-10-26'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<div id="results" class="section level4">
+<h4>3. Results</h4>
+<p>Once we know our data is normal and we have our <strong>aov()</strong> object, we can use one of two commands on this object to generate our statistical result. The normal way to do so is to use the <strong>anova()</strong> command.</p>
+<pre class="r"><code>anova(weeds.aov) # run an anova on the object</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: flowers
+##           Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## species    2 2368.6 1184.31  9.0966 0.0004811 ***
+## Residuals 45 5858.7  130.19                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code># WOO! Significance!</code></pre>
+<p>Alternatively we can use the <strong>summary()</strong> command on our <strong>aov()</strong> object to generate the same result. For most other analyses, such as linear regressions and mixed models, we will use the <strong>summary</strong> command exclusively.</p>
+<p>Because we created an <strong>aov()</strong> object, the <strong>summary()</strong> command automatically does an ANOVA.</p>
+<pre class="r"><code>summary(weeds.aov) # print a summary of the object. In this case the summary is an anova</code></pre>
+<pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## species      2   2369  1184.3   9.097 0.000481 ***
+## Residuals   45   5859   130.2                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><strong>Using the summary() command, what is the F-value for fragment in the Insecticide ANOVA?</strong><br />
+{1:SHORTANSWER:=14.94}</p>
+</div>
