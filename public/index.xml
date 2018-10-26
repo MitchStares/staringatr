@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R Statistics for Ecologists on Documentation for Hugo Learn Theme</title>
+    <link>/</link>
+    <description>Recent content in R Statistics for Ecologists on Documentation for Hugo Learn Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 24 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R Studio &amp; Coding Environment</title>
+      <link>/introduction-to-r/01_r-studio-and-the-coding-environment/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/introduction-to-r/01_r-studio-and-the-coding-environment/</guid>
+      <description>IntroductionThis module will provide an introduction into the R statisitical environment, going through the basics of data analysis and graphing for publication quality results.By the end of this module, you should be able to:
+Understand and use the R studio working environmentImport and manipulate data filesUndertake linear (ANOVA, regression) and generalised linear (logistic regression) models and associated assumptions/comparisonsUndertake basic multivariate techniques (PCA, MDS)Construct bar plots and scatterplots in ggplotWhat is R?</description>
+    </item>
+    
+    <item>
+      <title>Setting up your workspace</title>
+      <link>/introduction-to-r/02_setting-up-your-workspace/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/introduction-to-r/02_setting-up-your-workspace/</guid>
+      <description>There are very quick ways to open R and begin coding, however, having an organised, well-structured working directory in your computer can save you hours of hassle and make your code much easier to share. As biology and data science are becoming increasingly complex many are turning to computer intensive, coding based software (like you!). With this movement in data science and open access, having our code reproducible, transparent and understandable is key.</description>
+    </item>
+    
+    <item>
+      <title>Creating a project and notebook</title>
+      <link>/introduction-to-r/03_creating-a-project-and-notebook/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/introduction-to-r/03_creating-a-project-and-notebook/</guid>
+      <description>Now that we have our folder setup, lets move into R studio and create our project.
+The first step when opening a new R studio environment is creating a script or notebook for working in. Scripts are basic text files where all code is executable. Writing non-code in a script requires the use of #’s (which can look messy and confusing) like so:
+read.csv(&amp;quot;datafile.csv&amp;quot;) # this code reads a csv (data) file into R.</description>
+    </item>
+    
+    <item>
+      <title>Importing Data</title>
+      <link>/introduction-to-r/04_importing-data/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/introduction-to-r/04_importing-data/</guid>
+      <description>Now that we have successfully have a notebook and appropriate working directory, we can start to read in data.
+The first thing with R is that working with normal excel files is quite difficult. So we always work with comma separated values or .CSV files. When saving an excel sheet, just save as and select .csv (comma delimited) as the file type. note: .csv’s can only save a single sheet, not the whole excel workbook</description>
+    </item>
+    
+    <item>
+      <title>The Grammer of Graphics - Plotting your data with ggplot!</title>
+      <link>/data-exploration-and-manipulation/data-manipulation/grammar-of-graphics/</link>
+      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/data-exploration-and-manipulation/data-manipulation/grammar-of-graphics/</guid>
+      <description>ResourcesThe Grammar of ggplotBasic plotsCustomising your graphGrids and BackgroundAxis LinesPanel lines/gridsLabelsA Proper examplePlotting our analysed dataWeeds (ANOVA bar graph)Tadpoles (linear regression)Nest Dataset (Logistic Regression/GLM)By now you should be fairly familiar with the R environment and decently familiar with tidyverse. You should be able to perform basic data manipulations, analyses and in general, understand the general concepts of working with data in R.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/datasets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/datasets/</guid>
+      <description>  Data Sets   insecticide.csv  (0 ko)   weeds.csv  (1 ko)    </description>
+    </item>
+    
+  </channel>
+</rss>

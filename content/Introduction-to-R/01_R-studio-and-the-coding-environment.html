@@ -1,0 +1,65 @@
+---
+title: "R Studio & Coding Environment"
+weight: 6
+date: '2018-10-24'
+author: "Mitchell Stares"
+output: blogdown::html_page
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This module will provide an introduction into the R statisitical environment, going through the basics of data analysis and graphing for publication quality results.
+By the end of this module, you should be able to:</p>
+<ul>
+<li>Understand and use the R studio working environment</li>
+<li>Import and manipulate data files</li>
+<li>Undertake linear (ANOVA, regression) and generalised linear (logistic regression) models and associated assumptions/comparisons</li>
+<li>Undertake basic multivariate techniques (PCA, MDS)</li>
+<li>Construct bar plots and scatterplots in ggplot</li>
+</ul>
+<div id="what-is-r" class="section level3">
+<h3>What is R?</h3>
+<p>R is a language and environment for statistical computing and graphics. R is free/open source software and as a result, has a community of dedicated statisticans, coders and developers increasing the capabilities and usability of the platform.
+R primarily runs as a command-line program.</p>
+<p>This is a big entry barrier to many starting to learn R, so most people have turned to “R Studio”.</p>
+<div class="figure">
+<img src="/images/r_cmd.png?width=50pc" alt="Base R" />
+<p class="caption"><em>Base R</em></p>
+</div>
+</div>
+<div id="why-r" class="section level3">
+<h3>Why R?</h3>
+<p>Since R is free and open source, it is a program and skill that can be carried with you across many institutions and jobs and is for many, the single solution for <strong>statistical analysis, graphing</strong> and even <strong>GIS/spatial analysis</strong>. Programs like JMP, SPSS and ARCGIS cost 100s if not 1000s of dollars and are quickly outdated by new versions.</p>
+<p>However, the biggest uses of R come from its sharability and openness. Collaborating and sharing data analysis with R requires only the script and raw data. All data manipulations are done within R, requiring no editing or manipulating of your raw excel data.</p>
+</div>
+<div id="r-studio" class="section level3">
+<h3>R Studio</h3>
+<div class="figure">
+<img src="/images/rstudio.png?width=100pc" alt="The R Studio Environment" />
+<p class="caption"><em>The R Studio Environment</em></p>
+</div>
+<p>R studio “reskins” the standard R environment, giving space for script writing, help, graphics output and tracking of data files. Due to the ease of working in R studio, thats what we will be using. R studio can provide an array of functions from statistical analysis and graphing, GIS/spatial analysis, presentations, document preparation (all of these tutorials are written in R) and even novel functions like interacive graphs and tweeting.</p>
+</div>
+<div id="layout" class="section level3">
+<h3>Layout</h3>
+<p>R studio is separated into 4 panels:</p>
+<ul>
+<li><p>The top-left panel (blue) is the editor (or script window) where you can view and write your R script. This is a saveable document of code. Running code is as simple as Ctrl+Enter on a line of code or pressing the run button in the top-right of this window.</p></li>
+<li><p>The bottom-left (red) is the console. This is the standard R environment where you can run code directly, or view the output of your script as you run it.</p></li>
+<li><p>The top-right (green) is your workspace. This lists each “object” as you create them through your analyses. Clicking a data-frame object will allow you to view it.</p></li>
+<li><p>The bottom-left (black) has lists of <em>files</em> and <em>packages</em> as well as the <em>help</em> window (quickly access by typing ? before any command) and <em>plots</em> which shows any graphical output.</p></li>
+</ul>
+<p>Now we have an idea of what R is, it is time to install <strong>R &amp; R Studio</strong> onto your computer.</p>
+<p>{{% notice info %}}
+<strong>Install Instructions</strong><br />
+1. Click <a href="https://cran.r-project.org/mirrors.html">Here</a> to visit the R webpage and select one of the Australian mirrors to download (CSIRO, University of Melbourne etc.)<br />
+2. Select your version (Windows or Mac), then download the <strong>base</strong> subdirectory<br />
+3. Once installed, visit <a href="https://www.rstudio.com/products/rstudio/">R studio</a> to download R studio desktop.
+{{% /notice %}}</p>
+<p>Once both of those are installed, you can now proceed to open up Rstudio</p>
+</div>
+</div>

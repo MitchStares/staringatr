@@ -1,0 +1,19 @@
+theme.css Changes by Mitchell Stares 24/10/18
+
+theme.css
+
+line 511. change:
+
+	content: 'Info';
+to
+	content: 'Instruction';
+
+Added Line 534 - 540 
+
+div.notices.question p {
+    border-top: 30px solid #666666;
+    background: #A1A9AF;
+}
+div.notices.question p:first-child:after {
+  content: 'Question';
+}

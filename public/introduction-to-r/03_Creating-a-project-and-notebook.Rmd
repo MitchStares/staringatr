@@ -1,0 +1,57 @@
+---
+title: "Creating a project and notebook"
+weight: 8
+date: '2018-10-24'
+author: "Mitchell Stares"
+output: blogdown::html_page
+editor_options: 
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+Now that we have our folder setup, lets move into R studio and create our project.  
+
+
+
+The first step when opening a new R studio environment is creating a script or notebook for working in. Scripts are basic text files where all code is executable. Writing non-code in a script requires the use of #'s (which can look messy and confusing) like so:
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+read.csv("datafile.csv") 
+# this code reads a csv (data) file into R. The command read.csv requires brackets with the filepath to the file in quotations. 
+# in this code, none of the #'s will run. so if I # the read.csv command, it will not run. like so:
+# read.csv("datafile.csv")
+```
+
+A whole document of the above example can get messy and hard to understand.  
+
+In a notebook, we separate normal text from code by inserting "code chunks" (*insert > R* in the top right of the window). Chunks are specialised areas in the notebook for code only. 
+Chunks separate code from text, making it easier to write notes and read. *These tutorials  have been written in a notebook*.  
+
+{{% notice info %}}
+* To create a notebook or script, simply use the pulldown menus *file > new file* and select either a script or notebook one. Then save the document by hitting the disk icon (or *file > save*)
+  - R studio will prompt you to install some packages to use a notebook. Do so and then read the text in the notebook then clear everything below the "output:" --- area. 
+* As stated above, click the **insert** pulldown menu in the script window and click **R** to insert a code chunk. All code in a notebook must be written in a chunk
+{{% /notice %}}  
+
+#### IMPORTANT!
+
+* Wherever you save the notebook/script will become the default "directory". R will look here for files first. If you want to set your working directory elsewhere, use the below code.  
+* I advise creating a folder and saving the notebook to the folder. All datafiles for these pracs can be placed in the same folder as your script/notebook. This will simplify the process of reading in data. 
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=TRUE, paged.print=FALSE}
+
+# Only do this if you want your notebook/script in a different folder from data
+
+setwd("Drive:/Folder1/Folder2")
+# insert your folders path in the brackets
+# this will tell R to look here for files and "generally" save things here as well.
+# e.g. C:/Users/Mitch/Documents/R/
+```
+
+> After writing your code, you can click _run_, _run selected line(s)_, _run current chunk_ or press _Ctrl_ + _Enter_ on the line your cursor is on 
+
+  **Get used to this, you will do this ALOT**
+

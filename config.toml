@@ -1,0 +1,40 @@
+baseURL = "/"
+languageCode = "en-US"
+defaultContentLanguage = "en"
+
+title = "Ecostatistics"
+theme = "hugo-theme-learn"
+themesdir = "themes"
+metaDataFormat = "yaml"
+defaultContentLanguageInSubdir= false
+
+[params]
+  editURL = ""
+  description = "R Statistics for Ecologists"
+  author = "Mitchell Stares"
+  showVisitedLinks = true
+  disableBreadcrumb = true
+  disableNextPrev = true
+  themeVariant = "green"
+  disableLanguageSwitchingButton = true
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[Languages]
+[Languages.en]
+title = "Documentation for Hugo Learn Theme"
+weight = 1
+languageName = "English"
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> Github repository"
+identifier = "ds"
+url = "https://github.com/matcornic/hugo-theme-learn"
+weight = 11
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fas fa-database'></i> Datasets"
+url = "Datasets"
+weight = 10
+
