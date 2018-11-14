@@ -1,0 +1,60 @@
+---
+title: "Finalising our Barplot"
+author: "Mitchell Stares"
+weight: 45
+date: "2018-11-13"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+
+```
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+#setwd("E:/Demonstrating&Teaching/BIOL360 R module")
+weeds<-read.csv("../../../resources/datafiles/weeds.csv")
+weeds <- rename(weeds, flowers = flowers.m3)
+weeds.summarise <- weeds %>% group_by(species) %>%
+  summarise(mean = mean(flowers), se=sd(flowers)/sqrt(n()))
+weeds.summarise2 <- weeds %>% group_by(species, soil) %>%
+  summarise(mean = mean(flowers), se=sd(flowers/sqrt(n())))
+weeds.aov2 <- aov(flowers ~ species * soil, data = weeds)
+```
+
+Thats the general process for setting up a column graph for ANOVA data. It can take some time, but we get alot of freedom in how we present this.
+
+Let's spruce up our graph to a finalised form, before we save it to an image file. 
+
+```{r}
+
+weeds.bar <- ggplot(weeds.summarise, aes(x=species, y=mean, fill=species))+
+  geom_bar(stat="identity", show.legend=F, colour="black")+
+  labs(x="Weed Species", y= expression(Flowers~(m^3)))+
+  theme(panel.background = element_blank(), panel.grid = element_blank(), axis.line = element_line(colour = "black", size=1), axis.text = element_text(colour="lightsteelblue4", size=12), axis.title = element_text(colour="steelblue", size=14, face="bold"))+
+  scale_fill_manual(values = c("lightblue", "steelblue", "darkslateblue"))+
+  geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width=0.5)+
+  geom_text(label = c("A", "B", "B"), aes(y=mean+se, x=species), vjust=-0.5, size=6) +
+  ylim(0, 50)
+
+weeds.bar
+```
+
+Once we are satisfied with our final product, we can save it as a image file to our current working directory. Simply plot the graph again, by calling the object name, then use the `ggsave()` command like so.
+```{r echo=TRUE, eval=FALSE}
+weeds.bar #producing the graph again
+
+ggsave("weeds_bargraph.png") # specify the name and filetype (.jpeg, .png, .tif etc.). You can also specify the width and heigh of your final image
+```  
+
+`ggsave()` will save the last plot you produced into your current working directory. You need to specify the name (in my case “weeds_bargraph”) and the filetype (.jpeg in my example). By default, it should save a 7 cm x 7cm image. If you want to change that, use the `width =` or `height =` arguments, like so. For higher resolution images, try **.tif**
+```{r echo=TRUE, eval=FALSE}
+ggsave("weeds_bargraph.jpeg", width=9, height=7)
+```
+
+I wanted a slightly wider figure but it’s personal preference. 
+For very large or faceted graphs, you will need to change the width and height. 
+
+And there we have it! We have produced and saved our own graph. This may have seemed daughting or a long process, but it's very methodical once you get used to it. For an easier time, just use one of the preset theme commands like `theme_minimal()` to do all the aesthetical work for you :)

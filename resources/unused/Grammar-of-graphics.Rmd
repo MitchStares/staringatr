@@ -1,0 +1,581 @@
+---
+title: "The Grammer of Graphics - Plotting your data with ggplot!"
+weight: 31
+date: '2018-10-21'
+categories:
+  - R
+tags:
+  - ggplot
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+
+```
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+#setwd("E:/Demonstrating&Teaching/BIOL360 R module")
+weeds<-read.csv("../../resources/datafiles/weeds.csv")
+weeds <- rename(weeds, flowers = flowers.m3)
+frogsp<-read.csv("../../resources/datafiles/frogs.csv", header=TRUE)
+enviro<-read.csv("../../resources/datafiles/frog_environmental.csv", header=TRUE)
+insect <- read.csv("../../resources/datafiles/insecticide.csv", header=TRUE)
+tadpoles <- read.csv("../../resources/datafiles/tadpoles.csv", header=TRUE)
+tadpoles$reeds<-factor(tadpoles$reeds)
+insect.aov<-aov(species.richness~fragment*spray, data=insect)
+nest <- read.csv("../../resources/datafiles/nestpredation.csv")
+```
+
+By now you should be fairly familiar with the R environment and decently familiar with **tidyverse**. You should be able to perform basic data manipulations, analyses and in general, understand the general concepts of working with data in R.
+
+To me personally, data visualisation is the funnest part of data science. Being able to visually communicate your findings in new and interesting ways is exciting and a joy when you have so many ways to customise your message. Data analysis is important and useful, but the fun part is definately graphing!  
+
+For this module, we will be working soley within the **ggplot** graphing environment. Before we start, I should mention - **R does have its own plotting functions which are powerful and very useful.**
+
+GGPLOT is just better :)
+
+To start, we will cover the bases of what ggplot is and how to build basic graphs with some free data built into R.  
+
+### Resources
+
+Here are a few websites and useful places for ggplot graphing help. Its great to see examples of graphs along with code to help.  
+
+* [GGPLOT CHEATSHEET](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) - Seriously, this is amazing. There are a few of these on R studios' website for a bunch of packages. I have a few of these printed on the wall of my office.   **Additonally, many of these can be accessed in the Help toolbar next to tools**
+* [GGPLOT Reference Site](https://ggplot2.tidyverse.org/reference/) - The official ggplot help site  
+* [Data Carpentry's ggplot guide](https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html)  
+* [R Graphics Cookbook](http://www.cookbook-r.com/Graphs/) - Useful guides for graphing
+
+**Write Ok in the following box to continue:**  
+{1:SHORTANSWER:=Ok}  
+
+## The Grammar of ggplot  
+
+ggplot is one of the many packages installed with tidyverse, but is important package on its own, that can be installed by itself **library(ggplot2)**.
+
+GGplot was built as a way to implement Leland Wilkinson's **"Grammar of Graphics"**. The gammar of graphics broke up data visualisation into semantic components such as scales, layers and various aesthetic features. GGplot is a implementation of this scheme into the R environment.and its crazy powerful.
+
+First, make sure ggplot2 or tidyverse is installed and loaded using the **library()** command.
+
+Once we have that loaded into our environment, we need to create our first plot window following this basic structure.  
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, eval=FALSE}
+plot1 <- ggplot(data, aes(x = variable, y = variable)) +
+  geom_graph.type()
+
+plot1 # to view our object
+```
+
+We begin by creating a new object/variable of our choosing like almost everything else we do. We then use the **ggplot()** function to build a blank plot window.
+
+The **aes** argument specifies what variables we want to plot in our blank window. aes stands for aesthetics, which is slightly confusing because it relates to what data we are displaying.not how we display it.  
+
+The + geom_graph.type() will be the type of graph you want to display. the commonly used examples are:  
+
+* boxplot - __+ geom_boxplot()__
+* barplot - __+ geom_bar()__
+* scatterplot - __+ geom_point()__
+
+Geom stands for geometric, and tells R the type of geometric shape you want the data to form. You will need () closed brackets at the end of the **geom_type()** regardless of whether you choose to put anything inside them.  
+
+The next important thing is the use of additive building in ggplot. As you can see in the example, we use a **+** sign before adding the **geom_type** we want. Everything in ggplot uses these additive steps before each function. This allows you to add and change things on your graph step by step, building and viewing your graph as you go. This will make more sense as we go.  
+
+**Write Ok in the following box to continue:**
+{1:SHORTANSWER:=Ok}  
+
+### Basic plots
+
+To start, we will use the iris dataset that is built into tidyverse/ggplot2. To view the dataset, use the **View()** command like so:  
+
+```{r}
+View(iris)
+```  
+
+Once we have this, let's setup a basic boxplot of some of the features of **iris**.  
+
+The iris dataset is built into tidyverse/ggplot2. The dataset is a famous dataset by Edgar Anderson that gives the sepal length, width and petal length and width for three species of iris (n=50).  
+
+We are going to begin by plotting the sepal length for each species in a basic boxplot.  
+
+```{r}
+iris.box <- ggplot(iris, aes(x=Species,y=Sepal.Length)) +
+  geom_boxplot()
+
+iris.box # We have to run a line with the name of the plot object to view the graph. 
+```  
+So far, pretty straight forward.
+
+You will notice I saved the ggplot() graph to an object called **iris.box**. Because I saved the plot to an object, I have to run the object name to view the plot. This is identical to using the command **print(iris.box)**.
+
+Now let's look at some others, such as a **histogram.**  
+
+```{r}
+iris.hist <- ggplot(iris, aes(x=Sepal.Length)) +
+  geom_histogram()
+
+iris.hist
+```
+
+That's pretty ugly, but a simple addition of **binwidth="value" will fix that**. Binwidth refers to the width of each bin, or bar, in the frequency histogram. A bin width of 0.5 means each bar of the histogram will be equal to 0.5 on the x axis (e.g. 4, 4.5, 5, 5.5 etc).  
+
+```{r}
+iris.hist <- ggplot(iris, aes(x=Sepal.Length)) +
+  geom_histogram(binwidth = 0.5)
+
+iris.hist
+```  
+
+Now let's look at a **scatterplot**.  
+
+```{r}
+iris.scatter <- ggplot(iris, aes(x=Sepal.Length,y=Petal.Length)) + 
+  geom_point()
+
+iris.scatter
+```
+
+The cool thing we can do with scatterplots is colour the points by a categorical feature such as Species. This is done by adding **colour = "categorical variable name"** in the aes brackets of the ggplot() command.  
+
+```{r}
+iris.scatter <- ggplot(iris, aes(x=Sepal.Length, y=Petal.Length, colour=Species)) +
+  geom_point()
+iris.scatter
+```
+
+Much better. And it even adds a legend for us.
+
+Now we have this basic setup, we can start adding things to our graph. Due to the immense amount of customisations for our graphs, I will break these down in to sections as much as possible and explain as I go. We will work with the iris dataset for a while before moving to our analysed datasets.
+
+**Write Ok in the following box to continue:**
+{1:SHORTANSWER:=Ok}  
+
+## Customising your graph  
+
+###Themes & Axis  
+
+The easiest way to quickly modify your graph is to add one of the preset **theme()** commands. I will add each of them to the graph which will replace the previous theme.  
+
+We can simply add items to our current graph object by adding the **+** sign. Keep in mind that if you dont "resave" it to the object, it wont stick around. If you want to keep a theme, either add it into the original ggplot command, or save it to the same or a new object.  
+
+```{r}
+iris.scatter + theme_bw()
+
+iris.scatter + theme_classic()
+
+iris.scatter + theme_dark() 
+
+iris.scatter + theme_gray() # The default ggplot theme
+
+iris.scatter + theme_minimal()
+
+iris.scatter + theme_light()
+
+iris.scatter + theme_linedraw()
+
+iris.scatter + theme_void()
+``` 
+
+Pretty significant changes to the graphs appearance with little effort.
+
+Of course, we can modify all the individual components of a theme without using one of the presets.
+
+The best way to show this would be to look at the **?theme** (help) window for this one. The general format for this is as follows.  
+
+```{r}
+iris.scatter <- ggplot(iris, aes(x=Sepal.Length, y=Petal.Length, colour=Species)) +
+  geom_point() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),  panel.background = element_blank(), axis.line = element_line(colour = "black")) + 
+  theme(axis.text.x = element_text(colour = "black", size = 12)) +  
+  theme(axis.text.y = element_text(colour = "black", size = 12)) +
+  theme(plot.title = element_text(color="blue", size=12))
+
+iris.scatter
+```  
+
+Within the **theme()** command, we simply call the feature we want to change, followed by how we want to change it.
+For the panel grids and background, we call element_blank() to make it blank. Changing that to element_line() for the grids, and element_rect() for the background would change them to lines and rectangle, respectively. From there we could pick colour, size etc.  
+
+In the axis.text lines, we are setting the text colour to "black" and the font size to 14.  
+
+Now obviously, this is pretty daunting. But, you dont have to specify everything. You can very easily use one of the above preset themes (e.g. theme_minimal) and change one or two other things, such as axis line colour etc.  
+
+To save yourself writing all of the above theme() commands everytime you do a graph, you can save your favourite custom settings to its own object and add that to your graphs. Like so:  
+
+```{r}
+simpletheme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),  panel.background = element_blank(), axis.line = element_line(colour = "black"), axis.text.x = element_text(colour = "black", size = 12), axis.text.y = element_text(colour = "black", size = 12),plot.title = element_text(color="blue", size=12))
+
+# We simply direct all of our theme arguments to an object
+
+iris.scatter <- iris.scatter + simpletheme # then, just add that object to our graph
+```
+
+For example, let's add those custom theme settings to our boxplot we generated earlier.  
+
+```{r}
+iris.box + simpletheme
+```
+
+Ok, so that was alot of information that probably doesn't make sense, so let's break that down into its components.  
+
+**Write Ok in the following box to continue:**
+{1:SHORTANSWER:=Ok}  
+
+### Grids and Background
+
+The plot and legend background colours can be changed using the following:
+
+* panel.background = element_rect(insert changes here) - This changes the background of the main plot itself. We need element_rect() as it is a rectangle geometric object.  
+* legend.background = element_rect(insert changes here) - This will change the main area of the legend.  
+* legend.key = element_rect(insert changes here) - This will change the small boxes that each of the factors levels are identified with.  
+
+For all arguments, you can replace the element_rect(), element_line() etc. with element_blank() to remove it.  
+
+Within each of the element_rect() we can change various things. The most common ones are:
+
+* fill = "colour" - This will change the overall colour of the object.
+* colour = "colour" - This will change the outline of the rectangle.
+* size = number - This will change the size/thickness of font and lines.
+
+Each of the "colour" arguments can be a specified a number of ways. The most common way is using one of the MANY predefined colours within R. A quick run down of these can be found HERE. For any of these, just put the name as it is spelt in that guide in quotations.  
+```{r}
+iris.scatter + theme(panel.background = element_rect(fill="lavender", colour="red"), legend.background = element_rect(fill="lavender", colour="yellow", size=1), legend.key = element_rect(fill = "gray50", colour = "green", size = 0.5)) 
+```
+
+### Axis Lines
+
+To change the axis lines and ticks (lines above each number on an axis) use the following.
+
+* axis.line = element_line(insert changes here) - This will change both axes lines.  
+* axis.line.x = element_line(insert changes here) - This will change just the x axis.  
+* ais.line.y = element_line(insert changes here) - This will change just the y axis.  
+* axis.ticks = element_line(insert changes here) - Change both axes ticks. Use the .x or .y to change just one axis at a time.  
+* axis.ticks.length = element_line(insert changes here) - Change the length of the axes ticks.  
+* axis.text = element_text(insert changes here) - Change the text on the axes TICKS. Use .x or .y to change just one.  
+* axis.title = element_text(insert changes here) - Change the text on the axes LABELS/TITLES. Use .x or .y to change just one.  
+* plot.title = element_text(insert changes here) - Change the plot title.  
+
+Just use the colour and size arguments where appropriate. I am going to add these changes as a separate theme() command, but they can be added in the same command as last time.  
+```{r}
+iris.scatter + theme(panel.background = element_rect(fill="lavender", colour="red"), legend.background = element_rect(fill="lavender", colour="yellow", size=1), legend.key = element_rect(fill = "gray50", colour = "green", size = 0.5)) +
+  theme(axis.line.x = element_line(colour = "skyblue", size=2), axis.line.y = element_line(colour="deeppink", size = 2), axis.title.x = element_text(colour="forestgreen", size=14), axis.title.y = element_text(colour = "gold", size=8), axis.ticks = element_blank())
+```
+
+Beautiful, isn't it?
+
+Now you may have notice the size command acts differently for line and text. For line it is based on a multiplier of the original. So a 2 will be two times its normal size. Element_text() has size as a font size. So 2 would be tiny and equivalent to 2pt font.
+Alternatively, you can use size = rel(number) to scale the text relative to base R's plotting size.
+
+### Panel lines/grids
+
+So far, our graph does not have the original ggplot grid lines because we removed them in our original graph. Before we start changing these, let's save our beautiful masterpiece to an object/variable to simplify the theme() changing.
+```{r}
+iris.scatter <- iris.scatter + theme(panel.background = element_rect(fill="lavender", colour="red"), legend.background = element_rect(fill="lavender", colour="yellow", size=1), legend.key = element_rect(fill = "gray50", colour = "green", size = 0.5)) +
+  theme(axis.line.x = element_line(colour = "skyblue", size=2), axis.line.y = element_line(colour="deeppink", size = 2), axis.title.x = element_text(colour="forestgreen", size=14), axis.title.y = element_text(colour = "gold", size=8), axis.ticks = element_blank())
+```
+To change the grid lines on your plot, it is done with the following:
+
+* panel.grid.major = element_line(insert changes here) - Changes the major grid lines on the graph. Use .x or .y to change just one.  
+* panel.grid.minor = element_line(insert changes here) - Changes the minor grid lines on the graph. Use .x or .y to change just one.  
+
+Again, using the same principals of colour and size for these ones.  
+```{r}
+iris.scatter + theme(panel.grid.major = element_line(colour="aquamarine", size=1), panel.grid.minor = element_line(colour="slategray2", size=2)) 
+```  
+Just like we did before, we can make all of these our own custom theme by directing them to an object.  
+```{r}
+masterpiece <- theme(panel.background = element_rect(fill="lavender", colour="red"), legend.background = element_rect(fill="lavender", colour="yellow", size=1), legend.key = element_rect(fill = "gray50", colour = "green", size = 0.5), axis.line.x = element_line(colour = "skyblue", size=2), axis.line.y = element_line(colour="deeppink", size = 2), axis.title.x = element_text(colour="forestgreen", size=14), axis.title.y = element_text(colour = "gold", size=8), axis.ticks = element_blank(), panel.grid.major = element_line(colour="aquamarine", size=1), panel.grid.minor = element_line(colour="slategray2", size=2))
+```
+
+Now let's add that to our boxplot.  
+```{r]}
+iris.box + masterpiece
+```
+A true work of art!
+
+### Labels
+
+If we want to change the axis labels themselves, this is done using the `labs()` command.
+```{r}
+iris.scatter <- iris.scatter + labs(x = "Sepal Length (cm)", y = "Petal Length (cm)")
+
+iris.scatter
+```
+
+If we wish to add a title to our plot (not overly common in publications) we can use the following.
+```{r}
+iris.scatter <- iris.scatter + labs(title= "Relationship between petal and sepal length") 
+
+iris.scatter
+```  
+
+
+### A Proper example  
+```{r}
+## Setting up the graph environment ##
+iris.scatter.proper <- ggplot(iris, aes(x=Sepal.Length, y=Petal.Length, colour=Species, shape=Species)) + geom_point()
+
+## Making our theme ##
+plottheme <- theme(panel.background = element_rect(fill="ghostwhite"),
+                   legend.background = element_blank(),
+                   legend.key = element_rect(fill="ghostwhite"),
+                   axis.line = element_line(colour="black", size=1),
+                   axis.ticks = element_blank(),
+                   axis.title = element_text(colour="royalblue3", size=14),
+                   plot.title = element_text(face="bold", colour="steelblue4", size=16),
+                   legend.title = element_text(colour="royalblue3", size=14),
+                   legend.text = element_text(face="italic", colour="steelblue4", size=10),
+                   axis.text = element_text(colour="steelblue4", size=12),
+                   panel.grid.major = element_line(colour="gray80"),
+                   panel.grid.minor = element_blank())
+
+## Applying the theme, adding some labels and changing some colours ##
+iris.scatter.proper <- iris.scatter.proper + plottheme +
+  labs(x="Sepal Length (cm)", y="Petal Length (cm)", title="Relationship between Sepal Length and Petal Length") +
+  scale_colour_manual(values = c("mediumorchid1", "mediumorchid3", "mediumorchid4"))
+
+## Displaying our graph ##
+iris.scatter.proper
+```  
+Pretty cool example of changing things around for the "better". You might notice a few extra things I have changed in this graph.
+
+In the aes() section at the start, I introduced the shape command which changes the shape for each level of a factor. Doing this alongside colour= allows us to change the colour and symbol of the points themselves.  
+Further down, I then changed the colour of the points using scale_colour_manual() and adding the colour values for the levels in order. There are many different ways you can do this, but I find this works the best. There are scale_manual commands for fill, group, shape etc. 
+
+In the theme() section, I covered most things we have done so far but added an additional argument to legend.text and plot.title. This is the face argument which allows us to add italics, bold or others to our text.
+
+
+**Write Ok in the following box to continue:**
+{1:SHORTANSWER:=Ok}
+
+## Plotting our analysed data
+
+Hopefully by now, we understand the general principals of **ggplot** and how to heavily customise the appearance. Now, lets start plotting our analysed data.
+
+### Weeds (ANOVA bar graph)
+
+Our first data set we analysed was the **weeds** dataset where we performed a two-factor ANOVA.  
+```{r}
+weeds.aov2 <- aov(flowers ~ species * soil, data = weeds)
+anova(weeds.aov2)
+```  
+
+From this, only Species was significant. For this dataset with a continuous Y and categorical X we would plot a bargraph.  
+
+The best way to generate the bargraph properly, is to use the *summarise()** command to generate our means and standard errors before plotting. We can generate these within the ggplot command, but it can lead to complications.  
+```{r}
+weeds.summarise <- weeds %>% group_by(species) %>%
+  summarise(mean = mean(flowers), se=sd(flowers/sqrt(n())))
+```
+This is a quick way to generate our mean and se for flowers for each species. Now, we can graph our results in a bargraph.
+```{r}
+weeds.col <- ggplot(weeds.summarise, aes(x=species, y=mean, fill=species)) +
+  geom_col()
+
+weeds.col
+```  
+
+This will generate a pretty basic graph. You will notice that I used **fill** instead of colour. If you use colour on a column/bar graph it will only do the outline. Using fill will fill the entire bar according to the species.  
+
+We used **geom_col()** to generate a column graph. You can use **geom_bar()** but it requires a stat = argument. If you use **geom_bar()** try stat = “identity” to use the numbers in the mean column of our data.  
+
+**I would reccomend geom_bar() as it is easier to do errorbars later**  
+```{r}
+weeds.bar <- ggplot(weeds.summarise, aes(x=species, y=mean, fill=species)) +
+  geom_bar(stat="identity")
+
+weeds.bar
+```  
+
+Regardless of what way you graph this, they look the same. For now, let’s work with the geom_col(). Let’s fix up the graph as much as we want, until we are happy. To demonstrate this, I will produce the graph without showing the code and you can customise your graph how you see fit.  
+
+```{r echo=FALSE}
+weeds.bar <- ggplot(weeds.summarise, aes(x=species, y=mean, fill=species))+
+  geom_bar(stat="identity", show.legend=F, colour="black")+
+  labs(x="Weed Species", y= expression(Flowers~(m^3)))+
+  theme(panel.background = element_blank(), panel.grid = element_blank(), axis.line = element_line(colour = "black", size=1), axis.text = element_text(colour="lightsteelblue4", size=12), axis.title = element_text(colour="steelblue", size=14, face="bold"))+
+  scale_fill_manual(values = c("lightblue", "steelblue", "darkslateblue"))
+weeds.bar
+```
+
+So, now we have our graph in a “nicer” format, we can see that there are some cruical points of information missing from this graph. Most notably, the errorbars and letters or some other notation that denotes statistical differences between the levels (Tukeys results).
+
+Note: To remove the legend like I have, include the **show.legend** argument in your **geom_bar()** command and set it to false. e.g. geom_bar(stat="identity", show.legend=F)  
+
+To add the error bars, we use the following command
+```{r}
+weeds.bar <- weeds.bar + geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width=0.5)
+
+weeds.bar
+```  
+This is suprisingly simple. All we do is specify the aesthetic (aes) where we compute our minimum and maximum y values for our bars as our mean column +/- our standard error column. The width argument is how wide we want our error bars to be. A **size** argument can be added to make the lines thicker if needed. **Try modifying the value on width to see how it works, 0.9 is the default.**  
+
+Adding Tukeys test results is simple but slightly tedious once we have the results.
+```{r}
+library(agricolae)
+HSD.test(weeds.aov2, "species", console=TRUE)
+```
+
+According to the tukeys results, Coprosma is significantly different from the others. So we will label it **A** and the others **B**.  
+```{r}
+weeds.bar <- weeds.bar + geom_text(label = c("A", "B", "B"), aes(y = c(28.5, 41, 44.5), x = species), size = 6)
+# try including the geom_text() in your original weeds.bar code. 
+# if you keep adding it like this, the letters will stack and it will be a mess.
+weeds.bar
+```  
+
+Adding the letters is done through **geom_text()**. We need to specify the labels (in order) along with the aesthetic coordinates on the x and y axis. The X axis we can direct it to our original x axis data (species) and it will sit in the centre of the column. The Y coordinates are the location on the Y axis the text should sit.  
+*This requires alot of playing around to get them correct so I would advise doing this when you first setup the graph. If you don’t, and keep re-running the geom_text() commands, you can end up with multiple letters.*  
+
+There is an alternative to setting the coordinates manually.  
+```{r include=FALSE}
+weeds.bar <- ggplot(weeds.summarise, aes(x=species, y=mean, fill=species))+
+  geom_bar(stat="identity", show.legend=F, colour="black")+
+  labs(x="Weed Species", y= expression(Flowers~(m^3)))+
+  theme(panel.background = element_blank(), panel.grid = element_blank(), axis.line = element_line(colour = "black", size=1), axis.text = element_text(colour="lightsteelblue4", size=12), axis.title = element_text(colour="steelblue", size=14, face="bold"))+
+  scale_fill_manual(values = c("lightblue", "steelblue", "darkslateblue"))+
+  geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width=0.5)
+```
+```{r}
+# Note: I have reset my weeds.bar to remove the previous letters 
+posthoc <- HSD.test(weeds.aov2, "species", console=TRUE)
+# we save this so we can call on it to do our letters. This will also work for a normal "non-agricolae" tukeys, but will be called something different in the dataframe
+weeds.bar <- weeds.bar + geom_text(label = posthoc$groups$groups, aes(y=mean+se, x=species), vjust=-0.5, size=6) + ylim(0, 50)
+
+weeds.bar
+```
+
+In this example, we pull the lettering from our posthoc tukeys test after saving it to a dataframe. We then specify our Y coordinates as the top of our error bar and use the **vjust** argument to move it slightly above the bar. This means we also had to change our ylim to display the last letter, which got cut off.  
+*This seems like alot more work, but when you have a lot more bars...you will thank me*  
+
+Thats the general process for setting up a column graph for ANOVA data. It can take some time, but we get alot of freedom in how we present this.
+
+Once we are satisfied with our final product, we can save it as a image file to our current working directory. Simply plot the graph again, by calling the object name, then use the **ggsave()** command like so.
+```{r echo=TRUE, eval=FALSE}
+weeds.bar #producing the graph again
+
+ggsave("weeds_bargraph.jpeg") # specify the name and filetype (.jpeg, .png etc.). You can also specify the width and heigh of your final image
+```  
+
+**ggsave()** will save the last plot you produced into your current working directory. You need to specify the name (in my case “weeds_bargraph”) and the filetype (.jpeg in my example). By default, it should save a 7 cm x 7cm image. If you want to change that, use the **width =** or **height =** arguments, like so. For higher resolution images, try .png or .tif
+```{r echo=TRUE, eval=FALSE}
+ggsave("weeds_bargraph.jpeg", width=9, height=7)
+```
+
+I wanted a slightly wider figure but it’s personal preference.  
+
+#### Plotting multiple columns
+
+In the last example, we plotted a single column graph. To plot multiple columns, for example a soil by species interaction, is quite simple.  
+```{r}
+weeds.summarise2 <- weeds %>% group_by(species, soil) %>%
+  summarise(mean = mean(flowers), se=sd(flowers/sqrt(n())))
+
+weeds.bar2 <- ggplot(weeds.summarise2, aes(x=soil, y=mean, fill=species)) +
+  geom_bar(stat="identity")
+weeds.bar2
+```  
+
+Simply specifying one column from our dataset on the x axis, and filling/colouring by another will plot both of the data. However, you can see the bar graph has stacked the species ontop of one another. To fix this, include the **position=position_dodge()** argument in your **geom_bar()**, like so.  
+```{r}
+weeds.bar2 <- ggplot(weeds.summarise2, aes(x=soil, y=mean, fill=species)) + 
+  geom_bar(stat="identity", position=position_dodge())
+weeds.bar2
+```
+**NOTE: You will need to include the position=position_dodge() in your errorbar code. I have had a lot of issues with dodged bargraphs and error bars...so it can get a little finicky.**  
+
+**Write Ok in the following box to continue:**
+{1:SHORTANSWER:=Ok}
+
+### Tadpoles (linear regression)  
+
+In our second dataset, we analysed tadpole abundance in different sized ponds using a linear model/regression.
+
+```{r}
+tadpoles.lm <- lm(abundance ~ pondsize, data = tadpoles)
+summary(tadpoles.lm)
+```
+
+For this, we will be setting up a scatter plot (geom_point) of our points and then adding the line separately.  
+```{r}
+tadpoles.scatter <- ggplot(tadpoles, aes(x=pondsize, y=abundance)) +
+  geom_point()
+
+tadpoles.scatter
+```
+
+Thats our basic scatter plot. Thankfully, doing a simple linear regression on ggplot is super simple.  
+```{r}
+tadpoles.scatter + stat_smooth(method = lm)
+```
+
+The stat_smooth() will produce a line of best fit, along with the confidence intervals based on the method of fit we choose. If we choose linear model (lm) it will construct a linear model of our Y variable by the X variable.  
+
+If you dont want the shaded confidence intervals, simply add the argument, se=FALSE within the brackets.
+```{r}
+tadpoles.scatter <- ggplot(tadpoles, aes(x=pondsize, y=abundance)) +
+  geom_point() +
+  stat_smooth(method=lm, se=FALSE)
+tadpoles.scatter
+```
+
+We can also add multiple lines, based on a factor using the colour argument.
+```{r}
+tadpoles.scatter2 <- ggplot(tadpoles, aes(x=pondsize, y=abundance, colour=reeds)) +
+  geom_point() +
+  stat_smooth(method=lm, se=FALSE)
+tadpoles.scatter2
+```
+Notice that they stop within the range of the points. To extend these use **fullrange=TRUE**. Use this cautiously, as it extrapolates the current relationship past your datapoints. 
+```{r}
+tadpoles.scatter2 <- ggplot(tadpoles, aes(x=pondsize, y=abundance, colour=reeds)) +
+  geom_point() +
+  stat_smooth(method=lm, se=FALSE, fullrange=TRUE)
+tadpoles.scatter2
+```
+
+
+**Write Ok in the following box to continue:**
+{1:SHORTANSWER:=Ok}  
+
+### Nest Dataset (Logistic Regression/GLM)  
+
+In our third dataset, we analysed the nest predation dataset using a generalised linear model with a binomial distribution, also known as a Logistic Regression.  
+
+In this scenario, our data is measuring whether a nest was attacked or not in areas of different shrubcover. When we analyse this using a GLM, it is calculating the probability of a nest being attacked, given different values of shrubcover. As such, we need to plot this in a similar manner.
+
+First let’s demonstrate what happens when we don’t take the binomial distribution into account.
+```{r}
+nest.wrong <- ggplot(nest, aes(x=shrubcover, y=nestattacked)) + 
+  geom_point()
+
+nest.wrong
+```  
+
+Notice how it has plotted the points at either 0 or 1 for each of the corresponding shrubcover values. This does not tell us anything about the likelihood of a nest being attacked given a value of shrubcover.
+
+There are multiple methods for producing this plot. The one we will be using generates the relationship between our variables in the code itself.
+
+```{r}
+nest.smooth <- ggplot(nest,aes(x=shrubcover, y=nestattacked)) +
+  geom_smooth(method = glm, method.args= list(family="binomial"))
+
+nest.smooth
+```
+
+This method utilises the **geom_smooth()** function we were using for our linear model. This time we specify the glm relationship in the method argument, instead of lm. We also need to include a second argument called **method.args** which stands for method arguments, or, additional arguments for the method we have specified. We need to include this so we can inform our code that our distribution (family) is binomial. By including this, we produce our probability curve
+
+We can also choose, much like our linear regression example, to remove our standard error/confidence intervals by using the **se=FALSE** argument rather than the default **se=TRUE**.
+```{r}
+nest.smooth <- ggplot(nest,aes(x=shrubcover, y=nestattacked)) +
+  geom_smooth(method = glm, method.args= list(family="binomial"), se=FALSE)
+
+nest.smooth
+```
+This is not necassarily "the best" method but it is by far the easiest. 
+
+**Write Ok in the following box to continue:**  
+{1:SHORTANSWER:=Ok}
+
+  

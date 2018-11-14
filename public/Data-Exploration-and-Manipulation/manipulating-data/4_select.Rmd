@@ -1,0 +1,46 @@
+---
+title: "The Select Function"
+weight: 13
+date: '2018-11-09'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+weeds<-read.csv("../../../resources/datafiles/weeds.csv")
+library(tidyverse)
+weeds <- rename(weeds, flowers = flowers.m3)
+frogsp<-read.csv("../../../resources/datafiles/frogs.csv", header=TRUE)
+enviro<-read.csv("../../../resources/datafiles/frog_environmental.csv", header=TRUE)
+```  
+
+The `select()` function is used to select specific columns within your data and save them as a new data frame. You can use this if you have a large dataset and only want to use a few of the columns, to keep it simple and tidy. Or, you may want to take a column or two from multiple different datasets and combine them. 
+
+```{r}
+weeds_select <- select(weeds, soil) 
+```
+
+This simply creates the weeds_select dataset, seleting one column - "soil". As with most tidyverse functions we need to specify the dataset immediately after writing the select function. From here, its simple changes to do use select in new ways  
+
+```{r}
+weeds_select <- select(weeds,c(soil, species)) # select two columns, "soil" and "species"
+
+weeds_select <- select(weeds,c(2:4)) # select columns using numbers. In this case, select columns 2 through to 4.
+
+weeds_select <- select(weeds, c(soil:flowers)) # select columns "soil" through to "flowers"
+
+weeds_select <- select(weeds, -soil) # remove "soil"
+# similar syntax applys for removing multiple columns, just place a - infront e.g. select(weeds, -c(2:4))
+
+weeds_select <- select(weeds, starts_with("s")) # select any column whose name starts with S. 
+```
+
+There are many more like this above example, like "ends_with", "contains" and "matches" all which refer to the column names.  
+
+{{% notice tip %}}
+use the help window `?select` for more useful functions with `select()`
+{{% /notice %}}

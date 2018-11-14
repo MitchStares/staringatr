@@ -1,0 +1,28 @@
+---
+title: "The Select Function"
+weight: 13
+date: '2018-11-09'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>The <code>select()</code> function is used to select specific columns within your data and save them as a new data frame. You can use this if you have a large dataset and only want to use a few of the columns, to keep it simple and tidy. Or, you may want to take a column or two from multiple different datasets and combine them.</p>
+<pre class="r"><code>weeds_select &lt;- select(weeds, soil) </code></pre>
+<p>This simply creates the weeds_select dataset, seleting one column - “soil”. As with most tidyverse functions we need to specify the dataset immediately after writing the select function. From here, its simple changes to do use select in new ways</p>
+<pre class="r"><code>weeds_select &lt;- select(weeds,c(soil, species)) # select two columns, &quot;soil&quot; and &quot;species&quot;
+
+weeds_select &lt;- select(weeds,c(2:4)) # select columns using numbers. In this case, select columns 2 through to 4.
+
+weeds_select &lt;- select(weeds, c(soil:flowers)) # select columns &quot;soil&quot; through to &quot;flowers&quot;
+
+weeds_select &lt;- select(weeds, -soil) # remove &quot;soil&quot;
+# similar syntax applys for removing multiple columns, just place a - infront e.g. select(weeds, -c(2:4))
+
+weeds_select &lt;- select(weeds, starts_with(&quot;s&quot;)) # select any column whose name starts with S. </code></pre>
+<p>There are many more like this above example, like “ends_with”, “contains” and “matches” all which refer to the column names.</p>
+<p>{{% notice tip %}}
+use the help window <code>?select</code> for more useful functions with <code>select()</code>
+{{% /notice %}}</p>

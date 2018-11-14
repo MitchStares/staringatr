@@ -1,0 +1,50 @@
+---
+title: "The Pipe Function"
+author: "Mitchell Stares"
+weight: 17
+date: '2018-11-10'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+weeds<-read.csv("../../../resources/datafiles/weeds.csv")
+library(tidyverse)
+weeds <- rename(weeds, flowers = flowers.m3)
+frogsp<-read.csv("../../../resources/datafiles/frogs.csv", header=TRUE)
+enviro<-read.csv("../../../resources/datafiles/frog_environmental.csv", header=TRUE)
+```    
+
+This lets you run multiple different functions on one dataset without having to use the intermediate steps you would have to use in base R.  
+You start with the data you want to apply the functions to, followed by a pipe **%>%**. After each pipe you must go to the next line. 
+
+This is useful for large messy functions with multiple nested parts. It separates everything out and makes it easier to follow.  
+
+A pipe is simply a **>** nested within two percentage, **%**, symbols. The keyboard shortcut for this is **Ctrl** + **SHIFT** + **M**
+
+```{r}
+sum_data <- weeds %>% 
+  group_by(species, soil) %>% 
+  summarise(max(flowers))
+```
+You simply start with the data you want to apply the functions to, followed by a pipe. After each pipe you must go to the next line (sorta).     
+In this example, we grouped the data by species and soil, then performed the summarise function to generate the max number for each combination
+
+{{% notice note %}}
+**You will notice, that because we specified the data in the first line, we did not have to specify the data in the other lines, only the columns**
+{{% /notice %}}
+
+```{r}
+new_data <- weeds %>% 
+  mutate(binary = soil == "sandstone") %>% 
+  filter(weeds == "native")
+```
+As you can see, we can do this with most of the functions we have already learnt. This above example will generate a binary outcome (true/false) for soil with TRUE as "sandstone". Followed by filtering for "native" weeds. This will generate a a dataset with native weeds that have a true/false outcome based on soil. 
+
+Piping is incredibly useful and much easier to read. It is a function I keep forgetting to use, until I look at my code later on, full of regrets. It shortens and simplifies code alot.   
+

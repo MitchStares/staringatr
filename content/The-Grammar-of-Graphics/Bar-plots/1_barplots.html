@@ -1,0 +1,86 @@
+---
+title: "Basic bar plots"
+author: "Mitchell Stares"
+weight: 41
+date: "2018-11-11"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>{{% notice info %}}
+For this section, we will be using the <strong>weeds</strong> dataset where we performed a two-factor ANOVA
+{{% /notice %}}</p>
+<p>For a quick reminder:</p>
+<pre class="r"><code>weeds.aov2 &lt;- aov(flowers ~ species * soil, data = weeds)
+anova(weeds.aov2)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: flowers
+##              Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## species       2 2368.6 1184.31  9.1016 0.0005203 ***
+## soil          1  238.5  238.52  1.8331 0.1830080    
+## species:soil  2  155.0   77.52  0.5958 0.5557366    
+## Residuals    42 5465.1  130.12                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>From this, only Species was significant. For this dataset with a continuous Y and categorical X we would plot a bargraph.</p>
+<p>There are three main ways to display a bar/column graph, <code>geom_col()</code>, <code>geom_bar()</code> and <code>stat_summary()</code>. I will cover each of them in some depth, showing the benefits to each. Here is a quick breakdown to begin.</p>
+<table>
+<colgroup>
+<col width="31%" />
+<col width="31%" />
+<col width="37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Plot</th>
+<th>Pro</th>
+<th>Con</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>geom_col()</code></td>
+<td>Simple and effective, defaults to displaying data as is</td>
+<td>Errorbars are finicky</td>
+</tr>
+<tr class="even">
+<td><code>geom_bar()</code></td>
+<td>Errorbars work well, displays sample size/counts by default</td>
+<td>Requires a single argument to match geom_col</td>
+</tr>
+<tr class="odd">
+<td><code>stat_summary()</code></td>
+<td>Quick calculation of mean, used across all geometric types</td>
+<td>Difficult to code and errorbars just flat out dont work</td>
+</tr>
+</tbody>
+</table>
+<p>I find best way to generate the bargraph properly, is to use the <code>summarise()</code> command to generate our means and standard errors before plotting. This extra step saves alot of hassle and you can copy this code across any dataset, changing the column names. We can generate these within ggplot, but it leads to complications (see <code>stat_summary()</code> below).</p>
+<pre class="r"><code>weeds.summarise &lt;- weeds %&gt;% group_by(species) %&gt;%
+  summarise(mean = mean(flowers), se=sd(flowers)/sqrt(n()))</code></pre>
+<p>This is a quick way to generate our mean and se for flowers for each species. Now, we can graph our results in a bargraph.</p>
+<pre class="r"><code>ggplot(weeds.summarise, aes(x=species, y=mean, fill=species)) +
+  geom_col()</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Bar-plots/1_barplots_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>This will generate a pretty basic graph. You will notice that I used <strong>fill</strong> instead of colour. If you use colour on a column/bar graph it will colour the outline. Using fill will fill the entire bar according to the species.</p>
+<p>We used <code>geom_col()</code> to generate a column graph. You can use <code>geom_bar()</code> but it requires a <strong>stat =</strong> argument. If you use <code>geom_bar()</code>, <code>stat = “identity”</code> use the numbers in the mean column of our data, displaying data as it is in the data frame, rather than counting the number of cases in each X position (its default state).</p>
+<p><strong>I personally use <code>geom_bar()</code> as I find it easier to do errorbars later. Future pages use <code>geom_bar()</code></strong></p>
+<pre class="r"><code>ggplot(weeds.summarise, aes(x=species, y=mean, fill=species)) +
+  geom_bar(stat=&quot;identity&quot;)</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Bar-plots/1_barplots_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Regardless of what way you graph this, they look the same. For now, let’s work with <code>geom_bar()</code>. Let’s fix up the graph as much as we want, until we are happy.</p>
+<pre class="r"><code>weeds.bar &lt;- ggplot(weeds.summarise, aes(x=species, y=mean, fill=species))+
+  geom_bar(stat=&quot;identity&quot;, show.legend=F, colour=&quot;black&quot;)+
+  labs(x=&quot;Weed Species&quot;, y= expression(Flowers~(m^3)))+
+  theme(panel.background = element_blank(), panel.grid = element_blank(), axis.line = element_line(colour = &quot;black&quot;, size=1), axis.text = element_text(colour=&quot;lightsteelblue4&quot;, size=12), axis.title = element_text(colour=&quot;steelblue&quot;, size=14, face=&quot;bold&quot;))+
+  scale_fill_manual(values = c(&quot;lightblue&quot;, &quot;steelblue&quot;, &quot;darkslateblue&quot;))
+weeds.bar</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Bar-plots/1_barplots_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>So, now we have our graph in a “nicer” format, we can see that there are some cruical points of information missing from this graph. Most notably, the errorbars and letters or some other notation that denotes statistical differences between the levels (i.e. Tukeys HSD results).</p>
+<p>{{% notice note %}}
+To remove the legend like I have, include the <code>show.legend</code> argument in your <code>geom_bar()</code> command and set it to false. e.g. <code>geom_bar(stat=&quot;identity&quot;, show.legend=F)</code>
+{{% /notice %}}</p>

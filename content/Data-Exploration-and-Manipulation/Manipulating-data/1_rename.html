@@ -1,0 +1,26 @@
+---
+title: "The Rename Function"
+weight: 10
+date: '2018-10-31'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>By now, if you are like me, you are probably getting annoyed at writing <em>“flowers.m3”</em> or <em>“species.richness”</em> everytime you need to refer to one of those columns. This will happen <strong>ALOT</strong> with data you enter or obtain from others, as R converts any spaces to fullstops and people tend to capitilise most words. The <code>rename()</code> function allows us to simply rename a column name within our data frame.<br />
+Personally, this is my favourite function in R as I hate captials, fullstops and other annoying column name problems that slow down coding or generate errors. Trust me, when you spend an hour trying to fix a line of code only to find a single capital letter is missing, you will understand.</p>
+<hr />
+<p>insert angry/twitching gif here***</p>
+<p>To do this with dplyr (a tidyverse package) we simply use the following command:</p>
+<pre class="r"><code>weeds &lt;- rename(weeds, flowers = flowers.m3)
+# In the brackets we need to specify our data frame (weeds) followed by a second argument specifying the name we want for our column = the name we already have.
+# Again, if you run this by itself it will not save to your data frame, unless you direct it to your data frame variable using the &lt;- </code></pre>
+<p>Pretty simple and straightforward.</p>
+<p>If you want to rename multiple columns, this is a pretty simple addition. For demonstrating purposes, I am going to rename all the columns of weeds to nonsensical crap.</p>
+<pre class="r"><code>grocerylist &lt;- rename(weeds, !!c(coopers = &quot;flowers&quot;, asahi = &quot;species&quot;, vb = &quot;soil&quot;, littlecreatures = &quot;weeds&quot;))
+# to specify multiple variables/columns, we simply concatenate (put inside brackets with c before them) the multiple arguments into a string. </code></pre>
+<p>Alternatively, you can specify the variables to change separately in a line before the <code>rename()</code> command.</p>
+<pre class="r"><code>beer &lt;- c(coopers = &quot;flowers&quot;, asahi = &quot;species&quot;, vb = &quot;soil&quot;, littlecreatures = &quot;weeds&quot;)
+grocerylist &lt;- rename(weeds, !!beer)</code></pre>

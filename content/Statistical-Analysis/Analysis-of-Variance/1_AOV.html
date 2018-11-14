@@ -1,0 +1,24 @@
+---
+title: "Analysis of Variance"
+weight: 16
+date: '2018-11-10'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>The first step for conducting an ANOVA in R is to create an ANOVA object. There are two ways of doing this, using the <code>lm()</code> command, and using the <code>aov()</code> command. For simplicity we will be using the <code>aov()</code> command now, but we will get to the <code>lm()</code> object later.</p>
+<p>By using the <code>aov()</code> command, we can create an object that tells <code>summary()</code>, <code>plot()</code> or any other commands that the object is specifically for an ANOVA and as such, will be treated as one.</p>
+<p>The syntax for almost all analyses in R is the same. Within our analysis command (<code>aov()</code> in this example) we write a line equation for our analysis:</p>
+<p><strong>y ~ x</strong></p>
+<p>This is simply your response variable (Y) and explanatory variable(s) (X) separated by a tilde <strong>~</strong>. The tilde acts as an = sign for the analysis.</p>
+<p>{{% notice note %}}
+For this analysis, we will be using the <strong>weeds</strong> dataset.
+{{% /notice %}}</p>
+<pre class="r"><code>weeds.aov &lt;- aov(flowers ~ species, data=weeds) # flowers (Y variable) ~ species (X variable), then data =  weeds to direct it to our dataframe. </code></pre>
+<p>{{% notice tip %}}
+As per usual, name your newly created object something that will remind you of what it is. I tend to name it something to remind me of the dataset as well as the statistical technique. Generally <strong>dataset.analysis</strong>.
+{{% /notice %}}</p>
+<p>Now we have our <code>aov()</code> object, it is good practice to test the assumptions before we look at the results of the analysis. Having this workflow in place will hopefully prevent you from conveniently “forgetting” assumptions after seeing a significant result.</p>

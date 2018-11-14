@@ -1,0 +1,60 @@
+---
+title: "The Mutate Function"
+weight: 11
+date: '2018-10-26'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+weeds<-read.csv("../../../resources/datafiles/weeds.csv")
+library(tidyverse)
+```  
+
+One of the most common data manipulations is adding a new column to your dataset. This is great for transforming data, while also keeping the original. This could be used to combine multiple columns into one or perform mathematical calculations involving multiple columns with the results in a separate column.  
+
+We will start out with a few simple methods in base R, and then move to the dplyr method.  
+
+```{r eval=FALSE, echo=TRUE, message=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+##Log Transformation##
+
+weeds$log_flowers <- log(weeds$flowers) # Base R
+
+weeds <- mutate(weeds, log_flowers = log(flowers)) # Dplyr
+
+# Each of these creates a new column which is the log of the flowers column.
+
+## Basic math functions##
+
+weeds_mutate <- mutate(weeds, flowers2 = flowers*2) 
+# Simple multiplication of the flowers column by 2
+
+weeds_mutate <- mutate(weeds, flowers_combined = flowers + flowers2) 
+# This is a useless example but its just to show you how to combine multiple columns. 
+
+weeds_mutate <- mutate(data, binary = soil == "sandstone") 
+# Using boolean logic to create a column called "binary" where soil is exactly (hence double ='s) sandstone. 
+
+weeds_mutate <- mutate(data, flowers2 = flowers*2,
+                      binary = soil == "sandstone") 
+# You can also perform the functions multiple times on the same data within one line. 
+
+```
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+insect <- mutate(insect, square = species.richness^2)
+
+```
+The arguments of **mutate()** are simply the name of the data frame followed by any number of expressions that create new variables.  
+
+You will notice throughout the **mutate()** commands that we have performed functions, creating new columns, while preserving the original. If you wish to drop the original column, simply use the **transmute()** command.
+
+**Use the Mutate() command on the insecticide dataset to answer the following question**  
+**Question: What is the square of the number in the last row of species.richness (row 42)?**  
+
+{1:SHORTANSWER:=255}  

@@ -1,0 +1,29 @@
+---
+title: "The Pipe Function"
+author: "Mitchell Stares"
+weight: 17
+date: '2018-11-10'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>This lets you run multiple different functions on one dataset without having to use the intermediate steps you would have to use in base R.<br />
+You start with the data you want to apply the functions to, followed by a pipe <strong>%&gt;%</strong>. After each pipe you must go to the next line.</p>
+<p>This is useful for large messy functions with multiple nested parts. It separates everything out and makes it easier to follow.</p>
+<p>A pipe is simply a <strong>&gt;</strong> nested within two percentage, <strong>%</strong>, symbols. The keyboard shortcut for this is <strong>Ctrl</strong> + <strong>SHIFT</strong> + <strong>M</strong></p>
+<pre class="r"><code>sum_data &lt;- weeds %&gt;% 
+  group_by(species, soil) %&gt;% 
+  summarise(max(flowers))</code></pre>
+<p>You simply start with the data you want to apply the functions to, followed by a pipe. After each pipe you must go to the next line (sorta).<br />
+In this example, we grouped the data by species and soil, then performed the summarise function to generate the max number for each combination</p>
+<p>{{% notice note %}}
+<strong>You will notice, that because we specified the data in the first line, we did not have to specify the data in the other lines, only the columns</strong>
+{{% /notice %}}</p>
+<pre class="r"><code>new_data &lt;- weeds %&gt;% 
+  mutate(binary = soil == &quot;sandstone&quot;) %&gt;% 
+  filter(weeds == &quot;native&quot;)</code></pre>
+<p>As you can see, we can do this with most of the functions we have already learnt. This above example will generate a binary outcome (true/false) for soil with TRUE as “sandstone”. Followed by filtering for “native” weeds. This will generate a a dataset with native weeds that have a true/false outcome based on soil.</p>
+<p>Piping is incredibly useful and much easier to read. It is a function I keep forgetting to use, until I look at my code later on, full of regrets. It shortens and simplifies code alot.</p>

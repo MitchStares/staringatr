@@ -1,0 +1,47 @@
+---
+title: "The Grammar of ggplot2"
+author: "Mitchell Stares"
+date: "2018-11-10"
+weight: 32
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>By now you should be fairly familiar with the R environment and decently familiar with <strong>tidyverse</strong>. You should be able to perform basic data manipulations, analyses and in general, understand the general concepts of working with data in R.</p>
+<p>To me personally, data visualisation is the funnest part of data science. Being able to visually communicate your findings in new and interesting ways is exciting and a joy when you have so many ways to customise your message. Data analysis is important and useful, but the fun part is definately graphing!</p>
+<p>For this module, we will be working soley within the <strong>ggplot</strong> graphing environment. Before we start, I should mention - <strong>R does have its own plotting functions which are powerful and very useful.</strong></p>
+<p>GGPLOT is just better :)</p>
+<p>To start, we will cover the bases of what ggplot is and how to build basic graphs with some free data built into R.</p>
+<div id="resources" class="section level3">
+<h3>Resources</h3>
+<p>Here are a few websites and useful places for ggplot graphing help. Its great to see examples of graphs along with code to help.</p>
+<ul>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">GGPLOT CHEATSHEET</a> - Seriously, this is amazing. There are a few of these on R studios’ website for a bunch of packages. I have a few of these printed on the wall of my office. <strong>Additonally, many of these can be accessed in the Help toolbar next to tools</strong></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/">GGPLOT Reference Site</a> - The official ggplot help site<br />
+</li>
+<li><a href="https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html">Data Carpentry’s ggplot guide</a><br />
+</li>
+<li><a href="http://www.cookbook-r.com/Graphs/">R Graphics Cookbook</a> - Useful guides for graphing</li>
+</ul>
+<p>ggplot is one of the many packages installed with tidyverse, but is also an important package on its own, that can be installed or loaded by itself using <code>library(ggplot2)</code>.</p>
+<p>GGplot was built as a way to implement Leland Wilkinson’s <strong>“Grammar of Graphics”</strong>. The gammar of graphics broke up data visualisation into semantic components such as scales, layers and various aesthetic features. GGplot is a implementation of this scheme into the R environment and its crazy powerful.</p>
+<p>First, make sure ggplot2 or tidyverse is installed and loaded using the <code>library()</code> command.</p>
+<p>Once we have that loaded into our environment, we need to create our first plot window following this basic structure.</p>
+<pre class="r"><code>plot1 &lt;- ggplot(data, aes(x = variable, y = variable)) +
+  geom_graph.type()
+
+plot1 # to view our object</code></pre>
+<p>We begin by creating a new object/variable of our choosing like almost everything else we do. We then use the <code>ggplot()</code> function to build a blank plot window.</p>
+<p>The <strong>aes</strong> argument specifies what variables we want to plot in our blank window. aes stands for aesthetics, which is slightly confusing because it relates to what data we are displaying, not how we display it. It should be mentioned that the aesthetics and data can be specified on any of the geometric layers (“geoms”) and in some cases, you might have to.</p>
+<p>The <strong>+ geom_graph.type()</strong> will be the type of graph you want to display. The commonly used examples are:</p>
+<ul>
+<li>boxplot - <strong>+ geom_boxplot()</strong></li>
+<li>barplot - <strong>+ geom_bar()</strong></li>
+<li>scatterplot - <strong>+ geom_point()</strong></li>
+</ul>
+<p>Geom stands for geometric, and tells R the type of geometric shape you want the data to form. You will need () closed brackets at the end of the <strong>geom_type()</strong> regardless of whether you choose to put anything inside them.</p>
+<p>The next important thing is the use of additive building in ggplot. As you can see in the example, we use a <strong>+</strong> sign before adding the <strong>geom_type</strong> we want. Everything in ggplot uses these additive steps before each function. This allows you to add and change things on your graph step by step, building and viewing your graph as you go. This will make more sense as we go.</p>
+</div>

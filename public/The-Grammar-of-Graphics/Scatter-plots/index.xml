@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scatter plots and Lines on R Statistics for Ecologists</title>
+    <link>/the-grammar-of-graphics/scatter-plots/</link>
+    <description>Recent content in Scatter plots and Lines on R Statistics for Ecologists</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 13 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/the-grammar-of-graphics/scatter-plots/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Scatter plots</title>
+      <link>/the-grammar-of-graphics/scatter-plots/1_scatterplot/</link>
+      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/the-grammar-of-graphics/scatter-plots/1_scatterplot/</guid>
+      <description>For this section, we will be using the tadpoles.csv data set
+ The second dataset we analysed tadpole abundance in different sized ponds using a linear model/regression. Plotting linear regressions is really straightforward, but can be done a couple of different ways, depending on what you wish to accomplish.
+First, let’s run the basic analysis again (excluding the reeds factor).
+tadpoles.lm &amp;lt;- lm(abundance ~ pondsize, data = tadpoles)summary(tadpoles.lm)## ## Call:## lm(formula = abundance ~ pondsize, data = tadpoles)## ## Residuals:## Min 1Q Median 3Q Max ## -73.</description>
+    </item>
+    
+    <item>
+      <title>Linear Lines</title>
+      <link>/the-grammar-of-graphics/scatter-plots/2_plottinglines/</link>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/the-grammar-of-graphics/scatter-plots/2_plottinglines/</guid>
+      <description>To produce a line on our graph, the easiest solution is using geom_smooth(method=lm). geom_smooth() by default will produce a loess smooth through our graph with confidence intervals. Since we have run a linear model, we specify the method of the geometric shape to fit that of a linear model (lm).
+ggplot(tadpoles, aes(x=pondsize, y=abundance)) +geom_point(alpha = 0.5)+geom_smooth(method=lm)method=lm tells the smooth line to plot a linear relationship between the variables in the graph environment.</description>
+    </item>
+    
+    <item>
+      <title>Logistic regression</title>
+      <link>/the-grammar-of-graphics/scatter-plots/3_logisticregression/</link>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/the-grammar-of-graphics/scatter-plots/3_logisticregression/</guid>
+      <description>For this section, we will be using the nestpredation.csv data set
+ In our third dataset, we analysed the nest predation dataset using a generalised linear model with a binomial distribution, also known as a Logistic Regression.
+In this scenario, our data is measuring whether a nest was attacked or not in areas of different shrubcover. When we analyse this using a GLM, it is calculating the probability of a nest being attacked, given different values of shrubcover.</description>
+    </item>
+    
+  </channel>
+</rss>

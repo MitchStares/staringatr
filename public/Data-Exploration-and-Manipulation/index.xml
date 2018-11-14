@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data Exploration and Manipulation on Documentation for Hugo Learn Theme</title>
+    <title>Data Exploration and Manipulation on R Statistics for Ecologists</title>
     <link>/data-exploration-and-manipulation/</link>
-    <description>Recent content in Data Exploration and Manipulation on Documentation for Hugo Learn Theme</description>
+    <description>Recent content in Data Exploration and Manipulation on R Statistics for Ecologists</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Fri, 26 Oct 2018 00:00:00 +0000</lastBuildDate>
@@ -17,51 +17,29 @@
       <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/data-exploration-and-manipulation/1_packages/</guid>
-      <description>#Data Exploration &amp;amp; Manipulation#
-####PackagesNow that you have setup your R environment and read in your first data set, we can begin to modify and add to our data as necessary.
+      <description>Now that you have setup your R environment and read in your first data set, we can begin to modify and add to our data as necessary.
 Now for the majority of this module, we will be working with a package called Tidyverse. Packages are collections of data, R functions and complied code to add extra features outside of the general base R environment. Packages are central to expanding the possibilities of R.</description>
     </item>
     
     <item>
+      <title>Viewing your data</title>
+      <link>/data-exploration-and-manipulation/2_viewingdata/</link>
+      <pubDate>Tue, 30 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/data-exploration-and-manipulation/2_viewingdata/</guid>
+      <description>Now we have become acquainted with our working directories and the R environment, its time to explore our newely imported data. For this, we will be using the weeds dataset.Ensure your data is loaded in and then either use the View() command:
+weeds &amp;lt;- read.csv(&amp;quot;weeds.csv&amp;quot;)View(weeds)# This will open up a new tab to view your dataor click the variable name in the environment window.
+This should bring up a separate tab in Rstudio which you should be able to see the 4 columns (weeds, soil, species &amp;amp; flowers.</description>
+    </item>
+    
+    <item>
       <title>Columns</title>
-      <link>/data-exploration-and-manipulation/2_columns/</link>
+      <link>/data-exploration-and-manipulation/3_columns/</link>
       <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/data-exploration-and-manipulation/2_columns/</guid>
-      <description>2) Changing ColumnsAnother important aspect of R coding syntax is refering to specific columns. This is done by using a $ sign after specifying our dataset and then calling the column. Like so:
+      <guid>/data-exploration-and-manipulation/3_columns/</guid>
+      <description>Another important aspect of R coding syntax is refering to specific columns. This is done by using a $ sign after specifying our dataset and then calling the column. Like so:
 head(weeds$flowers.m3) # This says to run the head() command but only on the flowers.m3 column## [1] 14 17 23 26 35 45Try this with some of the other commands above. Note: Some of them will not work and will show NULL.</description>
-    </item>
-    
-    <item>
-      <title>Manipulating data part 1</title>
-      <link>/data-exploration-and-manipulation/3_manipulatingp1/</link>
-      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/data-exploration-and-manipulation/3_manipulatingp1/</guid>
-      <description>3) Manipulating data with TidyverseAs previously mentioned, one of the extremely useful and time saving parts of R is manipulating your data without touching your original spreadsheet.
-This can be done with the base R language (everything we have done so far) or with packages in the Tidyverse library, such as “dplyr” and “tidyr”. These simplify the language of coding and offer useful tools for data manipulation.
-Make sure you have loaded tidyverse with the library() command before attempting any functions.</description>
-    </item>
-    
-    <item>
-      <title>Manipulating data part 2</title>
-      <link>/data-exploration-and-manipulation/4_manipulatingp2/</link>
-      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/data-exploration-and-manipulation/4_manipulatingp2/</guid>
-      <description>The Select FunctionThis is used to select specific columns within your data and save them as a new data frame. You can use this if you have a large dataset and only want to use a few of the columns, to keep it simple and tidy. Or, you may want to take a column or two from multiple different datasets and combine them.
-weeds_select &amp;lt;- select(weeds, soil) # select one column, &amp;quot;soil&amp;quot;weeds_select &amp;lt;- select(weeds,c(soil, species)) # select two columns, &amp;quot;soil&amp;quot; and &amp;quot;species&amp;quot;weeds_select &amp;lt;- select(weeds,c(2:4)) # select columns using numbers.</description>
-    </item>
-    
-    <item>
-      <title>Manipulating data part 3</title>
-      <link>/data-exploration-and-manipulation/5_manipulatingp3/</link>
-      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/data-exploration-and-manipulation/5_manipulatingp3/</guid>
-      <description>Removing ItemsBy now, we have quite a few objects in our R environment that aren’t being used. The remove() command does exactly that….removes objects from the R environment. This helps for making things nice and tidy, specifically in our environment window.
-remove(frogfull, froginner, enviro_filter) # Removes all three objects we just generatedUse this in the console to “one off” remove an item.
-The Summarise FunctionThis is an extremely useful function that lets you create different summaries of columns.</description>
     </item>
     
   </channel>

@@ -1,0 +1,56 @@
+---
+title: "Linear Lines"
+author: "Mitchell Stares"
+weight: 52
+date: "2018-11-14"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>To produce a line on our graph, the easiest solution is using <code>geom_smooth(method=lm)</code>. <code>geom_smooth()</code> by default will produce a loess smooth through our graph with confidence intervals. Since we have run a <strong>linear</strong> model, we specify the method of the geometric shape to fit that of a linear model (lm).</p>
+<pre class="r"><code>ggplot(tadpoles, aes(x=pondsize, y=abundance)) +
+  geom_point(alpha = 0.5)+
+  geom_smooth(method=lm)</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Scatter-plots/2_plottinglines_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><code>method=lm</code> tells the smooth line to plot a linear relationship between the variables in the graph environment. You will see it automatically plots confidence intervals and colours the line blue. By default it will only extend to the range of our data, which is good. Both of these can be changed with the following:</p>
+<pre class="r"><code>ggplot(tadpoles, aes(x=pondsize, y=abundance)) +
+  geom_point(alpha = 0.5)+
+  geom_smooth(method=lm, se = FALSE, fullrange = TRUE)</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Scatter-plots/2_plottinglines_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><code>se = FALSE</code> will turn off the standard error/confidence intervals for the line. This is set to true by default.<br />
+<code>fullrange = TRUE</code> will extrapolate the line to the fullrange of the x &amp; y axes. <em>This should only be used it you are confident in what you are doing, as it does extrapolate data outside of what you collected.</em></p>
+<div id="colour-and-line-type" class="section level4">
+<h4>Colour and line type</h4>
+<p>Colouring the the line follows the same principles as points and bars. <code>colour =</code> will colour the line itself, while <code>fill =</code> will colour the ribbon/confidence intervals.</p>
+<pre class="r"><code>ggplot(tadpoles, aes(x=pondsize, y=abundance)) +
+  geom_point(alpha = 0.5)+
+  geom_smooth(method=lm, colour = &quot;red&quot;, fill = &quot;mediumpurple1&quot;)</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Scatter-plots/2_plottinglines_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>We can also change the line type using <code>linetype =</code> and specifying one of the 6 line types.<br />
+<img src="/images/lines.png?width=15pc&amp;height=15pc" alt="R Linetypes" /></p>
+<pre class="r"><code>ggplot(tadpoles, aes(x=pondsize, y=abundance)) +
+  geom_point(alpha = 0.5)+
+  geom_smooth(method=lm, colour = &quot;red&quot;, linetype = 2)</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Scatter-plots/2_plottinglines_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="multiple-lines" class="section level4">
+<h4>Multiple Lines</h4>
+<p>We can also plot multiple lines using the colour argument within the aesthetics (aes) of our graph and colour by a factor.</p>
+<pre class="r"><code>ggplot(tadpoles, aes(x=pondsize, y=abundance, colour = reeds)) +
+  geom_point(alpha = 0.5)+
+  geom_smooth(method=lm) </code></pre>
+<p><img src="/The-Grammar-of-Graphics/Scatter-plots/2_plottinglines_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>This time, we plot three lines by using the reeds factor. You can change the colouring and shape of each of the lines using the same commands as with points and bars.</p>
+<p>{{% notice note %}}
+You dont need to specify the aesthetic variables in the ggplot command, you can do so in each separate <strong>geom</strong> line by using aes(). This means you can produce three lines using colour in geom_smooth, but keep the points normal in geom_point. This is the same across all ggplot graphs
+{{% /notice %}}</p>
+<p>This is an example of that point.</p>
+<pre class="r"><code>ggplot(tadpoles) +
+  geom_point(aes(x=pondsize, y=abundance))+
+  geom_smooth(aes(x=pondsize, y=abundance, colour = reeds), method=lm) </code></pre>
+<p><img src="/The-Grammar-of-Graphics/Scatter-plots/2_plottinglines_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+You can see in this example, that the points are black, while the three lines are coloured by reeds.</p>
+</div>

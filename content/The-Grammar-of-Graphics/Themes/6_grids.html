@@ -1,0 +1,47 @@
+---
+title: "Grids"
+author: "Mitchell Stares"
+weight: 37
+date: "2018-11-11"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>So far, our graph does not have the original ggplot grid lines because we removed them in our original graph. Before we start changing these, let’s save our beautiful masterpiece to an object/variable to simplify the theme() changing.</p>
+<pre class="r"><code>iris.scatter &lt;- iris.scatter + theme(panel.background = element_rect(fill=&quot;lavender&quot;, colour=&quot;red&quot;), legend.background = element_rect(fill=&quot;lavender&quot;, colour=&quot;yellow&quot;, size=1), legend.key = element_rect(fill = &quot;gray50&quot;, colour = &quot;green&quot;, size = 0.5)) +
+  theme(axis.line.x = element_line(colour = &quot;skyblue&quot;, size=2), axis.line.y = element_line(colour=&quot;deeppink&quot;, size = 2), axis.title.x = element_text(colour=&quot;forestgreen&quot;, size=14), axis.title.y = element_text(colour = &quot;gold&quot;, size=8), axis.ticks = element_blank())</code></pre>
+<p>To change the grid lines on your plot, it is done with the following:</p>
+<table>
+<colgroup>
+<col width="42%" />
+<col width="57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Theme argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>panel.grid.major = element_line(insert changes here)</td>
+<td>Changes the major grid lines on the graph. Use .x or .y to change just one.</td>
+</tr>
+<tr class="even">
+<td>panel.grid.minor = element_line(insert changes here)</td>
+<td>Changes the minor grid lines on the graph. Use .x or .y to change just one.</td>
+</tr>
+</tbody>
+</table>
+<p>Again, using the same principals of colour and size for these ones.</p>
+<pre class="r"><code>iris.scatter + theme(panel.grid.major = element_line(colour=&quot;aquamarine&quot;, size=1), panel.grid.minor = element_line(colour=&quot;slategray2&quot;, size=2)) </code></pre>
+<p><img src="/The-Grammar-of-Graphics/Themes/6_grids_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+Just like we did before, we can make all of these our own custom theme by directing them to an object.</p>
+<pre class="r"><code>masterpiece &lt;- theme(panel.background = element_rect(fill=&quot;lavender&quot;, colour=&quot;red&quot;), legend.background = element_rect(fill=&quot;lavender&quot;, colour=&quot;yellow&quot;, size=1), legend.key = element_rect(fill = &quot;gray50&quot;, colour = &quot;green&quot;, size = 0.5), axis.line.x = element_line(colour = &quot;skyblue&quot;, size=2), axis.line.y = element_line(colour=&quot;deeppink&quot;, size = 2), axis.title.x = element_text(colour=&quot;forestgreen&quot;, size=14), axis.title.y = element_text(colour = &quot;gold&quot;, size=8), axis.ticks = element_blank(), panel.grid.major = element_line(colour=&quot;aquamarine&quot;, size=1), panel.grid.minor = element_line(colour=&quot;slategray2&quot;, size=2))</code></pre>
+<p>Now let’s add that to our boxplot.</p>
+<pre class="r"><code>iris.box + masterpiece</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Themes/6_grids_files/figure-html/]-1.png" width="672" />
+A true work of art!</p>

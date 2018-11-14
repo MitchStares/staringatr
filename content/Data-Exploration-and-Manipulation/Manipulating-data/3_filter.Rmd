@@ -1,0 +1,38 @@
+---
+title: "The Filter Function"
+author: "Mitchell Stares"
+date: '2018-11-09'
+weight: 12
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+weeds<-read.csv("../../../resources/datafiles/weeds.csv")
+library(tidyverse)
+```  
+
+The `filter()` command is used to remove rows from your data. This can be useful for removing zeros or "no data/NA's", or for restricting certain variables in a dataset for an analysis.  
+
+This follows the similar syntax as `mutate()` whereby we specify what dataset we want to filter, followed by how we want to filter.  
+
+```{r eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+#The following examples will just keep overwriting the new object "weeds_filtered"
+
+weeds_filtered <- filter(weeds, weeds == "native") 
+# Gives us only the rows which are exactly "native" in the weeds column. 
+
+weeds_filtered <- filter(weeds, weeds != "weed") 
+# This gives us the same result as their are only two levels of that column. The != means "not equal to"
+
+weeds_filtered <- filter(weeds ,flowers > 20) 
+# Flowers greater than 20 m3
+
+```
+
+So far, we have covered renaming columns, adding new columns and filtering by rows. The next two commands are focused on selecting specific columns and creating new data tables.

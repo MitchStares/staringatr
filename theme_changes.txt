@@ -17,3 +17,10 @@ div.notices.question p {
 div.notices.question p:first-child:after {
   content: 'Question';
 }
+
+
+Line 260. Change:
+	#sidebar ul.topics li.parent ul, #sidebar ul.topics > li.active ul {
+to 
+	#sidebar ul.topics li.parent > ul {
+as per https://github.com/matcornic/hugo-theme-learn/issues/88 - Robhoes Comment on Nov 5th 2018

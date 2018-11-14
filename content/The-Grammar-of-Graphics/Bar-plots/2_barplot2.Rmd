@@ -1,0 +1,61 @@
+---
+title: "Bar graphs - part 2"
+author: "Mitchell Stares"
+weight: 42
+date: "2018-11-12"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+
+```
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+#setwd("E:/Demonstrating&Teaching/BIOL360 R module")
+weeds<-read.csv("../../../resources/datafiles/weeds.csv")
+weeds <- rename(weeds, flowers = flowers.m3)
+
+```
+
+In the last example, we plotted a single column graph. To plot multiple columns, for example a soil by species interaction, is quite simple.  
+Firstly, we will run our summarise command, adding the soil column into our `group_by()` command to generate the means and standard error for the soil, species combinations.  
+```{r}
+weeds.summarise2 <- weeds %>% group_by(species, soil) %>%
+  summarise(mean = mean(flowers), se=sd(flowers/sqrt(n())))
+```
+
+We plot multiple columns by specifying one column in our x axis, and filling/colouring by another. ggplot also plots our legend automatically, which is handy. 
+```{r}
+ggplot(weeds.summarise2, aes(x=soil, y=mean, fill=species)) +
+  geom_bar(stat="identity")
+
+```  
+
+However, you can see the bar graph has stacked the species ontop of one another. To fix this, include the `position="dodge"` argument in your `geom_bar()`, like so.  
+```{r}
+ggplot(weeds.summarise2, aes(x=soil, y=mean, fill=species)) + 
+  geom_bar(stat="identity", position="dodge")
+
+```
+
+#### Horizontal bar graphs
+
+Sometimes, a vertical bargraph just doesn't cut it.
+
+```{r}
+ggplot(weeds.summarise2, aes(x=soil, y=mean, fill=species)) + 
+  geom_bar(stat="identity", position="dodge")+
+  coord_flip()
+```
+
+By using `coord_flip()` we can rotate the entire graph into its side, displaying our bar graph horizontally instead of vertically. This will work for pretty much every ggplot graph. 
+
+Now that we have covered the basics of plotting bar/column graphs we can see that there are some cruical points of information missing from these graphs. Most notably, the errorbars and letters or some other notation that denotes statistical differences between the levels (i.e. Tukeys HSD results).
+
+
+
+
+

@@ -1,0 +1,66 @@
+---
+title: "Background"
+author: "Mitchell Stares"
+weight: 36
+date: "2018-11-11"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>The plot and legend background colours can be changed using the following:</p>
+<table>
+<colgroup>
+<col width="54%" />
+<col width="45%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Theme argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>panel.background = element_rect(insert changes here)</td>
+<td>This changes the background of the main plot itself. We need element_rect() as it is a rectangle geometric object.</td>
+</tr>
+<tr class="even">
+<td>legend.background = element_rect(insert changes here)</td>
+<td>This will change the main area of the legend.</td>
+</tr>
+<tr class="odd">
+<td>legend.key = element_rect(insert changes here)</td>
+<td>This will change the small boxes that each of the factors levels are identified with.</td>
+</tr>
+</tbody>
+</table>
+<p>For all arguments, you can replace the element_rect(), element_line() etc. with element_blank() to remove it.</p>
+<p>Within each of the element_rect() we can change various things. The most common ones are:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Element argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>fill = “colour”</td>
+<td>This will change the overall colour of the object.</td>
+</tr>
+<tr class="even">
+<td>colour = “colour”</td>
+<td>This will change the outline of the rectangle.</td>
+</tr>
+<tr class="odd">
+<td>size = number</td>
+<td>This will change the size/thickness of font and lines.</td>
+</tr>
+</tbody>
+</table>
+<p>Each of the “colour” arguments can be a specified a number of ways. The most common way is using one of the MANY predefined colours within R. A quick run down of these can be found <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">here</a>. For any of these, just put the name as it is spelt in that guide in quotations.</p>
+<pre class="r"><code>iris.scatter + theme(panel.background = element_rect(fill=&quot;lavender&quot;, colour=&quot;red&quot;), legend.background = element_rect(fill=&quot;lavender&quot;, colour=&quot;yellow&quot;, size=1), legend.key = element_rect(fill = &quot;gray50&quot;, colour = &quot;green&quot;, size = 0.5)) </code></pre>
+<p><img src="/The-Grammar-of-Graphics/Themes/4_gridsbackground_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>

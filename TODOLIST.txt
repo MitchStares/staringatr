@@ -1,0 +1,14 @@
+To Do List
+- Reference each page with the resources things came from (mostly environmentalcomputing.net)
+- Data manipulation - 3_columns - include changing things to numeric, mention how this happens computationally. Change the name to be more reflective of changing columns
+- Continue fixing all of the files (data manipulation -> )
+- Fix up homepage
+- Figure out a name
+- Put an about page for me, the website and uow etc. 
+- Put a page of other resources (data carpentry, environmentalcomputing.net etc.)
+- Work on website tutorials, manuscript/writing tutorials, GIS tutorials, multivariate tutorials
+- Put tags on files for the search bar
+- Fix up weights all throughout the website
+- Fix up the index for assumptions and analysis of variance. 
+	- include what assumptions are and why they are important. 
+- Replot the themes section so all of the themes are smaller and arranged in a grid with text below to show the command. 

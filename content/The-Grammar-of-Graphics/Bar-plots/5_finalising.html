@@ -1,0 +1,34 @@
+---
+title: "Finalising our Barplot"
+author: "Mitchell Stares"
+weight: 45
+date: "2018-11-13"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>Thats the general process for setting up a column graph for ANOVA data. It can take some time, but we get alot of freedom in how we present this.</p>
+<p>Let’s spruce up our graph to a finalised form, before we save it to an image file.</p>
+<pre class="r"><code>weeds.bar &lt;- ggplot(weeds.summarise, aes(x=species, y=mean, fill=species))+
+  geom_bar(stat=&quot;identity&quot;, show.legend=F, colour=&quot;black&quot;)+
+  labs(x=&quot;Weed Species&quot;, y= expression(Flowers~(m^3)))+
+  theme(panel.background = element_blank(), panel.grid = element_blank(), axis.line = element_line(colour = &quot;black&quot;, size=1), axis.text = element_text(colour=&quot;lightsteelblue4&quot;, size=12), axis.title = element_text(colour=&quot;steelblue&quot;, size=14, face=&quot;bold&quot;))+
+  scale_fill_manual(values = c(&quot;lightblue&quot;, &quot;steelblue&quot;, &quot;darkslateblue&quot;))+
+  geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width=0.5)+
+  geom_text(label = c(&quot;A&quot;, &quot;B&quot;, &quot;B&quot;), aes(y=mean+se, x=species), vjust=-0.5, size=6) +
+  ylim(0, 50)
+
+weeds.bar</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Bar-plots/5_finalising_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Once we are satisfied with our final product, we can save it as a image file to our current working directory. Simply plot the graph again, by calling the object name, then use the <code>ggsave()</code> command like so.</p>
+<pre class="r"><code>weeds.bar #producing the graph again
+
+ggsave(&quot;weeds_bargraph.png&quot;) # specify the name and filetype (.jpeg, .png, .tif etc.). You can also specify the width and heigh of your final image</code></pre>
+<p><code>ggsave()</code> will save the last plot you produced into your current working directory. You need to specify the name (in my case “weeds_bargraph”) and the filetype (.jpeg in my example). By default, it should save a 7 cm x 7cm image. If you want to change that, use the <code>width =</code> or <code>height =</code> arguments, like so. For higher resolution images, try <strong>.tif</strong></p>
+<pre class="r"><code>ggsave(&quot;weeds_bargraph.jpeg&quot;, width=9, height=7)</code></pre>
+<p>I wanted a slightly wider figure but it’s personal preference.
+For very large or faceted graphs, you will need to change the width and height.</p>
+<p>And there we have it! We have produced and saved our own graph. This may have seemed daughting or a long process, but it’s very methodical once you get used to it. For an easier time, just use one of the preset theme commands like <code>theme_minimal()</code> to do all the aesthetical work for you :)</p>

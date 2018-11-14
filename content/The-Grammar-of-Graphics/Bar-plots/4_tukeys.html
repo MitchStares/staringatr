@@ -1,0 +1,59 @@
+---
+title: "Significant notation"
+author: "Mitchell Stares"
+weight: 44
+date: "2018-11-13"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>When presenting our results to an audience (paper or presentation) it is important to communicate our results clearly in a manner that is understandable to a wider audience. Tha main way to do so with an Analysis of Variance, is using a post-hoc test like a Tukeys Honest Significant Difference (Tukeys HSD). This will analyse the differences between the levels within a factor to distinguish which levels are significantly different from one another.</p>
+<p>To jog our memory from our test, let’s run the Tukeys test from our analysis module using the <code>HSD.test()</code> from the agricolae package.</p>
+<pre class="r"><code>library(agricolae)
+HSD.test(weeds.aov2, &quot;species&quot;, console=TRUE)</code></pre>
+<pre><code>## 
+## Study: weeds.aov2 ~ &quot;species&quot;
+## 
+## HSD Test for flowers 
+## 
+## Mean Square Error:  130.122 
+## 
+## species,  means
+## 
+##           flowers      std  r Min Max
+## Coprosma  24.1250 11.13478 16  13  52
+## Olearia   36.7500 12.08580 16  16  55
+## Pultenaea 40.5625 10.97858 16  20  57
+## 
+## Alpha: 0.05 ; DF Error: 42 
+## Critical Value of Studentized Range: 3.435823 
+## 
+## Minimun Significant Difference: 9.798198 
+## 
+## Treatments with the same letter are not significantly different.
+## 
+##           flowers groups
+## Pultenaea 40.5625      a
+## Olearia   36.7500      a
+## Coprosma  24.1250      b</code></pre>
+<p>According to the tukeys results, Coprosma is significantly different from the others. So we will label it <strong>A</strong> and the others <strong>B</strong>.</p>
+<p>There are two main ways to plot notation on a graph, a manual way using coordinates, and an automatic way. We will cover the manual way first so we can see how it works before preceeding to the easy method.</p>
+<pre class="r"><code>ggplot(weeds.summarise, aes(x=species, y=mean)) +
+  geom_bar(stat=&quot;identity&quot;)+
+  geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width = 0.5)+
+  geom_text(label = c(&quot;A&quot;, &quot;B&quot;, &quot;B&quot;), aes(y = c(28.5, 41, 44.5), x = species), size = 6)</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Bar-plots/4_tukeys_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code># try including the geom_text() in your original weeds.bar code. </code></pre>
+<p>Adding notation is done through <code>geom_text()</code>. We need to specify the labels (in order from left -&gt; right) along with the aesthetic coordinates on the x and y axis. The X axis we can direct it to our original x axis data (species) and it will sit in the centre of the column. The Y coordinates are the location on the Y axis the text should sit.</p>
+<p>This method is very finicky but is a great method if you are looking to plot one letter/symbol on the graph. You can add multiple <code>geom_text()</code> commands if needed.</p>
+<p>The quicker solution to this, is to use a combination of our errorbars and an additional argument called <strong>vjust</strong> (vertical adjustment).</p>
+<pre class="r"><code>ggplot(weeds.summarise, aes(x=species, y=mean)) +
+  geom_bar(stat=&quot;identity&quot;)+
+  geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width = 0.5)+
+  geom_text(label = c(&quot;A&quot;, &quot;B&quot;, &quot;B&quot;), aes(y = mean+se, x = species),vjust = -0.5, size = 6)+ 
+  ylim(0, 50)</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Bar-plots/4_tukeys_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>We simply specify our Y coordinates as the top of our error bar (mean + se) and use the <strong>vjust</strong> (vertical ajustment) argument to move it slightly above the bar. You might have to change your ylim to display the last letter, which got cut off.</p>

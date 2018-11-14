@@ -1,0 +1,25 @@
+---
+title: "The Filter Function"
+author: "Mitchell Stares"
+date: '2018-11-09'
+weight: 12
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>The <code>filter()</code> command is used to remove rows from your data. This can be useful for removing zeros or “no data/NA’s”, or for restricting certain variables in a dataset for an analysis.</p>
+<p>This follows the similar syntax as <code>mutate()</code> whereby we specify what dataset we want to filter, followed by how we want to filter.</p>
+<pre class="r"><code>#The following examples will just keep overwriting the new object &quot;weeds_filtered&quot;
+
+weeds_filtered &lt;- filter(weeds, weeds == &quot;native&quot;) 
+# Gives us only the rows which are exactly &quot;native&quot; in the weeds column. 
+
+weeds_filtered &lt;- filter(weeds, weeds != &quot;weed&quot;) 
+# This gives us the same result as their are only two levels of that column. The != means &quot;not equal to&quot;
+
+weeds_filtered &lt;- filter(weeds ,flowers &gt; 20) 
+# Flowers greater than 20 m3</code></pre>
+<p>So far, we have covered renaming columns, adding new columns and filtering by rows. The next two commands are focused on selecting specific columns and creating new data tables.</p>

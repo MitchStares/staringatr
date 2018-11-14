@@ -1,0 +1,80 @@
+---
+title: "Viewing your data"
+weight: 9
+date: '2018-10-30'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>Now we have become acquainted with our working directories and the R environment, its time to explore our newely imported data. For this, we will be using the <strong>weeds</strong> dataset.
+Ensure your data is loaded in and then either use the <strong>View()</strong> command:</p>
+<pre class="r"><code>weeds &lt;- read.csv(&quot;weeds.csv&quot;)
+View(weeds)
+# This will open up a new tab to view your data</code></pre>
+<p>or click the variable name in the environment window.</p>
+<p><img src="/images/view.png" /></p>
+<p>This should bring up a separate tab in Rstudio which you should be able to see the 4 columns (weeds, soil, species &amp; flowers.m3).<br />
+Now we can see our data, we can investigate the way R has input our data. The best thing to do is to ensure your categorical variables are categorical, and our continuous are continuous, much like we do in programs like JMP.</p>
+<p><img src="/images/jmp_factor.png" /></p>
+<p>In JMP, we have the icons to identify <strong>categorical/nominal, ordinal</strong> or <strong>continuous</strong>. In R, all we do is run a single line of code to view the same thing across the different columns.</p>
+<pre class="r"><code>str(weeds)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    48 obs. of  4 variables:
+##  $ weeds     : Factor w/ 2 levels &quot;native&quot;,&quot;weed&quot;: 2 2 2 2 2 2 2 2 2 2 ...
+##  $ soil      : Factor w/ 2 levels &quot;sandstone&quot;,&quot;shale&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ species   : Factor w/ 3 levels &quot;Coprosma&quot;,&quot;Olearia&quot;,..: 1 1 1 1 3 3 3 3 2 2 ...
+##  $ flowers.m3: int  14 17 23 26 35 45 36 28 28 39 ...</code></pre>
+<pre class="r"><code># str stands for &quot;structure&quot; and will tell us the formats of each data column, as well as the number of levels when we have a factor (categorical) column</code></pre>
+<p><code>str()</code> also shows us the number of levels we have in a factor. So if we put in a bad dataset with different capitalisations or misspellings on factor levels, we can identify here how many we want vs. how many we have. Its a quick and easy way to assess your data.</p>
+<p>As you can see in the <strong>weeds</strong> example, we have <em>weeds, soil</em> &amp; <em>species</em> as factors (categorical) and <em>flowers.m3</em> as an integer (one of many continuous data types, in this case, whole numbers).</p>
+<p><strong>We will follow up on how to fix an incorrect column shortly</strong></p>
+<p>Other data viewing commands can be used to view certain aspects of your data without bringing up the entire data set in a new tab. These are as follows:</p>
+<pre class="r"><code>head(weeds) # This will show the top few rows of your data so you can check it without loading the entire table</code></pre>
+<pre><code>##   weeds      soil   species flowers.m3
+## 1  weed sandstone  Coprosma         14
+## 2  weed sandstone  Coprosma         17
+## 3  weed sandstone  Coprosma         23
+## 4  weed sandstone  Coprosma         26
+## 5  weed sandstone Pultenaea         35
+## 6  weed sandstone Pultenaea         45</code></pre>
+<pre class="r"><code>tail(weeds) # The same as head() but shows the bottom rows</code></pre>
+<pre><code>##     weeds  soil   species flowers.m3
+## 43 native shale Pultenaea         49
+## 44 native shale Pultenaea         20
+## 45 native shale   Olearia         32
+## 46 native shale   Olearia         51
+## 47 native shale   Olearia         47
+## 48 native shale   Olearia         55</code></pre>
+<pre class="r"><code>dim(weeds) # This gives you the number of rows and columns</code></pre>
+<pre><code>## [1] 48  4</code></pre>
+<pre class="r"><code># You can also use nrow(weeds) or ncol(weeds) to get them separately
+
+names(weeds) # Gives you the column names. </code></pre>
+<pre><code>## [1] &quot;weeds&quot;      &quot;soil&quot;       &quot;species&quot;    &quot;flowers.m3&quot;</code></pre>
+<pre class="r"><code># I use this when I want the exact name for a column when I am writing analyses (you will see later how useful this can be)
+
+summary(weeds) # Gives you summary statistics for each column</code></pre>
+<pre><code>##     weeds           soil         species     flowers.m3   
+##  native:24   sandstone:24   Coprosma :16   Min.   :13.00  
+##  weed  :24   shale    :24   Olearia  :16   1st Qu.:22.50  
+##                             Pultenaea:16   Median :33.00  
+##                                            Mean   :33.81  
+##                                            3rd Qu.:45.50  
+##                                            Max.   :57.00</code></pre>
+<pre class="r"><code># This will also come in handy later for statistical analysis </code></pre>
+<p>As you can see, there are many ways to view data within R. Some of these are useful for huge datasets (&gt; 10k rows) as the <code>view()</code> command can put strain on your computer. Using <code>head()</code> or <code>tail()</code> to view aspects of the data is useful as it reduces how much is displayed.<br />
+{{% notice question %}}
+<strong>Use the summary() command with the “insecticide”&quot; dataset to answer the following questions:</strong>
+<strong>Question: What is the minimum value for species richness?</strong>
+{{% /notice %}}</p>
+<p>{{% expand %}}
+<strong>1</strong>
+{{% /expand %}}</p>
+<p>{{% notice question %}}
+<strong>Question: What is the maximum value for species richness?</strong>
+{{% /notice %}}</p>
+<p>{{% expand %}}
+<strong>20</strong>
+{{% /expand %}}</p>

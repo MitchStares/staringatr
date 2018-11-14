@@ -1,0 +1,63 @@
+---
+title: "Scatter plots"
+author: "Mitchell Stares"
+weight: 51
+date: "2018-11-13"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>{{% notice info %}}
+For this section, we will be using the <strong>tadpoles.csv</strong> data set
+{{% /notice %}}</p>
+<p>The second dataset we analysed tadpole abundance in different sized ponds using a linear model/regression. Plotting linear regressions is really straightforward, but can be done a couple of different ways, depending on what you wish to accomplish.</p>
+<p>First, let’s run the basic analysis again (excluding the reeds factor).</p>
+<pre class="r"><code>tadpoles.lm &lt;- lm(abundance ~ pondsize, data = tadpoles)
+summary(tadpoles.lm)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = abundance ~ pondsize, data = tadpoles)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -73.546 -29.752  -8.026  37.978  77.652 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)  23.8251    25.8455   0.922  0.36662   
+## pondsize      1.7261     0.5182   3.331  0.00303 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 49.42 on 22 degrees of freedom
+## Multiple R-squared:  0.3352, Adjusted R-squared:  0.305 
+## F-statistic: 11.09 on 1 and 22 DF,  p-value: 0.003032</code></pre>
+<p>For this, we will be setting up a scatter plot (geom_point) of our points and then adding the line separately.</p>
+<pre class="r"><code>ggplot(tadpoles, aes(x=pondsize, y=abundance)) +
+  geom_point()</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Scatter-plots/1_scatterplot_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Thats our basic scatter plot. Simply using the <code>geom_point()</code> we covered breifly in the basic plots section.</p>
+<p>From here, we can customise our points using a variety of arguments within <code>geom_point()</code>.</p>
+<div id="colour" class="section level4">
+<h4>Colour</h4>
+<p>Colouring our points can be done in two ways. We can use the colour commands within our aesthetics and colour by a factor in our dataset, or, we can colour all the points within <code>geom_point()</code>. Lets cover the <code>aes()</code> commands.</p>
+<pre class="r"><code>ggplot(tadpoles, aes(x=pondsize, y=abundance, colour=reeds, shape = reeds)) +
+  geom_point()</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Scatter-plots/1_scatterplot_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>As we covered in the basic plotting section, changing the colour and shape of points can be done through the use of “colour” and “shape” arguments within the aesthetics of ggplot or any geometric object (e.g. geom_point). To change the colour of these manually simply use <code>scale_colour_manual()</code> or <code>scale_shape_manual()</code> like so:</p>
+<pre class="r"><code>ggplot(tadpoles, aes(x=pondsize, y=abundance, colour=reeds, shape = reeds)) +
+  geom_point()+
+  scale_colour_manual(values = c(&quot;mediumspringgreen&quot;, &quot;forestgreen&quot;, &quot;black&quot;))+
+  scale_shape_manual(values = c(15, 16, 17))</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Scatter-plots/1_scatterplot_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Each of the scale commands requires you to list the colours/shapes within a concatenated (c) list. This will be all most of you will ever need so simply copy those lines and replace/add values as you need.</p>
+<ul>
+<li><a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">Colours can be found here</a><br />
+</li>
+<li><a href="http://www.sthda.com/sthda/RDoc/figure/graphs/r-plot-pch-symbols-points-in-r.png">Shapes can be found here</a><br />
+<img src="/images/shapes.png?height=15pc&amp;width=15pc" alt="Shapes" /></li>
+</ul>
+</div>

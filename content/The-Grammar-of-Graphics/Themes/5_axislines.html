@@ -1,0 +1,66 @@
+---
+title: "Axis lines"
+author: "Mitchell Stares"
+weight: 36
+date: "2018-11-11"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>To change the axis lines and ticks (lines above each number on an axis) use the following.</p>
+<table>
+<colgroup>
+<col width="51%" />
+<col width="48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Theme argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>axis.line = element_line(insert changes here)</td>
+<td>This will change both axes lines.</td>
+</tr>
+<tr class="even">
+<td>axis.line.x = element_line(insert changes here)</td>
+<td>This will change just the x axis.</td>
+</tr>
+<tr class="odd">
+<td>axis.line.y = element_line(insert changes here)</td>
+<td>This will change just the y axis.</td>
+</tr>
+<tr class="even">
+<td>axis.ticks = element_line(insert changes here)</td>
+<td>Change both axes ticks. Use the .x or .y to change just one axis at a time.</td>
+</tr>
+<tr class="odd">
+<td>axis.ticks.length = element_line(insert changes here)</td>
+<td>Change the length of the axes ticks.</td>
+</tr>
+<tr class="even">
+<td>axis.text = element_text(insert changes here)</td>
+<td>Change the text on the axes TICKS. Use .x or .y to change just one.</td>
+</tr>
+<tr class="odd">
+<td>axis.title = element_text(insert changes here)</td>
+<td>Change the text on the axes LABELS/TITLES. Use .x or .y to change just one.</td>
+</tr>
+<tr class="even">
+<td>plot.title = element_text(insert changes here)</td>
+<td>Change the plot title.</td>
+</tr>
+</tbody>
+</table>
+<p>Just use the colour and size arguments where appropriate. I am going to add these changes as a separate <code>theme()</code> command, but they can be added in the same command as last time.</p>
+<pre class="r"><code>iris.scatter + theme(panel.background = element_rect(fill=&quot;lavender&quot;, colour=&quot;red&quot;), legend.background = element_rect(fill=&quot;lavender&quot;, colour=&quot;yellow&quot;, size=1), legend.key = element_rect(fill = &quot;gray50&quot;, colour = &quot;green&quot;, size = 0.5)) +
+  theme(axis.line.x = element_line(colour = &quot;skyblue&quot;, size=2), axis.line.y = element_line(colour=&quot;deeppink&quot;, size = 2), axis.title.x = element_text(colour=&quot;forestgreen&quot;, size=14), axis.title.y = element_text(colour = &quot;gold&quot;, size=8), axis.ticks = element_blank())</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Themes/5_axislines_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Beautiful, isn’t it?</p>
+<p>Now you may have notice the size command acts differently for line and text. For line it is based on a multiplier of the original. So a 2 will be two times its normal size. Element_text() has size as a font size. So 2 would be tiny and equivalent to 2pt font.
+Alternatively, you can use size = rel(number) to scale the text relative to base R’s plotting size.</p>

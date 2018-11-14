@@ -1,7 +1,8 @@
 ---
-title: "ANOVA assumptions"
-weight: 17
-date: '2018-10-26'
+title: "Generalised linear models (GLM's)"
+weight: 24
+author: "Mitchell Stares"
+date: '2018-11-10'
 output: blogdown::html_page
 editor_options:
   chunk_output_type: console
@@ -9,14 +10,14 @@ editor_options:
 
 
 
-<div id="generalised-linear-models-glms" class="section level4">
-<h4>7. Generalised Linear Models (GLMs)</h4>
 <p>So far, we have been using linear models which assume that our response variable is <strong>continuous</strong>. In earth and life sciences (ecology in particular) we are often working with <strong>discrete</strong> data, such as count data and binomial (presence/absence) data.</p>
 <p>The linear models we have been using so far have been assuming a normal (or gaussian) distribution in our data. Generalised linear models (GLMs) allow us to fit alternative distributions to our data in order to more accurately analyse them.</p>
 <p>GLMs do make some important assumptions which we will need to check when we construct the model.<br />
 Our binomial (logistic regression) does have some assumptions, but thankfully it is fairly resiliant and we dont need to test them. For any other distribution (poisson, gamma etc.) these are cruical.</p>
-<p>It is important to note that part of fitting a GLM is using a <strong>link function</strong>. I won’t be explaining these in detail, all you need to know is the default link method for binomial data is the <strong>logit()</strong> method. For more information see <strong>?family</strong>.</p>
-<p>For this analysis, we will be using the <strong>nestpredation.csv</strong> dataset</p>
+<p>It is important to note that part of fitting a GLM is using a <strong>link function</strong>. I won’t be explaining these in detail (yet), all you need to know is the default link method for binomial data is the <strong>logit()</strong> method. For more information see <code>?family</code>.</p>
+<p>{{% notice info %}}
+For this analysis, we will be using the <strong>nestpredation.csv</strong> dataset
+{{% /notice %}}</p>
 <pre class="r"><code>str(nest) # view the structure</code></pre>
 <pre><code>## &#39;data.frame&#39;:    20 obs. of  2 variables:
 ##  $ shrubcover  : int  16 20 11 15 19 31 5 12 9 10 ...
@@ -24,8 +25,8 @@ Our binomial (logistic regression) does have some assumptions, but thankfully it
 <pre class="r"><code># This is okay. Our nest attacked column is an integer, but the glm will tell it to input as binomial so we dont need to change anything. 
 
 nest.bin&lt;-glm(nestattacked~shrubcover, data=nest, family=binomial)</code></pre>
-<p>The <strong>glm()</strong> commands follows the same structure as the <strong>lm()</strong> and <strong>aov()</strong> with the inclusion of the extra argument <strong>family</strong>. Family is where we specify our distribution. In this case, for our logistic regression, we specify a binomial distribution.</p>
-<p>Once we have constructed our model, we can use the <strong>anova()</strong> command and the <strong>summary()</strong> commands to look at our results. The <strong>summary()</strong> commands p-values tend to be a little weird, so I prefer to use the <strong>anova()</strong> command to look at variable significance, and <strong>summary()</strong> to look at the model equation if I need it.</p>
+<p>The <code>glm()</code> commands follows the same structure as the <code>lm()</code> and <code>aov()</code> with the inclusion of the extra argument <strong>family</strong>. Family is where we specify our distribution. In this case, for our logistic regression, we specify a binomial distribution.</p>
+<p>Once we have constructed our model, we can use the <code>anova()</code> command and the <code>summary()</code> commands to look at our results. The <code>summary()</code> commands p-values tend to be a little weird, so I prefer to use the <code>anova()</code> command to look at variable significance, and <code>summary()</code> to look at the model equation if I need it.</p>
 <pre class="r"><code>anova(nest.bin, test=&quot;Chisq&quot;) # anova test using a chisq instead of F</code></pre>
 <pre><code>## Analysis of Deviance Table
 ## 
@@ -66,6 +67,3 @@ nest.bin&lt;-glm(nestattacked~shrubcover, data=nest, family=binomial)</code></pr
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <p>Look at the differences in this table and the anova table. It’s hard to understand what is happening here and doesn’t provide you with the overall model effects, in most cases.</p>
-<p><strong>Write Ok in the following box to continue:</strong><br />
-{1:SHORTANSWER:=Ok}</p>
-</div>
