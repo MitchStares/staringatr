@@ -2,7 +2,7 @@ baseURL = "/"
 languageCode = "en-US"
 defaultContentLanguage = "en"
 
-title = "Stare at R"
+title = "Staring at R"
 theme = "hugo-theme-learn"
 themesdir = "themes"
 metaDataFormat = "yaml"
@@ -11,7 +11,7 @@ enableEmoji = true
 
 [params]
   editURL = ""
-  description = "Stare at R"
+  description = "Staring at R"
   author = "Mitchell Stares"
   showVisitedLinks = true
   disableBreadcrumb = true
@@ -24,7 +24,7 @@ home = [ "HTML", "RSS", "JSON"]
 
 [Languages]
 [Languages.en]
-title = "Stare at R"
+title = "Homepage"
 weight = 1
 languageName = "English"
 

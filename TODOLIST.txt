@@ -12,3 +12,4 @@ To Do List
 - Fix up the index for assumptions and analysis of variance. 
 	- include what assumptions are and why they are important. 
 - Replot the themes section so all of the themes are smaller and arranged in a grid with text below to show the command. 
+- Add drop down function for menu without refreshing page

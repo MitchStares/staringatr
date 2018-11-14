@@ -2,7 +2,7 @@
 title: "R Statistics for Ecologists"
 ---
 
-# Stare At R 
+# Staring At R 
 
 This site is a series of self-guided tutorials on using the R statistical package for data manipulation, analysis and visualisation including the following:  
 
