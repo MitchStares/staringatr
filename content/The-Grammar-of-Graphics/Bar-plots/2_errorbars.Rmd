@@ -1,7 +1,7 @@
 ---
 title: "Errorbars"
 author: "Mitchell Stares"
-weight: 43
+weight: 42
 date: "2018-11-12"
 output: blogdown::html_page
 editor_options:
@@ -81,22 +81,4 @@ ggplot(weeds.summarise, aes(x=species, y=mean)) +
 ```
 
 The default width value for errorbars is 0.9, that is 90% of the width of the bar. 
-
-#### Position  
-
-When plotting multiple errorbars, much like with standard bars, the default structure is to "stack" the bars in a single column. We can alter the position of errorbars through the use of the "position" argument.  
-
-Altering the position of errorbars in bar graphs has given me alot of headaches over the years. This gets more finicky the more complex your graph is, so I hope the below solution fixes all of your future problems :)
-
-For this example, I am using our "interaction" bargraph to demonstrate. 
-
-```{r}
-ggplot(weeds.summarise2, aes(x=soil, y=mean, fill=species)) +
-  geom_bar(stat="identity", position="dodge")+
-  geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width = 0.5, position=position_dodge(0.9))
-```
-
-To alter the position of our errorbars we include the `position=position_dodge(0.9)` argument to match our original `position="dodge"` in our bar line. You will notice these two arguments have different values and syntax. The standard `position="dodge"` does work for the errorbars, but I have had very mixed results. The `position=position_dodge(0.9)` is slightly more annoying, but tends to work alot more. The 0.9 value is the default for the errorbars and refers to the distance between the middle errorbar and the left and/or right errobars when dodged. If your errobar comes out a little "funky", modify this value.  
-
-
 

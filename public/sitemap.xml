@@ -213,18 +213,18 @@
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/bar-plots/2_barplot2/</loc>
+    <loc>/the-grammar-of-graphics/bar-plots/2_errorbars/</loc>
     <lastmod>2018-11-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/bar-plots/3_errorbars/</loc>
-    <lastmod>2018-11-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/the-grammar-of-graphics/bar-plots/4_tukeys/</loc>
+    <loc>/the-grammar-of-graphics/bar-plots/3_tukeys/</loc>
     <lastmod>2018-11-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/the-grammar-of-graphics/bar-plots/4_barplot2/</loc>
+    <lastmod>2018-11-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>

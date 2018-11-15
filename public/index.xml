@@ -348,22 +348,11 @@ weeds.aov2 &amp;lt;- aov(flowers ~ species * soil, data = weeds)anova(weeds.aov
     </item>
     
     <item>
-      <title>Bar graphs - part 2</title>
-      <link>/the-grammar-of-graphics/bar-plots/2_barplot2/</link>
-      <pubDate>Mon, 12 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/the-grammar-of-graphics/bar-plots/2_barplot2/</guid>
-      <description>In the last example, we plotted a single column graph. To plot multiple columns, for example a soil by species interaction, is quite simple.
-Firstly, we will run our summarise command, adding the soil column into our group_by() command to generate the means and standard error for the soil, species combinations.
-weeds.summarise2 &amp;lt;- weeds %&amp;gt;% group_by(species, soil) %&amp;gt;%summarise(mean = mean(flowers), se=sd(flowers/sqrt(n())))We plot multiple columns by specifying one column in our x axis, and filling/colouring by another.</description>
-    </item>
-    
-    <item>
       <title>Errorbars</title>
-      <link>/the-grammar-of-graphics/bar-plots/3_errorbars/</link>
+      <link>/the-grammar-of-graphics/bar-plots/2_errorbars/</link>
       <pubDate>Mon, 12 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/the-grammar-of-graphics/bar-plots/3_errorbars/</guid>
+      <guid>/the-grammar-of-graphics/bar-plots/2_errorbars/</guid>
       <description>Error bars are a simply addition to your graph, utilising their own geometric command geom_errorbar().To add the error bars, we use the following command
 ggplot(weeds.summarise, aes(x=species, y=mean)) +geom_bar(stat=&amp;quot;identity&amp;quot;)+geom_errorbar(aes(ymin = mean-se, ymax = mean+se))This is suprisingly simple. All we do is specify the aesthetic (aes) where we compute our minimum and maximum y values for our bars as our mean column +/- our standard error column.
 We can further customise our errorbars through the use of a few arguments.</description>
@@ -371,11 +360,22 @@ We can further customise our errorbars through the use of a few arguments.</desc
     
     <item>
       <title>Significant notation</title>
-      <link>/the-grammar-of-graphics/bar-plots/4_tukeys/</link>
+      <link>/the-grammar-of-graphics/bar-plots/3_tukeys/</link>
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/the-grammar-of-graphics/bar-plots/4_tukeys/</guid>
+      <guid>/the-grammar-of-graphics/bar-plots/3_tukeys/</guid>
       <description>When presenting our results to an audience (paper or presentation) it is important to communicate our results clearly in a manner that is understandable to a wider audience. Tha main way to do so with an Analysis of Variance, is using a post-hoc test like a Tukeys Honest Significant Difference (Tukeys HSD). This will analyse the differences between the levels within a factor to distinguish which levels are significantly different from one another.</description>
+    </item>
+    
+    <item>
+      <title>Bar graphs - part 2</title>
+      <link>/the-grammar-of-graphics/bar-plots/4_barplot2/</link>
+      <pubDate>Mon, 12 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/the-grammar-of-graphics/bar-plots/4_barplot2/</guid>
+      <description>In the last examples, we plotted a single column graph with errorbars and significant notation. To plot multiple columns, for example a soil by species interaction, is quite simple.
+Firstly, we will run our summarise command, adding the soil column into our group_by() command to generate the means and standard error for the soil, species combinations.
+weeds.summarise2 &amp;lt;- weeds %&amp;gt;% group_by(species, soil) %&amp;gt;%summarise(mean = mean(flowers), se=sd(flowers)/sqrt(n()))We plot multiple columns by specifying one column in our x axis, and filling/colouring by another.</description>
     </item>
     
     <item>

@@ -1,7 +1,7 @@
 ---
 title: "Significant notation"
 author: "Mitchell Stares"
-weight: 44
+weight: 43
 date: "2018-11-13"
 output: blogdown::html_page
 editor_options:
