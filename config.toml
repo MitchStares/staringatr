@@ -24,7 +24,7 @@ home = [ "HTML", "RSS", "JSON"]
 
 [Languages]
 [Languages.en]
-title = "Homepage"
+title = "Staring at R"
 weight = 1
 languageName = "English"
 
