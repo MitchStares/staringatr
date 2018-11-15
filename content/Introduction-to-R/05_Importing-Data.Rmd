@@ -1,7 +1,7 @@
 ---
 title: "Importing Data"
-weight: 8
-date: '2018-10-24'
+weight: 10
+date: '2018-11-15'
 author: "Mitchell Stares"
 output: blogdown::html_page
 editor_options: 
@@ -12,10 +12,7 @@ library(knitr)
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
-![](/images/matrix.jpg?width=15pc&height=15pc)  
-  
-  
-Now that we have successfully have a notebook and appropriate working directory, we can start to read in data.  
+Now that we have successfully have a project and notebook, we can start to read in data.  
 
 The first thing with R is that working with normal excel files is quite difficult. So we always work with **comma separated values** or **.CSV** files. When saving an excel sheet, just *save as* and select *.csv (comma delimited)* as the file type. *note: .csv's can only save a single sheet, not the whole excel workbook*  
 

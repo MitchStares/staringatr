@@ -28,13 +28,13 @@
   </url>
   
   <url>
-    <loc>/introduction-to-r/03_creating-a-project-and-notebook/</loc>
-    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+    <loc>/introduction-to-r/03_creating-a-project/</loc>
+    <lastmod>2018-11-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/introduction-to-r/04_importing-data/</loc>
-    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+    <loc>/introduction-to-r/4_notebooks/</loc>
+    <lastmod>2018-11-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -45,6 +45,11 @@
   <url>
     <loc>/data-exploration-and-manipulation/3_columns/</loc>
     <lastmod>2018-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/introduction-to-r/05_importing-data/</loc>
+    <lastmod>2018-11-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>

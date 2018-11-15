@@ -1,0 +1,51 @@
+---
+title: "Creating a project"
+weight: 8
+date: '2018-11-15'
+author: "Mitchell Stares"
+output: blogdown::html_page
+editor_options: 
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+Now that we have our folder setup, lets move into R studio and create our project.  
+
+In R, a project file stores your current Rstudio working environment in a file within your file system. This means, if you finish your work for the day halfway through an analysis, you can open up your project file the next day and continue straight from where you left off. The other major benefit is that a project file sets your default working directory. This means, when you need to open a file, you only need to do so from the place of your project file. This will make sense in a moment.  
+
+### Creating your project  
+
+{{% notice info %}}
+To create a project, click **file > new project and select existing directory**
+{{% /notice %}}
+
+![](/images/project.png?width=30pc)
+
+{{% notice info %}}
+Then, browse to your new file system we just created and save the project into the base/root of that directory.
+{{% /notice %}}  
+
+The real advantage to using project files is simplifying file opening and saving. We will cover this in more detail in the next page, but essentially, when reading data into R we normally have to specify the entire filepath  
+
+```{R eval=FALSE}
+surveydata <- read.csv("C:/Users/Mitch/Documents/surveydata.csv")
+```
+
+or, set a working directory
+
+```{r eval=FALSE}
+setwd("C:/Users/Mitch/Documents")
+surveydata <- read.csv("surveydata.csv")
+```
+
+The creation of a project cuts out this step by setting our working directory. This means, anytime we want to open a file, we just need to specify the folders within our project directory. So using our new filing system, we would just need to specify the following:
+
+```{R eval=FALSE}
+surveydata <- read.csv("Data/surveydata.csv")
+```
+
+If you have multiple projects, or want to close the current one, simply click the project name in the top right of R studio  
+![](/images/projectbutton.png)

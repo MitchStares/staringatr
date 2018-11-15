@@ -7,4 +7,4 @@ chapter: True
 ---
 # The Grammar of Graphics
 
-Text here
+Exploring the world of data visualisation using iterative plot building in ggplot2

@@ -51,7 +51,7 @@ However, the biggest uses of R come from its sharability and openness. Collabora
 
 ### R Studio 
 
-![*The R Studio Environment*](/images/rstudio.png?width=100pc)  
+![*The R Studio Environment*](/images/rstudio.png?width=50pc)  
 
 
 R studio "reskins" the standard R environment, giving space for script writing, help, graphics output and tracking of data files. Due to the ease of working in R studio, thats what we will be using.  R studio can provide an array of functions from statistical analysis and graphing, GIS/spatial analysis, presentations, document preparation (all of these tutorials are written in R) and even novel functions like interacive graphs and tweeting.  

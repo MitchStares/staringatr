@@ -6,4 +6,4 @@ chapter: true
 ---
 # Statistical Analysis
 
-Text here
+Analysing your data in simple and meaningful ways.

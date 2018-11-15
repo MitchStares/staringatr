@@ -9,22 +9,22 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
-    <title>Creating a project and notebook :: Staring at R</title>
+    <title>Creating a project :: Staring at R</title>
 
     
-    <link href="/css/nucleus.css?1542246790" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1542246790" rel="stylesheet">
-    <link href="/css/hybrid.css?1542246790" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1542246790" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1542246790" rel="stylesheet">
-    <link href="/css/auto-complete.css?1542246790" rel="stylesheet">
-    <link href="/css/theme.css?1542246790" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1542246790" rel="stylesheet">
+    <link href="/css/nucleus.css?1542257158" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1542257158" rel="stylesheet">
+    <link href="/css/hybrid.css?1542257158" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1542257158" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1542257158" rel="stylesheet">
+    <link href="/css/auto-complete.css?1542257158" rel="stylesheet">
+    <link href="/css/theme.css?1542257158" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1542257158" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1542246790" rel="stylesheet">
+      <link href="/css/theme-green.css?1542257158" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1542246790"></script>
+    <script src="/js/jquery-2.x.min.js?1542257158"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -89,14 +89,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1542246790"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1542246790"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1542257158"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1542257158"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1542246790"></script>
+<script type="text/javascript" src="/js/search.js?1542257158"></script>
 
     
   </div>
@@ -177,9 +177,9 @@
  
   
     
-      <li data-nav-id="/introduction-to-r/03_creating-a-project-and-notebook/" title="Creating a project and notebook" class="dd-item active">
+      <li data-nav-id="/introduction-to-r/03_creating-a-project-and-notebook/" title="Creating a project" class="dd-item active">
         <a href="/introduction-to-r/03_creating-a-project-and-notebook/">
-        Creating a project and notebook
+        Creating a project
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -196,8 +196,27 @@
  
   
     
-      <li data-nav-id="/introduction-to-r/04_importing-data/" title="Importing Data" class="dd-item ">
-        <a href="/introduction-to-r/04_importing-data/">
+      <li data-nav-id="/introduction-to-r/4_notebooks/" title="Notebooks and Markdown" class="dd-item ">
+        <a href="/introduction-to-r/4_notebooks/">
+        Notebooks and Markdown
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/introduction-to-r/05_importing-data/" title="Importing Data" class="dd-item ">
+        <a href="/introduction-to-r/05_importing-data/">
         Importing Data
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -1280,7 +1299,7 @@
             
           
           
-            <a href='/'>Homepage</a> > <a href='/introduction-to-r/'>Introduction to R</a> > Creating a project and notebook
+            <a href='/'>Homepage</a> > <a href='/introduction-to-r/'>Introduction to R</a> > Creating a project
           
          
           
@@ -1304,45 +1323,32 @@
         
         <div id="body-inner">
           
-            <h1>Creating a project and notebook</h1>
+            <h1>Creating a project</h1>
           
 
         
 
 
 <p>Now that we have our folder setup, lets move into R studio and create our project.</p>
-<p>The first step when opening a new R studio environment is creating a script or notebook for working in. Scripts are basic text files where all code is executable. Writing non-code in a script requires the use of #’s (which can look messy and confusing) like so:</p>
-<pre class="r"><code>read.csv(&quot;datafile.csv&quot;) 
-# this code reads a csv (data) file into R. The command read.csv requires brackets with the filepath to the file in quotations. 
-# in this code, none of the #&#39;s will run. so if I # the read.csv command, it will not run. like so:
-# read.csv(&quot;datafile.csv&quot;)</code></pre>
-<p>A whole document of the above example can get messy and hard to understand.</p>
-<p>In a notebook, we separate normal text from code by inserting “code chunks” (<em>insert &gt; R</em> in the top right of the window). Chunks are specialised areas in the notebook for code only.
-Chunks separate code from text, making it easier to write notes and read. <em>These tutorials have been written in a notebook</em>.</p>
-<div class="notices info" ><ul>
-<li>To create a notebook or script, simply use the pulldown menus <em>file &gt; new file</em> and select either a script or notebook one. Then save the document by hitting the disk icon (or <em>file &gt; save</em>)</li>
-<li>R studio will prompt you to install some packages to use a notebook. Do so and then read the text in the notebook then clear everything below the “output:” — area.</li>
-<li>As stated above, click the <strong>insert</strong> pulldown menu in the script window and click <strong>R</strong> to insert a code chunk. All code in a notebook must be written in a chunk</li>
-</ul>
-</div>
-
-<div id="important" class="section level4">
-<h4>IMPORTANT!</h4>
-<ul>
-<li>Wherever you save the notebook/script will become the default “directory”. R will look here for files first. If you want to set your working directory elsewhere, use the below code.<br />
-</li>
-<li>I advise creating a folder and saving the notebook to the folder. All datafiles for these pracs can be placed in the same folder as your script/notebook. This will simplify the process of reading in data.</li>
-</ul>
-<pre class="r"><code># Only do this if you want your notebook/script in a different folder from data
-
-setwd(&quot;Drive:/Folder1/Folder2&quot;)
-# insert your folders path in the brackets
-# this will tell R to look here for files and &quot;generally&quot; save things here as well.
-# e.g. C:/Users/Mitch/Documents/R/</code></pre>
-<blockquote>
-<p>After writing your code, you can click <em>run</em>, <em>run selected line(s)</em>, <em>run current chunk</em> or press <em>Ctrl</em> + <em>Enter</em> on the line your cursor is on</p>
-</blockquote>
-<p><strong>Get used to this, you will do this ALOT</strong></p>
+<p>In R, a project file stores your current Rstudio working environment in a file within your file system. This means, if you finish your work for the day halfway through an analysis, you can open up your project file the next day and continue straight from where you left off. The other major benefit is that a project file sets your default working directory. This means, when you need to open a file, you only need to do so from the place of your project file. This will make sense in a moment.</p>
+<div id="creating-your-project" class="section level3">
+<h3>Creating your project</h3>
+<p>{{% notice info %%}}
+To create a project, click <strong>file &gt; new project and select existing directory</strong>
+{{% /notice %}}</p>
+<p><img src="/images/project.png" /></p>
+<p>{{% notice info %}}
+Then, browse to your new file system we just created and save the project into the base/root of that directory.
+{{% /notice %}}</p>
+<p>The real advantage to using project files is simplifying file opening and saving. We will cover this in more detail in the next page, but essentially, when reading data into R we normally have to specify the entire filepath</p>
+<pre class="r"><code>surveydata &lt;- read.csv(&quot;C:/Users/Mitch/Documents/surveydata.csv&quot;)</code></pre>
+<p>or, set a working directory</p>
+<pre class="r"><code>setwd(&quot;C:/Users/Mitch/Documents&quot;)
+surveydata &lt;- read.csv(&quot;surveydata.csv&quot;)</code></pre>
+<p>The creation of a project cuts out this step by setting our working directory. This means, anytime we want to open a file, we just need to specify the folders within our project directory. So using our new filing system, we would just need to specify the following:</p>
+<pre class="r"><code>surveydata &lt;- read.csv(&quot;Data/surveydata.csv&quot;)</code></pre>
+<p>If you have multiple projects, or want to close the current one, simply click the project name in the top right of R studio<br />
+<img src="/images/projectbutton.png" /></p>
 </div>
 
 
@@ -1450,6 +1456,22 @@ setwd(&quot;Drive:/Folder1/Folder2&quot;)
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -2187,7 +2209,7 @@ setwd(&quot;Drive:/Folder1/Folder2&quot;)
             <a class="nav nav-prev" href="/introduction-to-r/02_setting-up-your-workspace/" title="Setting up your workspace"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/introduction-to-r/04_importing-data/" title="Importing Data" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/introduction-to-r/4_notebooks/" title="Notebooks and Markdown" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 
@@ -2196,20 +2218,20 @@ setwd(&quot;Drive:/Folder1/Folder2&quot;)
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1542246790"></script>
-    <script src="/js/perfect-scrollbar.min.js?1542246790"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1542246790"></script>
-    <script src="/js/jquery.sticky.js?1542246790"></script>
-    <script src="/js/featherlight.min.js?1542246790"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1542246790"></script>
-    <script src="/js/highlight.pack.js?1542246790"></script>
+    <script src="/js/clipboard.min.js?1542257158"></script>
+    <script src="/js/perfect-scrollbar.min.js?1542257158"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1542257158"></script>
+    <script src="/js/jquery.sticky.js?1542257158"></script>
+    <script src="/js/featherlight.min.js?1542257158"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1542257158"></script>
+    <script src="/js/highlight.pack.js?1542257158"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1542246790"></script>
-    <script src="/js/learn.js?1542246790"></script>
-    <script src="/js/hugo-learn.js?1542246790"></script>
+    <script src="/js/modernizr.custom.71422.js?1542257158"></script>
+    <script src="/js/learn.js?1542257158"></script>
+    <script src="/js/hugo-learn.js?1542257158"></script>
 
-    <link href="/mermaid/mermaid.css?1542246790" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1542246790"></script>
+    <link href="/mermaid/mermaid.css?1542257158" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1542257158"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
