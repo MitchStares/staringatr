@@ -3,7 +3,6 @@ To Do List
 - Data manipulation - 3_columns - include changing things to numeric, mention how this happens computationally. Change the name to be more reflective of changing columns
 - Continue fixing all of the files (data manipulation -> )
 - Fix up homepage
-- Figure out a name
 - Put an about page for me, the website and uow etc. 
 - Put a page of other resources (data carpentry, environmentalcomputing.net etc.)
 - Work on website tutorials, manuscript/writing tutorials, GIS tutorials, multivariate tutorials
@@ -12,4 +11,6 @@ To Do List
 - Fix up the index for assumptions and analysis of variance. 
 	- include what assumptions are and why they are important. 
 - Replot the themes section so all of the themes are smaller and arranged in a grid with text below to show the command. 
-- Add drop down function for menu without refreshing page
+- Reorganise the graph section to have the fundamentals, foundations and then each geometric type, then things like time series, animated etc. 
+- Add facetting and saving multiple graphs with cowplot, ggpubr, ggarrange, gridextra etc.
+- Add drop down function for menu without refreshing page (basically docdock, but preferably without having to change hugo theme)
