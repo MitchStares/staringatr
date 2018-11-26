@@ -1,5 +1,6 @@
 ---
 title: "The Select Function"
+description: "Select specific columns from one dataset to create another or remove columns from your dataset"
 weight: 13
 date: '2018-11-09'
 output: blogdown::html_page

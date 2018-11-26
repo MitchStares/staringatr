@@ -1,5 +1,6 @@
 ---
 title: "The Mutate Function"
+description: "Create new columns using mathematical or logical calculations of other columns"
 weight: 11
 date: '2018-10-26'
 output: blogdown::html_page
@@ -24,13 +25,13 @@ weeds &lt;- mutate(weeds, log_flowers = log(flowers)) # Dplyr
 weeds_mutate &lt;- mutate(weeds, flowers2 = flowers*2) 
 # Simple multiplication of the flowers column by 2
 
-weeds_mutate &lt;- mutate(weeds, flowers_combined = flowers + flowers2) 
+weeds_mutate &lt;- mutate(weeds_mutate, flowers_combined = flowers + flowers2) 
 # This is a useless example but its just to show you how to combine multiple columns. 
 
-weeds_mutate &lt;- mutate(data, binary = soil == &quot;sandstone&quot;) 
+weeds_mutate &lt;- mutate(weeds_mutate, binary = soil == &quot;sandstone&quot;) 
 # Using boolean logic to create a column called &quot;binary&quot; where soil is exactly (hence double =&#39;s) sandstone. 
 
-weeds_mutate &lt;- mutate(data, flowers2 = flowers*2,
+weeds_mutate &lt;- mutate(weeds, flowers2 = flowers*2,
                       binary = soil == &quot;sandstone&quot;) 
 # You can also perform the functions multiple times on the same data within one line. </code></pre>
 <p>The arguments of <strong>mutate()</strong> are simply the name of the data frame followed by any number of expressions that create new variables.</p>

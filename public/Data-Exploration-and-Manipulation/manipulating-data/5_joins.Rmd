@@ -1,5 +1,6 @@
 ---
 title: "Joining Data"
+description: "Join multiple datasets together based on similar or different values of a column. e.g. join environmental and species data based on site name"
 author: "Mitchell Stares"
 weight: 14
 date: '2018-11-09'

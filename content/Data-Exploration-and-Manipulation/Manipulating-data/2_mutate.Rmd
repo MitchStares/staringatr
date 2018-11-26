@@ -35,13 +35,13 @@ weeds <- mutate(weeds, log_flowers = log(flowers)) # Dplyr
 weeds_mutate <- mutate(weeds, flowers2 = flowers*2) 
 # Simple multiplication of the flowers column by 2
 
-weeds_mutate <- mutate(weeds, flowers_combined = flowers + flowers2) 
+weeds_mutate <- mutate(weeds_mutate, flowers_combined = flowers + flowers2) 
 # This is a useless example but its just to show you how to combine multiple columns. 
 
-weeds_mutate <- mutate(data, binary = soil == "sandstone") 
+weeds_mutate <- mutate(weeds_mutate, binary = soil == "sandstone") 
 # Using boolean logic to create a column called "binary" where soil is exactly (hence double ='s) sandstone. 
 
-weeds_mutate <- mutate(data, flowers2 = flowers*2,
+weeds_mutate <- mutate(weeds, flowers2 = flowers*2,
                       binary = soil == "sandstone") 
 # You can also perform the functions multiple times on the same data within one line. 
 

@@ -1,5 +1,6 @@
 ---
 title: "Analysis of Variance"
+description: "Analyse the relationship between mutliple categorical predictor variables on a continuous response variable"
 weight: 16
 date: '2018-11-10'
 output: blogdown::html_page

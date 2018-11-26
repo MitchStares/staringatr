@@ -12,19 +12,19 @@
     <title>Manipulating data :: Staring at R</title>
 
     
-    <link href="/css/nucleus.css?1542403139" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1542403139" rel="stylesheet">
-    <link href="/css/hybrid.css?1542403139" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1542403139" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1542403139" rel="stylesheet">
-    <link href="/css/auto-complete.css?1542403139" rel="stylesheet">
-    <link href="/css/theme.css?1542403139" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1542403139" rel="stylesheet">
+    <link href="/css/nucleus.css?1543276066" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1543276066" rel="stylesheet">
+    <link href="/css/hybrid.css?1543276066" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1543276066" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1543276066" rel="stylesheet">
+    <link href="/css/auto-complete.css?1543276066" rel="stylesheet">
+    <link href="/css/theme.css?1543276066" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1543276066" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1542403139" rel="stylesheet">
+      <link href="/css/theme-green.css?1543276066" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1542403139"></script>
+    <script src="/js/jquery-2.x.min.js?1543276066"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -89,14 +89,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1542403139"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1542403139"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1543276066"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1543276066"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1542403139"></script>
+<script type="text/javascript" src="/js/search.js?1543276066"></script>
 
     
   </div>
@@ -1411,9 +1411,7 @@ e.g. ?rename.</p>
 
 			
 				
-<p>One of the most common data manipulations is adding a new column to your dataset. This is great for transforming data, while also keeping the original. This could be used to combine multiple columns into one or perform mathematical calculations involving multiple columns with the results in a separate column.
-We will start out with a few simple methods in base R, and then move to the dplyr method.
-##Log Transformation##weeds$log_flowers &lt;- log(weeds$flowers) # Base Rweeds &lt;- mutate(weeds, log_flowers = log(flowers)) # Dplyr# Each of these creates a new column which is the log of the flowers column.</p>
+<p>Create new columns using mathematical or logical calculations of other columns</p>
 				
 			
 		
@@ -1438,9 +1436,7 @@ We will start out with a few simple methods in base R, and then move to the dply
 
 			
 				
-<p>The filter() command is used to remove rows from your data. This can be useful for removing zeros or “no data/NA’s”, or for restricting certain variables in a dataset for an analysis.
-This follows the similar syntax as mutate() whereby we specify what dataset we want to filter, followed by how we want to filter.
-#The following examples will just keep overwriting the new object &quot;weeds_filtered&quot;weeds_filtered &lt;- filter(weeds, weeds == &quot;native&quot;) # Gives us only the rows which are exactly &quot;native&quot; in the weeds column.</p>
+<p>Filter out data based on logical criteria. E.g. Remove any values &lt; 10</p>
 				
 			
 		
@@ -1465,8 +1461,7 @@ This follows the similar syntax as mutate() whereby we specify what dataset we w
 
 			
 				
-<p>The select() function is used to select specific columns within your data and save them as a new data frame. You can use this if you have a large dataset and only want to use a few of the columns, to keep it simple and tidy. Or, you may want to take a column or two from multiple different datasets and combine them.
-weeds_select &lt;- select(weeds, soil) This simply creates the weeds_select dataset, seleting one column - “soil”.</p>
+<p>Select specific columns from one dataset to create another or remove columns from your dataset</p>
 				
 			
 		
@@ -1491,8 +1486,7 @@ weeds_select &lt;- select(weeds, soil) This simply creates the weeds_select dat
 
 			
 				
-<p>One of the most frequent data manipulations for working within R is joining multiple data sets together. The most common example of this is combining species abundance (or some other variable of interest) with external sources on the environmental conditions, such as BOM data (temperature, precipitation etc.) or GPS data.
-To do most statistical analyses, data needs to be in the same data frame. So joining the datasets is an “easy” way to do so outside of excel.</p>
+<p>Join multiple datasets together based on similar or different values of a column. e.g. join environmental and species data based on site name</p>
 				
 			
 		
@@ -1517,9 +1511,7 @@ To do most statistical analyses, data needs to be in the same data frame. So joi
 
 			
 				
-<p>By now, we have quite a few objects in our R environment that aren’t being used. The remove() command does exactly that….removes objects from the R environment. This helps for making things nice and tidy, specifically in our environment window.
-remove(frogfull, froginner, enviro_filter) # Removes all three objects we just generatedUse this in the console to “one off” remove an item.
-… that’s all, NEXT!</p>
+<p>Remove objects or datasets from the R environment</p>
 				
 			
 		
@@ -1544,8 +1536,7 @@ remove(frogfull, froginner, enviro_filter) # Removes all three objects we just g
 
 			
 				
-<p>This is an extremely useful function that lets you create different summaries of columns. You can also nest other functions within it to apply them to your columns.
-sum_data &lt;- summarise(weeds, mean(flowers)) # We&#39;ll start simple. Generates the mean of the flower columnsum_data &lt;- summarise(group_by(weeds, species), mean(flowers)) # Using the group_by() function within summarise lets you get summaries for groups, in this case &quot;species&quot;sum_data &lt;- summarise(group_by(weeds,species, soil), mean(flowers), sd(flowers), se=sd(flowers/sqrt(n())))# Grouped by with species &amp; soil, generating mean, standard deviation &amp; standard error of flowersThe last example generates the mean, sd and se for each factor combination in our dataset.</p>
+<p>Use summary functions such as mean and standard deviation on a column</p>
 				
 			
 		
@@ -1570,9 +1561,7 @@ sum_data &lt;- summarise(weeds, mean(flowers)) # We&#39;ll start simple. Generat
 
 			
 				
-<p>This lets you run multiple different functions on one dataset without having to use the intermediate steps you would have to use in base R.
-You start with the data you want to apply the functions to, followed by a pipe %&gt;%. After each pipe you must go to the next line.
-This is useful for large messy functions with multiple nested parts. It separates everything out and makes it easier to follow.</p>
+<p>Link multiple tidyverse functions together in a single processing step</p>
 				
 			
 		
@@ -2459,20 +2448,20 @@ This is useful for large messy functions with multiple nested parts. It separate
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1542403139"></script>
-    <script src="/js/perfect-scrollbar.min.js?1542403139"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1542403139"></script>
-    <script src="/js/jquery.sticky.js?1542403139"></script>
-    <script src="/js/featherlight.min.js?1542403139"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1542403139"></script>
-    <script src="/js/highlight.pack.js?1542403139"></script>
+    <script src="/js/clipboard.min.js?1543276066"></script>
+    <script src="/js/perfect-scrollbar.min.js?1543276066"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1543276066"></script>
+    <script src="/js/jquery.sticky.js?1543276066"></script>
+    <script src="/js/featherlight.min.js?1543276066"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1543276066"></script>
+    <script src="/js/highlight.pack.js?1543276066"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1542403139"></script>
-    <script src="/js/learn.js?1542403139"></script>
-    <script src="/js/hugo-learn.js?1542403139"></script>
+    <script src="/js/modernizr.custom.71422.js?1543276066"></script>
+    <script src="/js/learn.js?1543276066"></script>
+    <script src="/js/hugo-learn.js?1543276066"></script>
 
-    <link href="/mermaid/mermaid.css?1542403139" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1542403139"></script>
+    <link href="/mermaid/mermaid.css?1543276066" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1543276066"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

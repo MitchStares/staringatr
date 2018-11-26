@@ -12,19 +12,19 @@
     <title>Analysis of Variance :: Staring at R</title>
 
     
-    <link href="/css/nucleus.css?1542403139" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1542403139" rel="stylesheet">
-    <link href="/css/hybrid.css?1542403139" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1542403139" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1542403139" rel="stylesheet">
-    <link href="/css/auto-complete.css?1542403139" rel="stylesheet">
-    <link href="/css/theme.css?1542403139" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1542403139" rel="stylesheet">
+    <link href="/css/nucleus.css?1543276066" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1543276066" rel="stylesheet">
+    <link href="/css/hybrid.css?1543276066" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1543276066" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1543276066" rel="stylesheet">
+    <link href="/css/auto-complete.css?1543276066" rel="stylesheet">
+    <link href="/css/theme.css?1543276066" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1543276066" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1542403139" rel="stylesheet">
+      <link href="/css/theme-green.css?1543276066" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1542403139"></script>
+    <script src="/js/jquery-2.x.min.js?1543276066"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -89,14 +89,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1542403139"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1542403139"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1543276066"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1543276066"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1542403139"></script>
+<script type="text/javascript" src="/js/search.js?1543276066"></script>
 
     
   </div>
@@ -1362,8 +1362,7 @@
 
 			
 				
-<p>The first step for conducting an ANOVA in R is to create an ANOVA object. There are two ways of doing this, using the lm() command, and using the aov() command. For simplicity we will be using the aov() command now, but we will get to the lm() object later.
-By using the aov() command, we can create an object that tells summary(), plot() or any other commands that the object is specifically for an ANOVA and as such, will be treated as one.</p>
+<p>Analyse the relationship between mutliple categorical predictor variables on a continuous response variable</p>
 				
 			
 		
@@ -1388,8 +1387,7 @@ By using the aov() command, we can create an object that tells summary(), plot()
 
 			
 				
-<p>All statistical tests need to make various assumptions about your data when conducting the test. This is
-Content:  Normality  Normality can be tested in two basic ways. Through visual inspection of residuals in a normal quantile (QQ) plot and histogram, OR, through a mathematical test such as a shapiro-wilks test. To produce the two graphs for visual inspection of residuals we use the following commands: plot(weeds.aov, 2) # Normal quantile plotThe normal qq plot should display the residuals along the dotted line in a straight manner.</p>
+<p>All statistical tests need to make various assumptions about your data when conducting the test. This is due to the algorithms at work assuming your data fits specific distributions, has equal variances and your replicates are independant of one another (not spatially autocorrelated). Any violations of these assumptions can cause the test to produce a false-positive, as an analysis of variance is sensitive to violations in the assumptions of normality and homogeneity of variance (also called homoscedasticity).</p>
 				
 			
 		
@@ -2353,20 +2351,20 @@ TukeyHSD(weeds.aov) ## Tukey multiple comparisons of means## 95% family-wise c
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1542403139"></script>
-    <script src="/js/perfect-scrollbar.min.js?1542403139"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1542403139"></script>
-    <script src="/js/jquery.sticky.js?1542403139"></script>
-    <script src="/js/featherlight.min.js?1542403139"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1542403139"></script>
-    <script src="/js/highlight.pack.js?1542403139"></script>
+    <script src="/js/clipboard.min.js?1543276066"></script>
+    <script src="/js/perfect-scrollbar.min.js?1543276066"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1543276066"></script>
+    <script src="/js/jquery.sticky.js?1543276066"></script>
+    <script src="/js/featherlight.min.js?1543276066"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1543276066"></script>
+    <script src="/js/highlight.pack.js?1543276066"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1542403139"></script>
-    <script src="/js/learn.js?1542403139"></script>
-    <script src="/js/hugo-learn.js?1542403139"></script>
+    <script src="/js/modernizr.custom.71422.js?1543276066"></script>
+    <script src="/js/learn.js?1543276066"></script>
+    <script src="/js/hugo-learn.js?1543276066"></script>
 
-    <link href="/mermaid/mermaid.css?1542403139" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1542403139"></script>
+    <link href="/mermaid/mermaid.css?1543276066" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1543276066"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

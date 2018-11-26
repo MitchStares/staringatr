@@ -84,7 +84,7 @@ weeds <- read.csv('weeds.csv', header=TRUE)
 Once your data is imported into R and saved as an object, either click the object in the Workspace/environment or use `View(weeds)`
 
 {{% notice question %}}
-**What is the argument of `read.csv()` I would need to use to make the _sites_ column my row names?**  
+**What is the argument of `read.csv()` I would need to use to make the _sites_ column my row names in the _"sitedata"_ dataset?**  
 {{% /notice %}}  
 ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 site<-read.csv('../../resources/datafiles/site.csv')

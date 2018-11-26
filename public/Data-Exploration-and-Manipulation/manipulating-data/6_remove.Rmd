@@ -1,5 +1,6 @@
 ---
 title: "Removing Items"
+description: "Remove objects or datasets from the R environment"
 author: "Mitchell Stares"
 weight: 15
 date: '2018-11-09'
