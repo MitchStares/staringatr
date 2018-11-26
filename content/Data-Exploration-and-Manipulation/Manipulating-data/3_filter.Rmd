@@ -1,5 +1,6 @@
 ---
 title: "The Filter Function"
+description: "Filter out data based on logical criteria. E.g. Remove any values < 10"
 author: "Mitchell Stares"
 date: '2018-11-09'
 weight: 12

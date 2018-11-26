@@ -1,5 +1,6 @@
 ---
 title: "The Pipe Function"
+description: "Link multiple tidyverse functions together in a single processing step"
 author: "Mitchell Stares"
 weight: 17
 date: '2018-11-10'

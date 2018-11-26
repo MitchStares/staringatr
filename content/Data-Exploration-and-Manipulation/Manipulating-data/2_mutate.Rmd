@@ -1,5 +1,6 @@
 ---
 title: "The Mutate Function"
+description: "Create new columns using mathematical or logical calculations of other columns"
 weight: 11
 date: '2018-10-26'
 output: blogdown::html_page

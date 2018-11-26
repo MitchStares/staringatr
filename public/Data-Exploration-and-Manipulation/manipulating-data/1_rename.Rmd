@@ -1,5 +1,6 @@
 ---
 title: "The Rename Function"
+description: "Rename columns in a data frame while maintaining the data in tact"
 weight: 10
 date: '2018-10-31'
 output: blogdown::html_page

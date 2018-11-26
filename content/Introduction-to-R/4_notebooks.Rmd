@@ -34,9 +34,10 @@ Chunks separate code from text, making it easier to write notes and read. *These
 
 ```{r eval=FALSE, message=FALSE, warning=FALSE, include=TRUE, paged.print=FALSE}
 
-# Only do have not created a project
+# Only if you have not created a project
 
 setwd("Drive:/Folder1/Folder2")
+
 # insert your folders path in the brackets
 # this will tell R to look here for files and "generally" save things here as well.
 # e.g. C:/Users/Mitch/Documents/R/
