@@ -55,7 +55,11 @@ The arguments of **mutate()** are simply the name of the data frame followed by 
 
 You will notice throughout the **mutate()** commands that we have performed functions, creating new columns, while preserving the original. If you wish to drop the original column, simply use the **transmute()** command.
 
+{{% notice question %}}
 **Use the Mutate() command on the insecticide dataset to answer the following question**  
-**Question: What is the square of the number in the last row of species.richness (row 42)?**  
+**Question: What is the square of the number in the last row of species.richness (row 42)?**
+{{% /notice %}}
 
-{1:SHORTANSWER:=255}  
+{{% expand Answer %}}
+**225
+{{% /notice %}}

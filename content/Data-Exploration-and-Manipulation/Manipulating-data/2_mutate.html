@@ -36,6 +36,10 @@ weeds_mutate &lt;- mutate(weeds, flowers2 = flowers*2,
 # You can also perform the functions multiple times on the same data within one line. </code></pre>
 <p>The arguments of <strong>mutate()</strong> are simply the name of the data frame followed by any number of expressions that create new variables.</p>
 <p>You will notice throughout the <strong>mutate()</strong> commands that we have performed functions, creating new columns, while preserving the original. If you wish to drop the original column, simply use the <strong>transmute()</strong> command.</p>
-<p><strong>Use the Mutate() command on the insecticide dataset to answer the following question</strong><br />
-<strong>Question: What is the square of the number in the last row of species.richness (row 42)?</strong></p>
-<p>{1:SHORTANSWER:=255}</p>
+<p>{{% notice question %}}
+<strong>Use the Mutate() command on the insecticide dataset to answer the following question</strong><br />
+<strong>Question: What is the square of the number in the last row of species.richness (row 42)?</strong>
+{{% /notice %}}</p>
+<p>{{% expand Answer %}}
+**225
+{{% /notice %}}</p>
