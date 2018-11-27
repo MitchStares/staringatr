@@ -49,11 +49,10 @@ weeds_mutate <- mutate(weeds, flowers2 = flowers*2,
 
 ```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 insect <- mutate(insect, square = species.richness^2)
-
 ```
-The arguments of **mutate()** are simply the name of the data frame followed by any number of expressions that create new variables.  
+The arguments of `mutate()` are simply the name of the data frame followed by any number of expressions that create new variables.  
 
-You will notice throughout the **mutate()** commands that we have performed functions, creating new columns, while preserving the original. If you wish to drop the original column, simply use the **transmute()** command.
+You will notice throughout the `mutate()` commands that we have performed functions, creating new columns, while preserving the original. If you wish to drop/remove the original column, simply use the `transmute()` command.
 
 {{% notice question %}}
 **Use the Mutate() command on the insecticide dataset to answer the following question**  

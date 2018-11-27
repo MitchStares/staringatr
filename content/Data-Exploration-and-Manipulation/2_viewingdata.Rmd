@@ -66,11 +66,11 @@ summary(weeds) # Gives you summary statistics for each column
   
 As you can see, there are many ways to view data within R. Some of these are useful for huge datasets (> 10k rows) as the `view()` command can put strain on your computer. Using `head()` or `tail()` to view aspects of the data is useful as it reduces how much is displayed.  
 {{% notice question %}}
-**Use the summary() command with the "insecticide"" dataset to answer the following questions:**
+**After reading in dataset, use the summary() command with the "insecticide"" dataset to answer the following questions:**  
 **Question: What is the minimum value for species richness?**
 {{% /notice %}}
 
-{{% expand %}}
+{{% expand Answer %}}
 **1**
 {{% /expand %}}  
 
@@ -78,6 +78,6 @@ As you can see, there are many ways to view data within R. Some of these are use
 **Question: What is the maximum value for species richness?**
 {{% /notice %}}
 
-{{% expand %}}
+{{% expand Answer %}}
 **20**
 {{% /expand %}}

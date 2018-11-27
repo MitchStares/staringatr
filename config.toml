@@ -31,7 +31,7 @@ languageName = "English"
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-fw fa-github'></i> Github repository"
 identifier = "ds"
-url = "https://github.com/matcornic/hugo-theme-learn"
+url = "https://github.com/MitchStares/R_website"
 weight = 11
 
 [[Languages.en.menu.shortcuts]]
