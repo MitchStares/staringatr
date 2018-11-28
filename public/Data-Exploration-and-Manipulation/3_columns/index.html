@@ -12,19 +12,19 @@
     <title>Columns :: Staring at R</title>
 
     
-    <link href="/css/nucleus.css?1543279754" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1543279754" rel="stylesheet">
-    <link href="/css/hybrid.css?1543279754" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1543279754" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1543279754" rel="stylesheet">
-    <link href="/css/auto-complete.css?1543279754" rel="stylesheet">
-    <link href="/css/theme.css?1543279754" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1543279754" rel="stylesheet">
+    <link href="/css/nucleus.css?1543449012" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1543449012" rel="stylesheet">
+    <link href="/css/hybrid.css?1543449012" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1543449012" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1543449012" rel="stylesheet">
+    <link href="/css/auto-complete.css?1543449012" rel="stylesheet">
+    <link href="/css/theme.css?1543449012" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1543449012" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1543279754" rel="stylesheet">
+      <link href="/css/theme-green.css?1543449012" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1543279754"></script>
+    <script src="/js/jquery-2.x.min.js?1543449012"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -89,14 +89,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1543279754"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1543279754"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1543449012"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1543449012"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1543279754"></script>
+<script type="text/javascript" src="/js/search.js?1543449012"></script>
 
     
   </div>
@@ -1334,30 +1334,38 @@
 <pre><code>## [1] 14 17 23 26 35 45</code></pre>
 <p>Try this with some of the other commands above. <em>Note: Some of them will not work and will show NULL. This is because these are designed to view aspects of the data frame (e.g. names() )</em></p>
 <p><strong>Now we know how to refer to a column, we can fix any issues with importing incorrect data</strong></p>
-<pre class="r"><code># Pretend for a moment our data was input incorrectly
-weeds$species&lt;-factor(weeds$species) # this would simply save the command factor() on the column species to our weeds object.
-
-# If we wanted an ordered factor, e.g. small &lt; medium &lt; large we can use the following
-    #example dataset
+<p>Pretend for a moment our data was input incorrectly:</p>
+<pre class="r"><code>weeds$species&lt;-factor(weeds$species)</code></pre>
+<p>This would simply save the command <code>factor()</code> on the column species to our weeds object.</p>
+<p>If we wanted an ordered factor, e.g. small &lt; medium &lt; large we can use the following</p>
+<pre class="r"><code>## example dataset ##
 sizes &lt;- factor(c(&quot;small&quot;, &quot;large&quot;, &quot;large&quot;, &quot;small&quot;, &quot;medium&quot;, &quot;medium&quot;)) # creating a single column factor with 3 levels
 sizes</code></pre>
 <pre><code>## [1] small  large  large  small  medium medium
 ## Levels: large medium small</code></pre>
+<p>Here we have just created a new example dataset which consists of a single column, containing the words: small, large and medium in a random order.</p>
+<p>We can order these into a logical order, so R will know that medium is bigger than small and large is bigger than medium</p>
 <pre class="r"><code>sizes &lt;- ordered(sizes, levels = c(&quot;small&quot;, &quot;medium&quot;, &quot;large&quot;)) # ordering levels from small through to large.
 # Note: I did not need to specify column as this is a single column dataset. 
 sizes # Now the factor is ordered.</code></pre>
 <pre><code>## [1] small  large  large  small  medium medium
 ## Levels: small &lt; medium &lt; large</code></pre>
-<pre class="r"><code>weeds$species&lt;-ordered(weeds$species, levels=c(&quot;Pultenaea&quot;, &quot;Olearia&quot;, &quot;Coprosma&quot;)) # This is an example with our data set, but this is nonsensical ordering so dont do this</code></pre>
-<p>By default, R will always sort in alphabetical order, which can be a pain when graphing. If you want ordered factors, or want to present factors along an X axis in a more logical order then the <strong>ordered()</strong> command or even <strong>factor()</strong> command where you specify levels is a good option.</p>
-<p>If you want to change something to a continuous (numeric, integer etc.) its a little more complicated, but in general R shouldn’t mess this up too often. A quick google search or <strong>?numeric</strong> will help answer this.</p>
+<p>We can then do this with our weeds dataset, ordering them in a nonsensical order.</p>
+<pre class="r"><code>weeds$species&lt;-ordered(weeds$species, levels=c(&quot;Pultenaea&quot;, &quot;Olearia&quot;, &quot;Coprosma&quot;))</code></pre>
+<p>This is useful when the dataset you are working with has an ordered factor.</p>
+<p><strong>The main use for this is in graphing</strong></p>
+<p>By default, R will always sort in alphabetical order, which can be a pain when graphing. If you want ordered factors, or want to present factors along an X axis in a more logical order then the <code>ordered()</code> command or even <code>factor()</code> command where you specify levels is a good option.</p>
+<div class="notices tip" ><p>I recommend using the <strong>factor()</strong> command and specifying the levels using the same syntax as the <strong>ordered()</strong> command unless your factor is truely ordered. This way we just sort the factor the way we want, but are not messing with the way R views our variable (as an ordinal variable rather than a logically ordered factor).</p>
+</div>
+
+<p>If you want to change something to a continuous (numeric, integer etc.) its a little more complicated, but in general R shouldn’t mess this up too often. A quick google search or <code>?numeric</code> will help answer this.</p>
 <p>Once we can reference to specific columns we can do interesting things like plot a quick graph.</p>
 <pre class="r"><code>plot(weeds$flowers.m3 ~ weeds$soil) # This says to plot a graph with flowers.m3 by (~) soil. </code></pre>
-<p><img src="/Data-Exploration-and-Manipulation/3_columns_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/Data-Exploration-and-Manipulation/3_columns_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <pre class="r"><code># You should get a box and whisker plot.  
 
 hist(weeds$flowers.m3) # hist() is a command that only works on numeric (continuous) columns, and will show you a histogram</code></pre>
-<p><img src="/Data-Exploration-and-Manipulation/3_columns_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<p><img src="/Data-Exploration-and-Manipulation/3_columns_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
 <p>Try replacing the column names in the <strong>plot()</strong> command to see what types of graphs you get. We will return to graphing at a later date, but this is a quick and easy way to view your data.</p>
 <p><div class="notices question" ><p><strong>Using the plot() command with the insecticide dataset answer the following question:</strong><br />
 <strong>Question: What fragment size has a species richness outlier? (according to the box &amp; whisker plot)</strong><br /></p>
@@ -2249,20 +2257,20 @@ hist(weeds$flowers.m3) # hist() is a command that only works on numeric (continu
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1543279754"></script>
-    <script src="/js/perfect-scrollbar.min.js?1543279754"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1543279754"></script>
-    <script src="/js/jquery.sticky.js?1543279754"></script>
-    <script src="/js/featherlight.min.js?1543279754"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1543279754"></script>
-    <script src="/js/highlight.pack.js?1543279754"></script>
+    <script src="/js/clipboard.min.js?1543449012"></script>
+    <script src="/js/perfect-scrollbar.min.js?1543449012"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1543449012"></script>
+    <script src="/js/jquery.sticky.js?1543449012"></script>
+    <script src="/js/featherlight.min.js?1543449012"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1543449012"></script>
+    <script src="/js/highlight.pack.js?1543449012"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1543279754"></script>
-    <script src="/js/learn.js?1543279754"></script>
-    <script src="/js/hugo-learn.js?1543279754"></script>
+    <script src="/js/modernizr.custom.71422.js?1543449012"></script>
+    <script src="/js/learn.js?1543449012"></script>
+    <script src="/js/hugo-learn.js?1543449012"></script>
 
-    <link href="/mermaid/mermaid.css?1543279754" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1543279754"></script>
+    <link href="/mermaid/mermaid.css?1543449012" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1543449012"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

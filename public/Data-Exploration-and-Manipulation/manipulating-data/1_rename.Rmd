@@ -20,8 +20,6 @@ library(tidyverse)
 By now, if you are like me, you are probably getting annoyed at writing *"flowers.m3"* or *"species.richness"* everytime you need to refer to one of those columns. This will happen **ALOT** with data you enter or obtain from others, as R converts any spaces to fullstops and people tend to capitilise most words. The `rename()` function allows us to simply rename a column name within our data frame.  
 Personally, this is my favourite function in R as I hate captials, fullstops and other annoying column name problems that slow down coding or generate errors. Trust me, when you spend an hour trying to fix a line of code only to find a single capital letter is missing, you will understand.
 
-***
-insert angry/twitching gif here***
 
 To do this with dplyr (a tidyverse package) we simply use the following command:  
 
@@ -36,13 +34,12 @@ Pretty simple and straightforward.
 If you want to rename multiple columns, this is a pretty simple addition. For demonstrating purposes, I am going to rename all the columns of weeds to nonsensical crap.  
 
 ```{r}
-grocerylist <- rename(weeds, !!c(coopers = "flowers", asahi = "species", vb = "soil", littlecreatures = "weeds"))
-# to specify multiple variables/columns, we simply concatenate (put inside brackets with c before them) the multiple arguments into a string. 
+grocerylist <- rename(weeds, coopers = "flowers", asahi = "species", vb = "soil", littlecreatures = "weeds")
+# to specify multiple variables/columns, we simply add a comma after the first rename and keep going. 
 ```
 
-Alternatively, you can specify the variables to change separately in a line before the `rename()` command.  
-
-```{r}
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+#Alternatively, you can specify the variables to change separately in a line before the `rename()` command.  
 beer <- c(coopers = "flowers", asahi = "species", vb = "soil", littlecreatures = "weeds")
 grocerylist <- rename(weeds, !!beer)
 ```

@@ -22,32 +22,48 @@ head(weeds$flowers.m3) # This says to run the head() command but only on the flo
   
 Try this with some of the other commands above. *Note: Some of them will not work and will show NULL. This is because these are designed to view aspects of the data frame (e.g. names() )*  
 
-**Now we know how to refer to a column, we can fix any issues with importing incorrect data**
+**Now we know how to refer to a column, we can fix any issues with importing incorrect data**  
 
+Pretend for a moment our data was input incorrectly:
 ```{r message=FALSE, warning=FALSE}
+weeds$species<-factor(weeds$species)
+```
+This would simply save the command `factor()` on the column species to our weeds object.  
 
-# Pretend for a moment our data was input incorrectly
-weeds$species<-factor(weeds$species) # this would simply save the command factor() on the column species to our weeds object.
-
-# If we wanted an ordered factor, e.g. small < medium < large we can use the following
-    #example dataset
+If we wanted an ordered factor, e.g. small < medium < large we can use the following
+```{r message=FALSE, warning=FALSE}
+## example dataset ##
 sizes <- factor(c("small", "large", "large", "small", "medium", "medium")) # creating a single column factor with 3 levels
 sizes
+```
+Here we have just created a new example dataset which consists of a single column, containing the words: small, large and medium in a random order.  
 
+We can order these into a logical order, so R will know that medium is bigger than small and large is bigger than medium
+```{r}
 sizes <- ordered(sizes, levels = c("small", "medium", "large")) # ordering levels from small through to large.
 # Note: I did not need to specify column as this is a single column dataset. 
 sizes # Now the factor is ordered.
-
-weeds$species<-ordered(weeds$species, levels=c("Pultenaea", "Olearia", "Coprosma")) # This is an example with our data set, but this is nonsensical ordering so dont do this
-
 ```
+
+We can then do this with our weeds dataset, ordering them in a nonsensical order. 
+```{R}
+weeds$species<-ordered(weeds$species, levels=c("Pultenaea", "Olearia", "Coprosma"))
+```
+
+This is useful when the dataset you are working with has an ordered factor.  
+
+**The main use for this is in graphing**  
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 weeds<-read.csv("../../resources/datafiles/weeds.csv")
 ```
-By default, R will always sort in alphabetical order, which can be a pain when graphing. If you want ordered factors, or want to present factors along an X axis in a more logical order then the **ordered()** command or even **factor()** command where you specify levels is a good option.  
+By default, R will always sort in alphabetical order, which can be a pain when graphing. If you want ordered factors, or want to present factors along an X axis in a more logical order then the `ordered()` command or even `factor()` command where you specify levels is a good option.
 
-If you want to change something to a continuous (numeric, integer etc.) its a little more complicated, but in general R shouldn't mess this up too often. A quick google search or **?numeric** will help answer this. 
+{{% notice tip %}}
+I recommend using the **factor()** command and specifying the levels using the same syntax as the **ordered()** command unless your factor is truely ordered. This way we just sort the factor the way we want, but are not messing with the way R views our variable (as an ordinal variable rather than a logically ordered factor).
+{{% /notice %}}
+
+If you want to change something to a continuous (numeric, integer etc.) its a little more complicated, but in general R shouldn't mess this up too often. A quick google search or `?numeric` will help answer this. 
 
 
 Once we can reference to specific columns we can do interesting things like plot a quick graph.  

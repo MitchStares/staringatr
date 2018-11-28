@@ -12,19 +12,19 @@
     <title>The Rename Function :: Staring at R</title>
 
     
-    <link href="/css/nucleus.css?1543279755" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1543279755" rel="stylesheet">
-    <link href="/css/hybrid.css?1543279755" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1543279755" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1543279755" rel="stylesheet">
-    <link href="/css/auto-complete.css?1543279755" rel="stylesheet">
-    <link href="/css/theme.css?1543279755" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1543279755" rel="stylesheet">
+    <link href="/css/nucleus.css?1543449012" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1543449012" rel="stylesheet">
+    <link href="/css/hybrid.css?1543449012" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1543449012" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1543449012" rel="stylesheet">
+    <link href="/css/auto-complete.css?1543449012" rel="stylesheet">
+    <link href="/css/theme.css?1543449012" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1543449012" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1543279755" rel="stylesheet">
+      <link href="/css/theme-green.css?1543449012" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1543279755"></script>
+    <script src="/js/jquery-2.x.min.js?1543449012"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -89,14 +89,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1543279755"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1543279755"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1543449012"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1543449012"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1543279755"></script>
+<script type="text/javascript" src="/js/search.js?1543449012"></script>
 
     
   </div>
@@ -1337,19 +1337,14 @@
 
 <p>By now, if you are like me, you are probably getting annoyed at writing <em>“flowers.m3”</em> or <em>“species.richness”</em> everytime you need to refer to one of those columns. This will happen <strong>ALOT</strong> with data you enter or obtain from others, as R converts any spaces to fullstops and people tend to capitilise most words. The <code>rename()</code> function allows us to simply rename a column name within our data frame.<br />
 Personally, this is my favourite function in R as I hate captials, fullstops and other annoying column name problems that slow down coding or generate errors. Trust me, when you spend an hour trying to fix a line of code only to find a single capital letter is missing, you will understand.</p>
-<hr />
-<p>insert angry/twitching gif here***</p>
 <p>To do this with dplyr (a tidyverse package) we simply use the following command:</p>
 <pre class="r"><code>weeds &lt;- rename(weeds, flowers = flowers.m3)
 # In the brackets we need to specify our data frame (weeds) followed by a second argument specifying the name we want for our column = the name we already have.
 # Again, if you run this by itself it will not save to your data frame, unless you direct it to your data frame variable using the &lt;- </code></pre>
 <p>Pretty simple and straightforward.</p>
 <p>If you want to rename multiple columns, this is a pretty simple addition. For demonstrating purposes, I am going to rename all the columns of weeds to nonsensical crap.</p>
-<pre class="r"><code>grocerylist &lt;- rename(weeds, !!c(coopers = &quot;flowers&quot;, asahi = &quot;species&quot;, vb = &quot;soil&quot;, littlecreatures = &quot;weeds&quot;))
-# to specify multiple variables/columns, we simply concatenate (put inside brackets with c before them) the multiple arguments into a string. </code></pre>
-<p>Alternatively, you can specify the variables to change separately in a line before the <code>rename()</code> command.</p>
-<pre class="r"><code>beer &lt;- c(coopers = &quot;flowers&quot;, asahi = &quot;species&quot;, vb = &quot;soil&quot;, littlecreatures = &quot;weeds&quot;)
-grocerylist &lt;- rename(weeds, !!beer)</code></pre>
+<pre class="r"><code>grocerylist &lt;- rename(weeds, coopers = &quot;flowers&quot;, asahi = &quot;species&quot;, vb = &quot;soil&quot;, littlecreatures = &quot;weeds&quot;)
+# to specify multiple variables/columns, we simply add a comma after the first rename and keep going. </code></pre>
 
 
 <footer class=" footline" >
@@ -2222,20 +2217,20 @@ grocerylist &lt;- rename(weeds, !!beer)</code></pre>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1543279755"></script>
-    <script src="/js/perfect-scrollbar.min.js?1543279755"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1543279755"></script>
-    <script src="/js/jquery.sticky.js?1543279755"></script>
-    <script src="/js/featherlight.min.js?1543279755"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1543279755"></script>
-    <script src="/js/highlight.pack.js?1543279755"></script>
+    <script src="/js/clipboard.min.js?1543449012"></script>
+    <script src="/js/perfect-scrollbar.min.js?1543449012"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1543449012"></script>
+    <script src="/js/jquery.sticky.js?1543449012"></script>
+    <script src="/js/featherlight.min.js?1543449012"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1543449012"></script>
+    <script src="/js/highlight.pack.js?1543449012"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1543279755"></script>
-    <script src="/js/learn.js?1543279755"></script>
-    <script src="/js/hugo-learn.js?1543279755"></script>
+    <script src="/js/modernizr.custom.71422.js?1543449012"></script>
+    <script src="/js/learn.js?1543449012"></script>
+    <script src="/js/hugo-learn.js?1543449012"></script>
 
-    <link href="/mermaid/mermaid.css?1543279755" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1543279755"></script>
+    <link href="/mermaid/mermaid.css?1543449012" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1543449012"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
