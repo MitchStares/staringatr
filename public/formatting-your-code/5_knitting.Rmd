@@ -15,8 +15,6 @@ library(tidyverse)
 
 ## Knitting
 
-![](/images/knitting.jpg?width=30pc)
-
 The process of **knitting** a document is one of the main benefits behind using a markdown style document. While markdown documents are aesthetically pleasing environment to code in, the ability to export your work to a different file type is very handy. The use of code chunks and non-coding regions means we can output all of our work in our markdown file to a pdf, word or html with the click of a button (and sometimes some formatting).  
 
 {{% notice tip %}}
