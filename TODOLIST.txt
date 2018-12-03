@@ -15,3 +15,4 @@ To Do List
 - Add drop down function for menu without refreshing page (basically docdock, but preferably without having to change hugo theme)
 - Add a section to formatting your code about document outlines. Placing libraries first, then data read in and then data manipulation, analysis and graphs
 	- Inlcude the different ways to outline this, by hypothesis, or all at once. 
+- ggplot basic syntax page. Make the example code clear that it is just for syntax purposes and will not actually run. 
