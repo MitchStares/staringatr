@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Analysis of Variance on Staring at R</title>
+    <link>/2-statistical-analysis/analysis-of-variance/</link>
+    <description>Recent content in Analysis of Variance on Staring at R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 10 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/2-statistical-analysis/analysis-of-variance/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Analysis of Variance</title>
+      <link>/2-statistical-analysis/analysis-of-variance/1_aov/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2-statistical-analysis/analysis-of-variance/1_aov/</guid>
+      <description>The first step for conducting an ANOVA in R is to create an ANOVA object. There are two ways of doing this, using the lm() command, and using the aov() command. For simplicity we will be using the aov() command now, but we will get to the lm() object later.
+By using the aov() command, we can create an object that tells summary(), plot() or any other commands that the object is specifically for an ANOVA and as such, will be treated as one.</description>
+    </item>
+    
+    <item>
+      <title>Viewing results</title>
+      <link>/2-statistical-analysis/analysis-of-variance/3_anovaresults/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2-statistical-analysis/analysis-of-variance/3_anovaresults/</guid>
+      <description>Once we know our data is normal and we have our aov() object, we can use one of two commands on this object to generate our statistical result. The normal way to do so is to use the anova() command.
+anova(weeds.aov) # run an anova on the object## Analysis of Variance Table## ## Response: flowers## Df Sum Sq Mean Sq F value Pr(&amp;gt;F) ## species 2 2368.6 1184.</description>
+    </item>
+    
+    <item>
+      <title>Two-factor ANOVAs</title>
+      <link>/2-statistical-analysis/analysis-of-variance/4_twofactors/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2-statistical-analysis/analysis-of-variance/4_twofactors/</guid>
+      <description>To conduct an two-factor ANOVA is pretty straightforward.
+weeds.aov2 &amp;lt;- aov(flowers ~ species + soil, data = weeds) # two-factor anova (without interaction)summary(weeds.aov2)## Df Sum Sq Mean Sq F value Pr(&amp;gt;F) ## species 2 2369 1184.3 9.272 0.000436 ***## soil 1 239 238.5 1.867 0.178720 ## Residuals 44 5620 127.7 ## ---## Signif. codes: 0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1This example constructs an ANOVA with two factors, but does not include the interaction term.</description>
+    </item>
+    
+    <item>
+      <title>Tukeys HSD</title>
+      <link>/2-statistical-analysis/analysis-of-variance/5_tukeys/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2-statistical-analysis/analysis-of-variance/5_tukeys/</guid>
+      <description>All of our analyses so far have showed us that species has an influence on flower abundance. But without conducting an extra test, we cannot be certain which species are statistically significant from each other when it comes to their effect on flower abundance
+TukeyHSD(weeds.aov) ## Tukey multiple comparisons of means## 95% family-wise confidence level## ## Fit: aov(formula = flowers ~ species, data = weeds)## ## $species## diff lwr upr p adj## Olearia-Coprosma 12.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,98 @@
+---
+title: "Importing Data"
+weight: 10
+date: '2018-11-15'
+author: "Mitchell Stares"
+output: blogdown::html_page
+editor_options: 
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+Now that we have successfully have a project and notebook, we can start to read in data.  
+
+The first thing with R is that working with normal excel files is quite difficult. So we always work with **comma separated values** or **.CSV** files. When saving an excel sheet, just *save as* and select *.csv (comma delimited)* as the file type. *note: .csv's can only save a single sheet, not the whole excel workbook*  
+
+When saving, Excel will inform you that some features may not save with a .csv. This shouldn't be a problem for you, but read these to make sure.  
+
+Importing our data into R allows us to not only analyse and graph the data, but do manipulations, like create new columns using formulae, rearranging, rename and even removing columns & rows without modifying our original data file. This is incredibly useful to maintain the original raw data, allowing you to share the data and R script with collaborators across a wide range of platforms. 
+
+For these tutorials, all data will be csv files (unless otherwise specified).
+
+{{% notice info %}}
+Download the "weeds" and "insecticide" datasets from the **Datasets** tab and save them to your project folder.
+{{% /notice %}}  
+
+```{r eval=FALSE, include=FALSE}
+blogdown::shortcode("attachments", title="Data sets") #this has been disabled due to all text following this code having a slight indent. 
+# all datasets have now been moved to a separate page
+```  
+
+
+**Use the following code within a chunk to enter your data into R:** 
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+read.csv("weeds.csv")
+```
+{{% notice tip%}}
+The file needs to be in your set working directory. If it is not, you need the full filepath.
+You can skip the working directory step by using the full file path.
+e.g. "C:/Users/Mitch/Documents/R/weeds.csv"  
+This can be copied from file explorer, but make sure the slash's are / and not \
+{{% /notice %}}  
+  
+This alone will just read the data in its basic form into R. If we want to call on this later we need to save the datafile or "data frame" to a variable of our choosing. By saving different functions in R to a variable/object we reduce the amount of work we need to do later. Instead of typing *"group_data_2018_complete.csv"* everytime, we can instead just call it *"data", "X"* or even *"skittles"* and type that when we refer to the data.   
+I personally would choose something a little more descriptive than just "data", as it can get confusing when working with multiple data sets  
+
+{{% notice note %}}
+Assigning a function in R to a variable is one of the most important aspects of coding in R.  
+{{% /notice %}}  
+
+**This is done by the following:**
+```{r eval=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+weeds <- read.csv('weeds.csv')
+# we simply direct our command, read.csv() to our variable name using an arrow of < and -
+  # alternatively, 'alt' + '-' is the shortcut for this. 
+```
+
+R will automatically assume that the first row are our column headings. The `read.csv()` command has this by default. If you want to change this, simply include the `header=FALSE` argument (like below). **Arguments are anything within the brackets of a command that can be added to the command. Even stating your filename in the read.csv is an "argument"**  
+
+Similarly, `read.csv()` defaults its own row numbers (like excel). You can change this by adding `row.names=` to the command. If you add *=1* it will take the first column as your row numbers/names.
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+weeds <- read.csv('weeds.csv', header=FALSE) 
+# this will stop the automatic placement of your first row as your column headers. The default for this is TRUE
+
+weeds <- read.csv('weeds.csv', row.names=1) 
+# This places your first column as your row names. Change the number to make a different column your row names
+# This is useful to place site names/numbers as your row numbers. It is basically required when trying to do multivariate (PRIMER) analysis in R.
+
+# You can combine the two just by adding a comma between them, like so:
+weeds <- read.csv('weeds.csv', header=TRUE, row.names=1)
+# we want the first row to be our column names, so we say TRUE for header. 
+# You dont need to do this, as its an assumed default by R...but its good practice
+# For these workshops we will be using R's default row numbering. So just overwrite your read.csv() without the row.names
+
+weeds <- read.csv('weeds.csv', header=TRUE)
+
+```
+
+
+Once your data is imported into R and saved as an object, either click the object in the Workspace/environment or use `View(weeds)`
+
+{{% notice question %}}
+**What is the argument of `read.csv()` I would need to use to make the _sites_ column my row names in the _"sitedata"_ dataset?**  
+{{% /notice %}}  
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+site<-read.csv('../../resources/datafiles/site.csv')
+head(site)
+```  
+
+`r blogdown::shortcode("expand", "Answer")`
+**row.names=1**  
+**full command:** `read.csv("sitedata.csv", row.names=1)`
+
+

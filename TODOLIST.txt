@@ -7,10 +7,11 @@ To Do List
 - Put a page of other resources (data carpentry, environmentalcomputing.net etc.)
 - Work on website tutorials, manuscript/writing tutorials, GIS tutorials, multivariate tutorials
 - Put tags on files for the search bar
-- Fix up weights all throughout the website
 - Fix up the index for assumptions and analysis of variance. 
 	- include what assumptions are and why they are important. 
 - Replot the themes section so all of the themes are smaller and arranged in a grid with text below to show the command. 
 - Reorganise the graph section to have the fundamentals, foundations and then each geometric type, then things like time series, animated etc. 
 - Add facetting and saving multiple graphs with cowplot, ggpubr, ggarrange, gridextra etc.
 - Add drop down function for menu without refreshing page (basically docdock, but preferably without having to change hugo theme)
+- Add a section to formatting your code about document outlines. Placing libraries first, then data read in and then data manipulation, analysis and graphs
+	- Inlcude the different ways to outline this, by hypothesis, or all at once. 

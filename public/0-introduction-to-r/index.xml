@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction to R on Staring at R</title>
+    <link>/0-introduction-to-r/</link>
+    <description>Recent content in Introduction to R on Staring at R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 22 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/0-introduction-to-r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R Studio &amp; Coding Environment</title>
+      <link>/0-introduction-to-r/01_r-studio-and-the-coding-environment/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/0-introduction-to-r/01_r-studio-and-the-coding-environment/</guid>
+      <description>IntroductionThis module will provide an introduction into the R statisitical environment, going through the basics of data analysis and graphing for publication quality results.By the end of this module, you should be able to:
+Understand and use the R studio working environmentImport and manipulate data filesUndertake linear (ANOVA, regression) and generalised linear (logistic regression) models and associated assumptions/comparisonsUndertake basic multivariate techniques (PCA, MDS)Construct bar plots and scatterplots in ggplotWhat is R?</description>
+    </item>
+    
+    <item>
+      <title>Setting up your workspace</title>
+      <link>/0-introduction-to-r/02_setting-up-your-workspace/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/0-introduction-to-r/02_setting-up-your-workspace/</guid>
+      <description>There are very quick ways to open R and begin coding, however, having an organised, well-structured working directory in your computer can save you hours of hassle and make your code much easier to share. As biology and data science are becoming increasingly complex many are turning to computer intensive, coding based software (like you!). With this movement in data science and open access, having our code reproducible, transparent and understandable is key.</description>
+    </item>
+    
+    <item>
+      <title>Creating a project</title>
+      <link>/0-introduction-to-r/03_creating-a-project/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/0-introduction-to-r/03_creating-a-project/</guid>
+      <description>Now that we have our folder setup, lets move into R studio and create our project.
+In R, a project file stores your current Rstudio working environment in a file within your file system. This means, if you finish your work for the day halfway through an analysis, you can open up your project file the next day and continue straight from where you left off. The other major benefit is that a project file sets your default working directory.</description>
+    </item>
+    
+    <item>
+      <title>Notebooks and Markdown</title>
+      <link>/0-introduction-to-r/4_notebooks/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/0-introduction-to-r/4_notebooks/</guid>
+      <description>The first step when opening a new R studio environment or project is creating a script or notebook for working in. Scripts are basic text files where all code is executable. Writing non-code in a script requires the use of #’s (which can look messy and confusing) like so:
+read.csv(&amp;quot;datafile.csv&amp;quot;) # this code reads a csv (data) file into R. The command read.csv requires brackets with the filepath to the file in quotations.</description>
+    </item>
+    
+    <item>
+      <title>Importing Data</title>
+      <link>/0-introduction-to-r/05_importing-data/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/0-introduction-to-r/05_importing-data/</guid>
+      <description>Now that we have successfully have a project and notebook, we can start to read in data.
+The first thing with R is that working with normal excel files is quite difficult. So we always work with comma separated values or .CSV files. When saving an excel sheet, just save as and select .csv (comma delimited) as the file type. note: .csv’s can only save a single sheet, not the whole excel workbook</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,57 @@
+---
+title: "Saving multiple figures"
+author: "Mitchell Stares"
+weight: 56
+date: "2018-12-03"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>While facetting is useful, sometimes we need to save multiple different plots into one image. There are a number of ways to accomplish this and each have their benefits.</p>
+<p>{{% notice note %}}
+This section will only cover the <strong>“ggpubr”</strong> package. This is my personal choice for combining plots and accomplishes everything I need for publication quality figures. It should be noted that there are a plethora of packages that all accomplish a similar task (e.g. “cowplot”, “grid” and “gridExtra”) each with their own unique features and syntax.
+{{% /notice %}}</p>
+<p>For these examples, we will be using the weeds datasets, producing 2 graphs, one with species on the x-axis and one with soil, just to demonstrate this usage in a publication setting. <strong>I have already setup each of the graphs separately, using similar code as the bargraph tutorials, just changing the x-axis (for the most part).</strong></p>
+<p>ggpubr is a popular solution, particularly for those utlising <strong>ggplot2</strong> for their plotting needs. The main feature from this package is <code>ggarrange()</code> which will help arrange plots and allows further customisation in removing labels (for shared x or y axes), combining legends and even labelling each plot.</p>
+<p><strong>Let’s start with an example</strong></p>
+<pre class="r"><code>library(ggpubr)
+ggarrange(weeds.bar.species, weeds.bar.soil, ncol = 2, nrow = 1)</code></pre>
+<p><img src="/3-The-Grammar-of-Graphics/Multi-plots/2_savingmultiplefigures_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>For this function, we simply specify the different ggplot objects in order, followed by the number of columns (ncol) and numebr of rows (nrow). This function is awesome at aligning axes and resizing figures.<br />
+<strong>From here, we can simply save the arranged plot using</strong> <code>ggsave()</code>.<br />
+When saving figures, I tend to assign the figure to an object so I know <code>ggsave()</code> is using that object</p>
+<pre class="r"><code>arrange &lt;- ggarrange(weeds.bar.species, weeds.bar.soil, ncol = 2, nrow = 1)
+ggsave(&quot;arrangedplot.png&quot;, arrange)</code></pre>
+<div id="removing-axes-labels" class="section level3">
+<h3>Removing axes labels</h3>
+<p>The most obvious modification we can make to these arranged plots is the removal of the shared y-axis label. This is very simple.</p>
+<pre class="r"><code>ggarrange(weeds.bar.species, weeds.bar.soil + rremove(&quot;ylab&quot;), ncol = 2, nrow = 1)</code></pre>
+<p><img src="/3-The-Grammar-of-Graphics/Multi-plots/2_savingmultiplefigures_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>In this example, all we need to do is simply add the <code>rremove()</code> argument to one of the plot objects and specify what feature we wish to remove, in this case the “ylab” or y axis label.</p>
+</div>
+<div id="adding-plot-labels" class="section level3">
+<h3>Adding plot labels</h3>
+<p>The next feature most people will need when combining multiple plots together is labelling each plot with a letter in order to refer to a specific figure in text or in the caption. Again, this is really easy and just requires a single addition to our <code>ggarrange()</code>.</p>
+<pre class="r"><code>ggarrange(weeds.bar.species, weeds.bar.soil, ncol = 2, nrow = 1, labels = &quot;AUTO&quot;)</code></pre>
+<p><img src="/3-The-Grammar-of-Graphics/Multi-plots/2_savingmultiplefigures_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><code>ggarrange()</code> simply needs the “labels” argument to add to each of the plot.
+These can be specified using <strong>“AUTO”</strong> for automatic uppercase lettering, or <strong>“auto”</strong> for automatic lower case lettering. Alternatively, you can specify your own custom letters using <strong>c(“A”, “B”)</strong> specifying your labels inside the concatinated brackets.</p>
+<p>You may have noticed that I removed the <code>rremove()</code> command during that last ggarrange. This is due to the way <code>ggarrange()</code> places its labels. To fix this, we can add the <code>hjust =</code> argument to our function, but its a little annoying.</p>
+<pre class="r"><code># Default with no hjust
+ggarrange(weeds.bar.species, weeds.bar.species + rremove(&quot;ylab&quot;), ncol = 2, nrow = 1, labels  = &quot;AUTO&quot;) </code></pre>
+<p><img src="/3-The-Grammar-of-Graphics/Multi-plots/2_savingmultiplefigures_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code># Changing the horizontal position of the labels
+ggarrange(weeds.bar.species, weeds.bar.species + rremove(&quot;ylab&quot;), ncol = 2, nrow = 1, labels  = &quot;AUTO&quot;, hjust = c(-5, -2.5))</code></pre>
+<p><img src="/3-The-Grammar-of-Graphics/Multi-plots/2_savingmultiplefigures_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<p>This isnt the most elegant solution, but its my sure fire way to fix the issue and also put the label inside the plot which I prefer. This is just the addition of the <code>hjust =</code> argument and changing the horizontal position for each plot inside the <code>c()</code> brackets. The values here were just through trial and error. Negative values will move the labels to the right, so the first plot needs a higher value due to the y axis label space it needs to overcome.</p>
+<p>After all of this, we can save our “final” figure.</p>
+<pre class="r"><code>arrange &lt;- ggarrange(weeds.bar.species, weeds.bar.species + rremove(&quot;ylab&quot;), ncol = 2, nrow = 1, labels  = &quot;AUTO&quot;, hjust = c(-5, -2.5)) 
+
+ggsave(&quot;arrangedplot.png&quot;, arrange, width = 8, height = 6)</code></pre>
+<hr />
+<p><strong>References:</strong><br />
+<a href="http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/81-ggplot2-easy-way-to-mix-multiple-graphs-on-the-same-page/">Statistical tools for high-throughput data analysis - ggpubr publication ready plots</a></p>
+</div>

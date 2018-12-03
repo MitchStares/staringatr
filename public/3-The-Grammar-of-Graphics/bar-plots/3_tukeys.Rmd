@@ -1,0 +1,91 @@
+---
+title: "Significant notation"
+author: "Mitchell Stares"
+weight: 43
+date: "2018-11-13"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+
+```
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+#setwd("E:/Demonstrating&Teaching/BIOL360 R module")
+weeds<-read.csv("../../../resources/datafiles/weeds.csv")
+weeds <- rename(weeds, flowers = flowers.m3)
+weeds.summarise <- weeds %>% group_by(species) %>%
+  summarise(mean = mean(flowers), se=sd(flowers)/sqrt(n()))
+weeds.summarise2 <- weeds %>% group_by(species, soil) %>%
+  summarise(mean = mean(flowers), se=sd(flowers/sqrt(n())))
+weeds.aov2 <- aov(flowers ~ species * soil, data = weeds)
+
+```
+
+When presenting our results to an audience (paper or presentation) it is important to communicate our results clearly in a manner that is understandable to a wider audience. Tha main way to do so with an Analysis of Variance, is using a post-hoc test like a Tukeys Honest Significant Difference (Tukeys HSD). This will analyse the differences between the levels within a factor to distinguish which levels are significantly different from one another. 
+
+To jog our memory from our test, let's run the Tukeys test from our analysis module using the `HSD.test()` from the agricolae package.  
+
+```{r}
+library(agricolae)
+HSD.test(weeds.aov2, "species", console=TRUE)
+```
+
+According to the tukeys results, Coprosma is significantly different from the others. So we will label it **A** and the others **B**.  
+
+There are two main ways to plot notation on a graph, a manual way using coordinates, and an automatic way. We will cover the manual way first so we can see how it works before preceeding to the easy method. 
+
+```{r}
+ggplot(weeds.summarise, aes(x=species, y=mean)) +
+  geom_bar(stat="identity")+
+  geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width = 0.5)+
+  geom_text(label = c("A", "B", "B"), aes(y = c(28.5, 41, 44.5), x = species), size = 6)
+# try including the geom_text() in your original weeds.bar code. 
+```  
+
+Adding notation is done through `geom_text()`. We need to specify the labels (in order from left -> right) along with the aesthetic coordinates on the x and y axis. The X axis we can direct it to our original x axis data (species) and it will sit in the centre of the column. The Y coordinates are the location on the Y axis the text should sit. 
+
+This method is very finicky but is a great method if you are looking to plot one letter/symbol on the graph. You can add multiple `geom_text()` commands if needed. 
+
+The quicker solution to this, is to use a combination of our errorbars and an additional argument called **vjust** (vertical adjustment). 
+
+```{r}
+ggplot(weeds.summarise, aes(x=species, y=mean)) +
+  geom_bar(stat="identity")+
+  geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width = 0.5)+
+  geom_text(label = c("A", "B", "B"), aes(y = mean+se, x = species),vjust = -0.5, size = 6)+ 
+  ylim(0, 50)
+```
+
+We simply specify our Y coordinates as the top of our error bar (mean + se) and use the **vjust** (vertical ajustment) argument to move it slightly above the bar. You might have to change your ylim to display the last letter, which got cut off.  
+
+```{r eval=FALSE, include=FALSE}
+This is great an all, but what if you dont want to type all the letters out yourself. Well, there is a solution to that, but it does involve a little work. This involves saving the output of `HSD.test()` to an object and pulling the order of letters from it. This is slightly complex, but is definately quicker when you have multiple levels.  
+```
+```{r eval=FALSE, include=FALSE}
+# Note: I am resetting my graph to remove the previous letters. 
+# I am saving this to an object so I can add the letters on in a separate command.
+weeds.bar <- ggplot(weeds.summarise, aes(x=species, y=mean)) +
+  geom_bar(stat="identity")+
+  geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width = 0.5)
+
+
+
+posthoc <- HSD.test(weeds.aov2, "species", console=TRUE)
+# we save this so we can call on it to do our letters. This will also work for a normal "non-agricolae" tukeys, but will be called something different in the dataframe
+weeds.bar <- weeds.bar + geom_text(label = posthoc$groups$groups, aes(y=mean+se, x=species), vjust=-0.5, size=6) + ylim(0, 50)
+
+weeds.bar
+
+In this example, we pull the lettering from our posthoc tukeys test after saving it to a dataframe. In this saved object, there is multiple columns which are each a "list". So we navigate through them using the **$** sign.  
+
+{{% notice warning %}}
+If you add geom_text() to a graph that has been saved as an object, running this multiple times will add the text to the pre-exisiting graph. 
+Try changing the **vjust** value in the code and re-running the code to see the effect. You will need to either include the geom_text() in your original code, or re-run the original code each time. 
+{{% /notice %}}
+
+```
+

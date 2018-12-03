@@ -1,0 +1,2621 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.49" />
+    <meta name="description" content="Staring at R">
+<meta name="author" content="Mitchell Stares">
+
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+    <title>Proper examples :: Staring at R</title>
+
+    
+    <link href="/css/nucleus.css?1543814767" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1543814767" rel="stylesheet">
+    <link href="/css/hybrid.css?1543814767" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1543814767" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1543814767" rel="stylesheet">
+    <link href="/css/auto-complete.css?1543814767" rel="stylesheet">
+    <link href="/css/theme.css?1543814767" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1543814767" rel="stylesheet">
+    
+      <link href="/css/theme-green.css?1543814767" rel="stylesheet">
+    
+
+    <script src="/js/jquery-2.x.min.js?1543814767"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/3-the-grammar-of-graphics/themes/8_properexamples/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="grav-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="100%" height="100%"  viewBox="0 0 285.1 69.9" xml:space="preserve">
+<g>
+	<path d="M35,0c9.6,0,17.9,3.4,24.7,10.3c6.8,6.8,10.3,15,10.3,24.7c0,9.7-3.4,17.9-10.3,24.7c-6.8,6.8-15,10.3-24.7,10.3
+		c-9.7,0-17.9-3.4-24.7-10.3C3.4,52.8,0,44.6,0,34.9c0-9.6,3.4-17.9,10.3-24.7C17.1,3.4,25.3,0,35,0z M22.3,63.7
+		c0.3-7.4,0.3-14.7,0-22.1c-2.1-0.4-4-0.4-5.9,0c-0.2,0.8-0.2,2.5-0.1,4.9c0.1,2.3,0,3.9-0.3,4.8c-1.7-0.6-2.7-2.1-3.1-4.6
+		c-0.1-0.7-0.1-3.3-0.1-8c0-14.5-0.1-23-0.3-25.6c-3.6,4.1-5.6,7-5.9,8.5v10.9c0,4.5,0.1,8.1,0.2,10.9c0,0.4,0,1.3-0.1,2.8
+		c-0.1,1.2,0,2.1,0.1,2.6c0.1,0.6,1.1,2.1,2.8,4.7C13.2,58.7,17.5,62.2,22.3,63.7z M44.6,65.4c0.3-5,0.2-12.9-0.1-23.6
+		c-2.1-0.3-4.1-0.3-5.9,0c-0.2,2-0.2,5.1-0.1,9.5c0.1,4.3,0,7.5-0.1,9.5c-2.9,0.4-5,0.3-6.2-0.1c-0.2-5.6-0.2-15.2-0.1-28.7
+		c0.1-12.4,0-21.8-0.3-28.3c-2.4,0.1-4.3,0.6-5.7,1.3c-0.1,7.7-0.2,17.7-0.1,30.1c0,16.5,0,26.6,0,30.3c2.3,1.1,5.4,1.7,9.4,1.7
+		C38.9,66.9,42.1,66.4,44.6,65.4z M48.1,64.1c9.7-4.6,15.7-12,18-22.2c-1.8-0.2-3.8-0.3-6.1-0.3c-1.6,3.9-2.6,6.3-3.2,7.2
+		c-1.1,1.7-2,2.5-2.7,2.5C54,46,54,39.1,54,30.5c0-11.5,0-18.4,0-20.9c-1.4-1.4-3.3-2.5-5.7-3.4C48.1,6.3,48,6.4,48,6.7
+		c0,3.5,0,13.1,0,28.8C47.9,47.2,48,56.8,48.1,64.1z"/>
+</g>
+<g>
+	<path d="M116.6,51.3h-29c-0.5,0-0.9-0.1-1.3-0.2c-0.4-0.2-0.7-0.4-1-0.7c-0.3-0.3-0.5-0.6-0.7-1c-0.2-0.4-0.2-0.8-0.2-1.3V16.3h6.3
+		V45h25.8V51.3z"/>
+	<path d="M154.8,51.3h-22.9c-0.9,0-1.8-0.2-2.9-0.5c-1-0.3-2-0.8-2.9-1.5c-0.9-0.7-1.6-1.6-2.2-2.8c-0.6-1.1-0.9-2.5-0.9-4.2V19.5
+		c0-0.4,0.1-0.9,0.2-1.2c0.2-0.4,0.4-0.7,0.7-1c0.3-0.3,0.6-0.5,1-0.7c0.4-0.2,0.8-0.2,1.3-0.2h28.6v6.3h-25.4v19.8
+		c0,0.8,0.2,1.5,0.7,1.9s1.1,0.7,1.9,0.7h22.9V51.3z M151.9,37h-20v-6.4h20V37z"/>
+	<path d="M197.3,51.3H191v-8.6h-22.3v8.6h-6.3V33.8c0-2.6,0.4-4.9,1.3-7.1s2.1-4,3.7-5.5c1.6-1.5,3.4-2.8,5.5-3.6
+		c2.1-0.9,4.5-1.3,7-1.3h14.3c0.4,0,0.9,0.1,1.2,0.2c0.4,0.2,0.7,0.4,1,0.7s0.5,0.6,0.7,1c0.2,0.4,0.2,0.8,0.2,1.2V51.3z
+		 M168.7,36.4H191V22.6h-11.2c-0.2,0-0.6,0-1.2,0.1c-0.6,0.1-1.4,0.2-2.2,0.4c-0.8,0.2-1.7,0.6-2.6,1c-0.9,0.5-1.8,1.1-2.5,2
+		c-0.8,0.8-1.4,1.9-1.9,3.1c-0.5,1.2-0.7,2.8-0.7,4.5V36.4z"/>
+	<path d="M241.7,28.1c0,1.4-0.2,2.7-0.5,3.9c-0.4,1.1-0.8,2.1-1.5,3c-0.6,0.9-1.3,1.6-2.1,2.2c-0.8,0.6-1.6,1.1-2.5,1.5
+		c-0.9,0.4-1.8,0.7-2.6,0.9c-0.9,0.2-1.7,0.3-2.5,0.3l13.3,11.5h-9.8l-13.2-11.5h-4.6v-6.3H230c0.8-0.1,1.5-0.2,2.2-0.5
+		c0.7-0.3,1.2-0.6,1.7-1.1c0.5-0.5,0.9-1,1.1-1.6c0.3-0.6,0.4-1.4,0.4-2.2v-4c0-0.4,0-0.6-0.1-0.8c-0.1-0.2-0.2-0.3-0.3-0.4
+		c-0.1-0.1-0.3-0.1-0.4-0.2c-0.2,0-0.3,0-0.4,0h-20.9v28.7h-6.3V19.5c0-0.4,0.1-0.9,0.2-1.2c0.2-0.4,0.4-0.7,0.7-1
+		c0.3-0.3,0.6-0.5,1-0.7c0.4-0.2,0.8-0.2,1.3-0.2H234c1.4,0,2.6,0.3,3.6,0.8s1.8,1.2,2.4,1.9c0.6,0.8,1,1.6,1.3,2.5
+		c0.3,0.9,0.4,1.7,0.4,2.5V28.1z"/>
+	<path d="M285.1,48.6c0,0.5-0.1,0.9-0.3,1.3c-0.2,0.4-0.4,0.7-0.7,1c-0.3,0.3-0.6,0.5-1,0.7c-0.4,0.2-0.8,0.2-1.2,0.2
+		c-0.4,0-0.8-0.1-1.2-0.2c-0.4-0.1-0.8-0.4-1.1-0.7l-23.2-24.2v24.7h-6.3V19c0-0.7,0.2-1.2,0.5-1.8c0.4-0.5,0.8-0.9,1.4-1.2
+		c0.6-0.2,1.2-0.3,1.9-0.2s1.2,0.4,1.6,0.9l23.2,24.2V16.3h6.3V48.6z"/>
+</g>
+</svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-close"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1543814767"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1543814767"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1543814767"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/0-introduction-to-r/" title="Introduction to R" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/0-introduction-to-r/">
+          <b>0. </b>Introduction to R
+          
+            <i class="fas read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/0-introduction-to-r/01_r-studio-and-the-coding-environment/" title="R Studio &amp; Coding Environment" class="dd-item ">
+        <a href="/0-introduction-to-r/01_r-studio-and-the-coding-environment/">
+        R Studio &amp; Coding Environment
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/0-introduction-to-r/02_setting-up-your-workspace/" title="Setting up your workspace" class="dd-item ">
+        <a href="/0-introduction-to-r/02_setting-up-your-workspace/">
+        Setting up your workspace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/0-introduction-to-r/03_creating-a-project/" title="Creating a project" class="dd-item ">
+        <a href="/0-introduction-to-r/03_creating-a-project/">
+        Creating a project
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/0-introduction-to-r/4_notebooks/" title="Notebooks and Markdown" class="dd-item ">
+        <a href="/0-introduction-to-r/4_notebooks/">
+        Notebooks and Markdown
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/0-introduction-to-r/05_importing-data/" title="Importing Data" class="dd-item ">
+        <a href="/0-introduction-to-r/05_importing-data/">
+        Importing Data
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/1-data-exploration-and-manipulation/" title="Data Exploration and Manipulation" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-data-exploration-and-manipulation/">
+          <b>1. </b>Data Exploration and Manipulation
+          
+            <i class="fas read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1-data-exploration-and-manipulation/1_packages/" title="Packages" class="dd-item ">
+        <a href="/1-data-exploration-and-manipulation/1_packages/">
+        Packages
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1-data-exploration-and-manipulation/2_viewingdata/" title="Viewing your data" class="dd-item ">
+        <a href="/1-data-exploration-and-manipulation/2_viewingdata/">
+        Viewing your data
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1-data-exploration-and-manipulation/3_columns/" title="Columns" class="dd-item ">
+        <a href="/1-data-exploration-and-manipulation/3_columns/">
+        Columns
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1-data-exploration-and-manipulation/manipulating-data/" title="Manipulating data" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-data-exploration-and-manipulation/manipulating-data/">
+          Manipulating data
+          
+            <i class="fas read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1-data-exploration-and-manipulation/manipulating-data/1_rename/" title="The Rename Function" class="dd-item ">
+        <a href="/1-data-exploration-and-manipulation/manipulating-data/1_rename/">
+        The Rename Function
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1-data-exploration-and-manipulation/manipulating-data/2_mutate/" title="The Mutate Function" class="dd-item ">
+        <a href="/1-data-exploration-and-manipulation/manipulating-data/2_mutate/">
+        The Mutate Function
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1-data-exploration-and-manipulation/manipulating-data/3_filter/" title="The Filter Function" class="dd-item ">
+        <a href="/1-data-exploration-and-manipulation/manipulating-data/3_filter/">
+        The Filter Function
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1-data-exploration-and-manipulation/manipulating-data/4_select/" title="The Select Function" class="dd-item ">
+        <a href="/1-data-exploration-and-manipulation/manipulating-data/4_select/">
+        The Select Function
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1-data-exploration-and-manipulation/manipulating-data/5_joins/" title="Joining Data" class="dd-item ">
+        <a href="/1-data-exploration-and-manipulation/manipulating-data/5_joins/">
+        Joining Data
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1-data-exploration-and-manipulation/manipulating-data/6_remove/" title="Removing Items" class="dd-item ">
+        <a href="/1-data-exploration-and-manipulation/manipulating-data/6_remove/">
+        Removing Items
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1-data-exploration-and-manipulation/manipulating-data/7_summarise/" title="The Summarise Function" class="dd-item ">
+        <a href="/1-data-exploration-and-manipulation/manipulating-data/7_summarise/">
+        The Summarise Function
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1-data-exploration-and-manipulation/manipulating-data/8_pipe/" title="The Pipe Function" class="dd-item ">
+        <a href="/1-data-exploration-and-manipulation/manipulating-data/8_pipe/">
+        The Pipe Function
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/2-statistical-analysis/" title="Statistical Analysis" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-statistical-analysis/">
+          <b>2. </b>Statistical Analysis
+          
+            <i class="fas read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/2-statistical-analysis/analysis-of-variance/" title="Analysis of Variance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-statistical-analysis/analysis-of-variance/">
+          Analysis of Variance
+          
+            <i class="fas read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/2-statistical-analysis/analysis-of-variance/1_aov/" title="Analysis of Variance" class="dd-item ">
+        <a href="/2-statistical-analysis/analysis-of-variance/1_aov/">
+        Analysis of Variance
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/2-statistical-analysis/analysis-of-variance/assumptions/" title="Assumptions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-statistical-analysis/analysis-of-variance/assumptions/">
+          Assumptions
+          
+            <i class="fas read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/2-statistical-analysis/analysis-of-variance/assumptions/1_normality/" title="Normality" class="dd-item ">
+        <a href="/2-statistical-analysis/analysis-of-variance/assumptions/1_normality/">
+        Normality
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/2-statistical-analysis/analysis-of-variance/assumptions/2_homogeneity/" title="Homogeneity of Variance" class="dd-item ">
+        <a href="/2-statistical-analysis/analysis-of-variance/assumptions/2_homogeneity/">
+        Homogeneity of Variance
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/2-statistical-analysis/analysis-of-variance/3_anovaresults/" title="Viewing results" class="dd-item ">
+        <a href="/2-statistical-analysis/analysis-of-variance/3_anovaresults/">
+        Viewing results
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/2-statistical-analysis/analysis-of-variance/4_twofactors/" title="Two-factor ANOVAs" class="dd-item ">
+        <a href="/2-statistical-analysis/analysis-of-variance/4_twofactors/">
+        Two-factor ANOVAs
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/2-statistical-analysis/analysis-of-variance/5_tukeys/" title="Tukeys HSD" class="dd-item ">
+        <a href="/2-statistical-analysis/analysis-of-variance/5_tukeys/">
+        Tukeys HSD
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/2-statistical-analysis/6_linearregession/" title="Linear Regression" class="dd-item ">
+        <a href="/2-statistical-analysis/6_linearregession/">
+        Linear Regression
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/2-statistical-analysis/7_glms/" title="Generalised linear models (GLM&#39;s)" class="dd-item ">
+        <a href="/2-statistical-analysis/7_glms/">
+        Generalised linear models (GLM&#39;s)
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/3-the-grammar-of-graphics/" title="The Grammar of Graphics" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/3-the-grammar-of-graphics/">
+          <b>3. </b>The Grammar of Graphics
+          
+            <i class="fas read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/1_ggplotgrammar/" title="The Grammar of ggplot2" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/1_ggplotgrammar/">
+        The Grammar of ggplot2
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/2_basicplots/" title="Basic plots" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/2_basicplots/">
+        Basic plots
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/3-the-grammar-of-graphics/themes/" title="Customising your graph" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/3-the-grammar-of-graphics/themes/">
+          Customising your graph
+          
+            <i class="fas read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/themes/3_themes/" title="Themes" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/themes/3_themes/">
+        Themes
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/themes/5_axislines/" title="Axis lines" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/themes/5_axislines/">
+        Axis lines
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/themes/4_gridsbackground/" title="Background" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/themes/4_gridsbackground/">
+        Background
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/themes/6_grids/" title="Grids" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/themes/6_grids/">
+        Grids
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/themes/7_axislabels/" title="Axis labels" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/themes/7_axislabels/">
+        Axis labels
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/themes/8_properexamples/" title="Proper examples" class="dd-item active">
+        <a href="/3-the-grammar-of-graphics/themes/8_properexamples/">
+        Proper examples
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/3-the-grammar-of-graphics/bar-plots/" title="Bar plots" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-the-grammar-of-graphics/bar-plots/">
+          Bar plots
+          
+            <i class="fas read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/bar-plots/1_barplots/" title="Basic bar plots" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/bar-plots/1_barplots/">
+        Basic bar plots
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/bar-plots/2_errorbars/" title="Errorbars" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/bar-plots/2_errorbars/">
+        Errorbars
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/bar-plots/3_tukeys/" title="Significant notation" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/bar-plots/3_tukeys/">
+        Significant notation
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/bar-plots/4_barplot2/" title="Bar graphs - part 2" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/bar-plots/4_barplot2/">
+        Bar graphs - part 2
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/bar-plots/5_finalising/" title="Finalising our Barplot" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/bar-plots/5_finalising/">
+        Finalising our Barplot
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/3-the-grammar-of-graphics/scatter-plots/" title="Scatter plots and Lines" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-the-grammar-of-graphics/scatter-plots/">
+          Scatter plots and Lines
+          
+            <i class="fas read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/scatter-plots/1_scatterplot/" title="Scatter plots" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/scatter-plots/1_scatterplot/">
+        Scatter plots
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/scatter-plots/2_plottinglines/" title="Linear Lines" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/scatter-plots/2_plottinglines/">
+        Linear Lines
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/scatter-plots/3_logisticregression/" title="Logistic regression" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/scatter-plots/3_logisticregression/">
+        Logistic regression
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/3-the-grammar-of-graphics/multi-plots/" title="Multiple Plots" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-the-grammar-of-graphics/multi-plots/">
+          Multiple Plots
+          
+            <i class="fas read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/multi-plots/1_facetting/" title="Facetting" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/multi-plots/1_facetting/">
+        Facetting
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/3-the-grammar-of-graphics/multi-plots/2_savingmultiplefigures/" title="Saving multiple figures" class="dd-item ">
+        <a href="/3-the-grammar-of-graphics/multi-plots/2_savingmultiplefigures/">
+        Saving multiple figures
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/4-formatting-your-code/" title="Formatting your code" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-formatting-your-code/">
+          <b>4. </b>Formatting your code
+          
+            <i class="fas read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/4-formatting-your-code/1_notebookefficiency/" title="Using your notebook efficiently" class="dd-item ">
+        <a href="/4-formatting-your-code/1_notebookefficiency/">
+        Using your notebook efficiently
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/4-formatting-your-code/2_headingnavigation/" title="Headings and Navigation" class="dd-item ">
+        <a href="/4-formatting-your-code/2_headingnavigation/">
+        Headings and Navigation
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/4-formatting-your-code/3_codechunks/" title="Code Chunks" class="dd-item ">
+        <a href="/4-formatting-your-code/3_codechunks/">
+        Code Chunks
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/4-formatting-your-code/4_annotations/" title="Annotating code" class="dd-item ">
+        <a href="/4-formatting-your-code/4_annotations/">
+        Annotating code
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/4-formatting-your-code/5_knitting/" title="Knitting to word, html and pdf" class="dd-item ">
+        <a href="/4-formatting-your-code/5_knitting/">
+        Knitting to word, html and pdf
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/Datasets"><i class='fas fa-database'></i> Datasets</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://github.com/MitchStares/R_website"><i class='fab fa-fw fa-github'></i> Github repository</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <p>Built with the <a href="https://github.com/matcornic/hugo-theme-learn">"Learn" Theme</a> using <a href="http://gohugo.io/">Hugo</a></p> and <a href="https://bookdown.org/yihui/blogdown/">Blogdown</a>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Homepage</a> > <a href='/3-the-grammar-of-graphics/'>The Grammar of Graphics</a> > <a href='/3-the-grammar-of-graphics/themes/'>Customising your graph</a> > Proper examples
+          
+         
+          
+         
+          
+         
+          
+           
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+
+        
+        <div id="body-inner">
+          
+            <h1>Proper examples</h1>
+          
+
+        
+
+
+<pre class="r"><code>## Setting up the graph environment ##
+iris.scatter.proper &lt;- ggplot(iris, aes(x=Sepal.Length, y=Petal.Length, colour=Species, shape=Species)) + geom_point()
+
+## Making our theme ##
+plottheme &lt;- theme(panel.background = element_rect(fill=&quot;ghostwhite&quot;),
+                   legend.background = element_blank(),
+                   legend.key = element_rect(fill=&quot;ghostwhite&quot;),
+                   axis.line = element_line(colour=&quot;black&quot;, size=1),
+                   axis.ticks = element_blank(),
+                   axis.title = element_text(colour=&quot;royalblue3&quot;, size=14),
+                   plot.title = element_text(face=&quot;bold&quot;, colour=&quot;steelblue4&quot;, size=16),
+                   legend.title = element_text(colour=&quot;royalblue3&quot;, size=14),
+                   legend.text = element_text(face=&quot;italic&quot;, colour=&quot;steelblue4&quot;, size=10),
+                   axis.text = element_text(colour=&quot;steelblue4&quot;, size=12),
+                   panel.grid.major = element_line(colour=&quot;gray80&quot;),
+                   panel.grid.minor = element_blank())
+
+## Applying the theme, adding some labels and changing some colours ##
+iris.scatter.proper &lt;- iris.scatter.proper + plottheme +
+  labs(x=&quot;Sepal Length (cm)&quot;, y=&quot;Petal Length (cm)&quot;, title=&quot;Relationship between Sepal Length and Petal Length&quot;) +
+  scale_colour_manual(values = c(&quot;mediumorchid1&quot;, &quot;mediumorchid3&quot;, &quot;mediumorchid4&quot;))
+
+## Displaying our graph ##
+iris.scatter.proper</code></pre>
+<p><img src="/The-Grammar-of-Graphics/Themes/8_properexamples_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+Pretty cool example of changing things around for the “better”. You might notice a few extra things I have changed in this graph.</p>
+<p>In the <code>aes()</code> section at the start, I introduced the shape command which changes the shape for each level of a factor. Doing this alongside colour= allows us to change the colour and symbol of the points themselves.<br />
+Further down, I then changed the colour of the points using <code>scale_colour_manual()</code> and adding the colour values for the levels in order. There are many different ways you can do this, but I find this works the best. There are scale_manual commands for fill, group, shape etc.</p>
+<p>In the <code>theme()</code> section, I covered most things we have done so far but added an additional argument to legend.text and plot.title. This is the face argument which allows us to add italics, bold or others to our text.</p>
+<div id="i-will-add-more-to-this-page-as-i-produce-and-discover-cool-graphs" class="section level4">
+<h4>I will add more to this page as I produce and discover cool graphs</h4>
+</div>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+        
+            <a class="nav nav-prev" href="/3-the-grammar-of-graphics/themes/7_axislabels/" title="Axis labels"> <i class="fas fa-chevron-left"></i></a>
+        
+        
+            <a class="nav nav-next" href="/3-the-grammar-of-graphics/bar-plots/" title="Bar plots" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1543814767"></script>
+    <script src="/js/perfect-scrollbar.min.js?1543814767"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1543814767"></script>
+    <script src="/js/jquery.sticky.js?1543814767"></script>
+    <script src="/js/featherlight.min.js?1543814767"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1543814767"></script>
+    <script src="/js/highlight.pack.js?1543814767"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js?1543814767"></script>
+    <script src="/js/learn.js?1543814767"></script>
+    <script src="/js/hugo-learn.js?1543814767"></script>
+
+    <link href="/mermaid/mermaid.css?1543814767" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1543814767"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-105947713-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
+

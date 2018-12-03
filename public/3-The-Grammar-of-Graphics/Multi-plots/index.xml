@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Multiple Plots on Staring at R</title>
+    <link>/3-the-grammar-of-graphics/multi-plots/</link>
+    <description>Recent content in Multiple Plots on Staring at R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 13 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/3-the-grammar-of-graphics/multi-plots/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Facetting</title>
+      <link>/3-the-grammar-of-graphics/multi-plots/1_facetting/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/3-the-grammar-of-graphics/multi-plots/1_facetting/</guid>
+      <description>Facetting is the process of dividing a plot into subplots based on the values of a discrete variable. In the context of the Iris scatterplots, we can split by species across multiple plots.
+ggplot(iris, aes(x=Sepal.Length, y=Petal.Length)) +geom_point() +facet_grid(.~Species)As you can see, facet_grid() splits our single plot into a number of plots equal to the levels of the factor we specify. The syntax behind facet_grid() specifies our “rows” and “columns” for our plots separated by a ~ tilde.</description>
+    </item>
+    
+    <item>
+      <title>Saving multiple figures</title>
+      <link>/3-the-grammar-of-graphics/multi-plots/2_savingmultiplefigures/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/3-the-grammar-of-graphics/multi-plots/2_savingmultiplefigures/</guid>
+      <description>While facetting is useful, sometimes we need to save multiple different plots into one image. There are a number of ways to accomplish this and each have their benefits.
+This section will only cover the “ggpubr” package. This is my personal choice for combining plots and accomplishes everything I need for publication quality figures. It should be noted that there are a plethora of packages that all accomplish a similar task (e.</description>
+    </item>
+    
+  </channel>
+</rss>

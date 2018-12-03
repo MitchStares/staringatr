@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Grammar of Graphics on Staring at R</title>
+    <link>/3-the-grammar-of-graphics/</link>
+    <description>Recent content in The Grammar of Graphics on Staring at R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 10 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/3-the-grammar-of-graphics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Grammar of ggplot2</title>
+      <link>/3-the-grammar-of-graphics/1_ggplotgrammar/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/3-the-grammar-of-graphics/1_ggplotgrammar/</guid>
+      <description>By now you should be fairly familiar with the R environment and decently familiar with tidyverse. You should be able to perform basic data manipulations, analyses and in general, understand the general concepts of working with data in R.
+To me personally, data visualisation is the funnest part of data science. Being able to visually communicate your findings in new and interesting ways is exciting and a joy when you have so many ways to customise your message.</description>
+    </item>
+    
+    <item>
+      <title>Basic plots</title>
+      <link>/3-the-grammar-of-graphics/2_basicplots/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/3-the-grammar-of-graphics/2_basicplots/</guid>
+      <description>To start, we will use the iris dataset that is built into tidyverse/ggplot2. To view the dataset, use the View() command like so:
+View(iris)Once we have this, let’s setup a basic boxplot of some of the features of iris.
+The iris dataset is built into tidyverse/ggplot2. The dataset is a pretty famous dataset by Edgar Anderson that gives the sepal length, width and petal length and width for three species of iris (n=50).</description>
+    </item>
+    
+  </channel>
+</rss>

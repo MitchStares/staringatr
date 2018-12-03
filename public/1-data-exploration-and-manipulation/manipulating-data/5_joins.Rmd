@@ -1,0 +1,79 @@
+---
+title: "Joining Data"
+description: "Join multiple datasets together based on similar or different values of a column. e.g. join environmental and species data based on site name"
+author: "Mitchell Stares"
+weight: 14
+date: '2018-11-09'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+weeds<-read.csv("../../../resources/datafiles/weeds.csv")
+library(tidyverse)
+weeds <- rename(weeds, flowers = flowers.m3)
+frogsp<-read.csv("../../../resources/datafiles/frogs.csv", header=TRUE)
+enviro<-read.csv("../../../resources/datafiles/frog_environmental.csv", header=TRUE)
+```  
+
+One of the most frequent data manipulations for working within R is joining multiple data sets together. The most common example of this is combining species abundance (or some other variable of interest) with external sources on the environmental conditions, such as BOM data (temperature, precipitation etc.) or GPS data.  
+
+To do most statistical analyses, data needs to be in the same data frame. So joining the datasets is an "easy" way to do so outside of excel.  
+
+{{% notice info %}}
+For this exercise, we will be working with the BIOL365 Frog Data to combine the species matrix with environmental data.  
+**Download the "frogs.csv" and "frog_environmental.csv"" files and read them in to R without the row.names argument**
+{{% /notice %}} 
+
+```{r echo=TRUE, eval=FALSE, message=FALSE, warning=FALSE}
+frogsp<-read.csv("frogs.csv", header=TRUE)
+enviro<-read.csv("frog_environmental.csv", header=TRUE)
+```
+
+For a complete join of both datasets, when there are the same number of rows in the exact same order, we can use the `bind_cols()` function. 
+```{r}
+frogcombine <- bind_cols(frogsp, enviro) # In this example the "site" column has been added twice
+```
+There is a `bind_rows()` that will add rows to the bottom of a dataset, using the same syntax.  
+
+While `bind_cols()` and `bind_rows()` are "cool", they are limited in their usefulness. I find the most useful function is `left_join()`.
+```{R}
+frogjoin <- left_join(frogsp, enviro, by="Site") # This will join two datasets by a similar column (Site). 
+```
+This will join the second dataset (enviro) to the first data set based on the shared column. `right_join()` will do the opposite, joining frogsp to enviro. Its pretty useless, just use `left_join()` remember to always put the data frame you want to keep first. 
+
+```{R}
+# We can use the dim() to view the dimensions of the data
+dim(frogsp) # 11 columns
+
+dim(enviro) # 16 columns
+ 
+dim(frogjoin) # 26 colums (11 + 16 minus the 1 in common)
+
+```
+
+Both of these examples so far have required the same rows for each dataset. Sometimes we might have more information in one dataset then we do in the other. For this dataset we don't have this issue, so lets quickly create the issue to demonstrate.  
+
+We will simply use the `filter()` command to filter for rows that contain a value in the "Temp" column. We have 4 rows that have an NA in "Temp" so we will use a != (not equal to) to select all rows that are not equal to NA
+
+```{r}
+enviro_filter <- filter(enviro, Temp != "NA") # This removes sites 14, 15, 35 & 36
+dim(enviro_filter)
+
+# Now we can try the two new join types
+
+froginner <- inner_join(frogsp, enviro_filter, by="Site") # Join data. Retain only rows that occur in both data sets
+dim(froginner) # 38 rows
+
+frogfull <- full_join(frogsp, enviro_filter, by="Site") # Join data. Retain all values, all rows
+dim(frogfull)
+
+```
+
+You can also use **semi_join()** to combine all rows that have a match in the second dataset, or **anti_join()** to combine all rows that do not match have a match in the second dataset (this ones a little weird). 
+
+I still find myself using `left_join` 90% of the time though. 

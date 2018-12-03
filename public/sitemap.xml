@@ -3,282 +3,297 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/introduction-to-r/</loc>
+    <loc>/0-introduction-to-r/</loc>
     <lastmod>2018-10-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/introduction-to-r/01_r-studio-and-the-coding-environment/</loc>
+    <loc>/0-introduction-to-r/01_r-studio-and-the-coding-environment/</loc>
     <lastmod>2018-10-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/</loc>
+    <loc>/1-data-exploration-and-manipulation/</loc>
     <lastmod>2018-10-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/1_packages/</loc>
+    <loc>/1-data-exploration-and-manipulation/1_packages/</loc>
     <lastmod>2018-10-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/introduction-to-r/02_setting-up-your-workspace/</loc>
+    <loc>/0-introduction-to-r/02_setting-up-your-workspace/</loc>
     <lastmod>2018-10-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/introduction-to-r/03_creating-a-project/</loc>
+    <loc>/0-introduction-to-r/03_creating-a-project/</loc>
     <lastmod>2018-11-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/introduction-to-r/4_notebooks/</loc>
+    <loc>/0-introduction-to-r/4_notebooks/</loc>
     <lastmod>2018-11-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/2_viewingdata/</loc>
+    <loc>/1-data-exploration-and-manipulation/2_viewingdata/</loc>
     <lastmod>2018-10-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/3_columns/</loc>
+    <loc>/1-data-exploration-and-manipulation/3_columns/</loc>
     <lastmod>2018-10-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/introduction-to-r/05_importing-data/</loc>
+    <loc>/0-introduction-to-r/05_importing-data/</loc>
     <lastmod>2018-11-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/manipulating-data/1_rename/</loc>
+    <loc>/1-data-exploration-and-manipulation/manipulating-data/1_rename/</loc>
     <lastmod>2018-10-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/manipulating-data/</loc>
+    <loc>/1-data-exploration-and-manipulation/manipulating-data/</loc>
     <lastmod>2018-10-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/statistical-analysis/</loc>
+    <loc>/2-statistical-analysis/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/manipulating-data/2_mutate/</loc>
+    <loc>/1-data-exploration-and-manipulation/manipulating-data/2_mutate/</loc>
     <lastmod>2018-10-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/manipulating-data/3_filter/</loc>
+    <loc>/1-data-exploration-and-manipulation/manipulating-data/3_filter/</loc>
     <lastmod>2018-11-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/manipulating-data/4_select/</loc>
+    <loc>/1-data-exploration-and-manipulation/manipulating-data/4_select/</loc>
     <lastmod>2018-11-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/manipulating-data/5_joins/</loc>
+    <loc>/1-data-exploration-and-manipulation/manipulating-data/5_joins/</loc>
     <lastmod>2018-11-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/manipulating-data/6_remove/</loc>
+    <loc>/1-data-exploration-and-manipulation/manipulating-data/6_remove/</loc>
     <lastmod>2018-11-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/statistical-analysis/analysis-of-variance/</loc>
+    <loc>/2-statistical-analysis/analysis-of-variance/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/statistical-analysis/analysis-of-variance/1_aov/</loc>
+    <loc>/2-statistical-analysis/analysis-of-variance/1_aov/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/manipulating-data/7_summarise/</loc>
+    <loc>/1-data-exploration-and-manipulation/manipulating-data/7_summarise/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data-exploration-and-manipulation/manipulating-data/8_pipe/</loc>
+    <loc>/1-data-exploration-and-manipulation/manipulating-data/8_pipe/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/statistical-analysis/analysis-of-variance/assumptions/</loc>
+    <loc>/2-statistical-analysis/analysis-of-variance/assumptions/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/statistical-analysis/analysis-of-variance/assumptions/1_normality/</loc>
+    <loc>/2-statistical-analysis/analysis-of-variance/assumptions/1_normality/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/statistical-analysis/analysis-of-variance/assumptions/2_homogeneity/</loc>
+    <loc>/2-statistical-analysis/analysis-of-variance/assumptions/2_homogeneity/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/statistical-analysis/analysis-of-variance/3_anovaresults/</loc>
+    <loc>/2-statistical-analysis/analysis-of-variance/3_anovaresults/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/statistical-analysis/analysis-of-variance/4_twofactors/</loc>
+    <loc>/2-statistical-analysis/analysis-of-variance/4_twofactors/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/statistical-analysis/analysis-of-variance/5_tukeys/</loc>
+    <loc>/2-statistical-analysis/analysis-of-variance/5_tukeys/</loc>
     <lastmod>2018-10-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/statistical-analysis/6_linearregession/</loc>
+    <loc>/2-statistical-analysis/6_linearregession/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/statistical-analysis/7_glms/</loc>
+    <loc>/2-statistical-analysis/7_glms/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/</loc>
+    <loc>/3-the-grammar-of-graphics/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/1_ggplotgrammar/</loc>
+    <loc>/3-the-grammar-of-graphics/1_ggplotgrammar/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/2_basicplots/</loc>
+    <loc>/3-the-grammar-of-graphics/2_basicplots/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/themes/</loc>
+    <loc>/3-the-grammar-of-graphics/themes/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/themes/3_themes/</loc>
+    <loc>/3-the-grammar-of-graphics/themes/3_themes/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/themes/5_axislines/</loc>
+    <loc>/3-the-grammar-of-graphics/themes/5_axislines/</loc>
     <lastmod>2018-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/themes/4_gridsbackground/</loc>
+    <loc>/3-the-grammar-of-graphics/themes/4_gridsbackground/</loc>
     <lastmod>2018-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/themes/6_grids/</loc>
+    <loc>/3-the-grammar-of-graphics/themes/6_grids/</loc>
     <lastmod>2018-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/themes/7_axislabels/</loc>
+    <loc>/3-the-grammar-of-graphics/themes/7_axislabels/</loc>
     <lastmod>2018-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/themes/8_properexamples/</loc>
+    <loc>/3-the-grammar-of-graphics/themes/8_properexamples/</loc>
     <lastmod>2018-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/bar-plots/</loc>
+    <loc>/3-the-grammar-of-graphics/bar-plots/</loc>
     <lastmod>2018-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/bar-plots/1_barplots/</loc>
+    <loc>/3-the-grammar-of-graphics/bar-plots/1_barplots/</loc>
     <lastmod>2018-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/bar-plots/2_errorbars/</loc>
+    <loc>/3-the-grammar-of-graphics/bar-plots/2_errorbars/</loc>
     <lastmod>2018-11-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/bar-plots/3_tukeys/</loc>
+    <loc>/3-the-grammar-of-graphics/bar-plots/3_tukeys/</loc>
     <lastmod>2018-11-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/bar-plots/4_barplot2/</loc>
+    <loc>/3-the-grammar-of-graphics/bar-plots/4_barplot2/</loc>
     <lastmod>2018-11-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/bar-plots/5_finalising/</loc>
+    <loc>/3-the-grammar-of-graphics/bar-plots/5_finalising/</loc>
     <lastmod>2018-11-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/scatter-plots/</loc>
+    <loc>/3-the-grammar-of-graphics/scatter-plots/</loc>
     <lastmod>2018-11-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/scatter-plots/1_scatterplot/</loc>
+    <loc>/3-the-grammar-of-graphics/scatter-plots/1_scatterplot/</loc>
     <lastmod>2018-11-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/scatter-plots/2_plottinglines/</loc>
+    <loc>/3-the-grammar-of-graphics/scatter-plots/2_plottinglines/</loc>
     <lastmod>2018-11-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/the-grammar-of-graphics/scatter-plots/3_logisticregression/</loc>
+    <loc>/3-the-grammar-of-graphics/scatter-plots/3_logisticregression/</loc>
     <lastmod>2018-11-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/formatting-your-code/</loc>
+    <loc>/3-the-grammar-of-graphics/multi-plots/</loc>
+    <lastmod>2018-11-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/3-the-grammar-of-graphics/multi-plots/1_facetting/</loc>
     <lastmod>2018-12-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/formatting-your-code/1_notebookefficiency/</loc>
+    <loc>/3-the-grammar-of-graphics/multi-plots/2_savingmultiplefigures/</loc>
     <lastmod>2018-12-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/formatting-your-code/2_headingnavigation/</loc>
+    <loc>/4-formatting-your-code/</loc>
     <lastmod>2018-12-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/formatting-your-code/3_codechunks/</loc>
+    <loc>/4-formatting-your-code/1_notebookefficiency/</loc>
     <lastmod>2018-12-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/formatting-your-code/4_annotations/</loc>
+    <loc>/4-formatting-your-code/2_headingnavigation/</loc>
     <lastmod>2018-12-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/formatting-your-code/5_knitting/</loc>
+    <loc>/4-formatting-your-code/3_codechunks/</loc>
+    <lastmod>2018-12-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/4-formatting-your-code/4_annotations/</loc>
+    <lastmod>2018-12-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/4-formatting-your-code/5_knitting/</loc>
     <lastmod>2018-12-03T00:00:00+00:00</lastmod>
   </url>
   

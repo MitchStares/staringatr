@@ -1,0 +1,51 @@
+---
+title: "Packages"
+weight: 7
+date: '2018-10-26'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+Now that you have setup your R environment and read in your first data set, we can begin to modify and add to our data as necessary.  
+
+Now for the majority of this module, we will be working with a **package** called **Tidyverse**. Packages are collections of data, R functions and complied code to add extra features outside of the general base R environment. Packages are central to expanding the possibilities of R. The ability to do advanced graphing, GIS, complicated analyses, multivariate analyses etc. are all due to contributed packages.  
+
+**Tidyverse** is a unique case as it is a collection of R packages that all use similar coding syntax  
+
+#### To install a package into R there are two options:  
+
+**Option 1** is to select the packages tab in the help/viewer window & click the install button.    
+
+![](/images/packages.png)  
+
+Then type the package name in the packages box (*note: ensure that it is installing from Repository/CRAN*)  
+
+![](/images/install.png)  
+
+**Option 2** is to use the following code, replacing the "tidyverse" with the package of your choice. **This should be used in the console**, rather than the script window as you only need to install the package once.  
+
+
+```{r eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE, paged.print=FALSE}
+install.packages("tidyverse")
+```
+   
+Once you have installed **tidyverse**, simply load it into your current workspace with the following command **(in your script)**  
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(tidyverse)
+```
+
+{{% notice tip %}}
+In general, it is good practice to place the **library()** commands for your whole document at the top before anything else. This allows people reading your code to load in any packages they will need at the beginning before anything else. 
+{{% /notice %}}  
+
+For example, here is the first few lines of one of my own scripts:  
+
+![](/images/libraries.png)  
+  
+This shows the reader of my code what packages need to be installed to run my analysis. I 
+also write notes to myself to remind myself what specific packages are for. Once you start accumulating packages, its hard to remember what each one does. I find this particularly useful for packages I only use for a particular function (such as the agricolae package which I use for tukeys letter reports).

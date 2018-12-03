@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Manipulating data on Staring at R</title>
+    <link>/1-data-exploration-and-manipulation/manipulating-data/</link>
+    <description>Recent content in Manipulating data on Staring at R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 31 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/1-data-exploration-and-manipulation/manipulating-data/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Rename Function</title>
+      <link>/1-data-exploration-and-manipulation/manipulating-data/1_rename/</link>
+      <pubDate>Wed, 31 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/1-data-exploration-and-manipulation/manipulating-data/1_rename/</guid>
+      <description>By now, if you are like me, you are probably getting annoyed at writing “flowers.m3” or “species.richness” everytime you need to refer to one of those columns. This will happen ALOT with data you enter or obtain from others, as R converts any spaces to fullstops and people tend to capitilise most words. The rename() function allows us to simply rename a column name within our data frame.
+Personally, this is my favourite function in R as I hate captials, fullstops and other annoying column name problems that slow down coding or generate errors.</description>
+    </item>
+    
+    <item>
+      <title>The Mutate Function</title>
+      <link>/1-data-exploration-and-manipulation/manipulating-data/2_mutate/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/1-data-exploration-and-manipulation/manipulating-data/2_mutate/</guid>
+      <description>One of the most common data manipulations is adding a new column to your dataset. This is great for transforming data, while also keeping the original. This could be used to combine multiple columns into one or perform mathematical calculations involving multiple columns with the results in a separate column.
+We will start out with a few simple methods in base R, and then move to the dplyr method.
+##Log Transformation##weeds$log_flowers &amp;lt;- log(weeds$flowers) # Base Rweeds &amp;lt;- mutate(weeds, log_flowers = log(flowers)) # Dplyr# Each of these creates a new column which is the log of the flowers column.</description>
+    </item>
+    
+    <item>
+      <title>The Filter Function</title>
+      <link>/1-data-exploration-and-manipulation/manipulating-data/3_filter/</link>
+      <pubDate>Fri, 09 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/1-data-exploration-and-manipulation/manipulating-data/3_filter/</guid>
+      <description>The filter() command is used to remove rows from your data. This can be useful for removing zeros or “no data/NA’s”, or for restricting certain variables in a dataset for an analysis.
+This follows the similar syntax as mutate() whereby we specify what dataset we want to filter, followed by how we want to filter.
+#The following examples will just keep overwriting the new object &amp;quot;weeds_filtered&amp;quot;weeds_filtered &amp;lt;- filter(weeds, weeds == &amp;quot;native&amp;quot;) # Gives us only the rows which are exactly &amp;quot;native&amp;quot; in the weeds column.</description>
+    </item>
+    
+    <item>
+      <title>The Select Function</title>
+      <link>/1-data-exploration-and-manipulation/manipulating-data/4_select/</link>
+      <pubDate>Fri, 09 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/1-data-exploration-and-manipulation/manipulating-data/4_select/</guid>
+      <description>The select() function is used to select specific columns within your data and save them as a new data frame. You can use this if you have a large dataset and only want to use a few of the columns, to keep it simple and tidy. Or, you may want to take a column or two from multiple different datasets and combine them.
+weeds_select &amp;lt;- select(weeds, soil) This simply creates the weeds_select dataset, seleting one column - “soil”.</description>
+    </item>
+    
+    <item>
+      <title>Joining Data</title>
+      <link>/1-data-exploration-and-manipulation/manipulating-data/5_joins/</link>
+      <pubDate>Fri, 09 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/1-data-exploration-and-manipulation/manipulating-data/5_joins/</guid>
+      <description>One of the most frequent data manipulations for working within R is joining multiple data sets together. The most common example of this is combining species abundance (or some other variable of interest) with external sources on the environmental conditions, such as BOM data (temperature, precipitation etc.) or GPS data.
+To do most statistical analyses, data needs to be in the same data frame. So joining the datasets is an “easy” way to do so outside of excel.</description>
+    </item>
+    
+    <item>
+      <title>Removing Items</title>
+      <link>/1-data-exploration-and-manipulation/manipulating-data/6_remove/</link>
+      <pubDate>Fri, 09 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/1-data-exploration-and-manipulation/manipulating-data/6_remove/</guid>
+      <description>By now, we have quite a few objects in our R environment that aren’t being used. The remove() command does exactly that….removes objects from the R environment. This helps for making things nice and tidy, specifically in our environment window.
+remove(frogfull, froginner, enviro_filter) # Removes all three objects we just generatedUse this in the console to “one off” remove an item.
+… that’s all, NEXT!</description>
+    </item>
+    
+    <item>
+      <title>The Summarise Function</title>
+      <link>/1-data-exploration-and-manipulation/manipulating-data/7_summarise/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/1-data-exploration-and-manipulation/manipulating-data/7_summarise/</guid>
+      <description>This is an extremely useful function that lets you create different summaries of columns. You can also nest other functions within it to apply them to your columns.
+sum_data &amp;lt;- summarise(weeds, mean(flowers)) # We&amp;#39;ll start simple. Generates the mean of the flower columnsum_data &amp;lt;- summarise(group_by(weeds, species), mean(flowers)) # Using the group_by() function within summarise lets you get summaries for groups, in this case &amp;quot;species&amp;quot;sum_data &amp;lt;- summarise(group_by(weeds,species, soil), mean(flowers), sd(flowers), se=sd(flowers/sqrt(n())))# Grouped by with species &amp;amp; soil, generating mean, standard deviation &amp;amp; standard error of flowersThe last example generates the mean, sd and se for each factor combination in our dataset.</description>
+    </item>
+    
+    <item>
+      <title>The Pipe Function</title>
+      <link>/1-data-exploration-and-manipulation/manipulating-data/8_pipe/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/1-data-exploration-and-manipulation/manipulating-data/8_pipe/</guid>
+      <description>This lets you run multiple different functions on one dataset without having to use the intermediate steps you would have to use in base R.
+You start with the data you want to apply the functions to, followed by a pipe %&amp;gt;%. After each pipe you must go to the next line.
+This is useful for large messy functions with multiple nested parts. It separates everything out and makes it easier to follow.</description>
+    </item>
+    
+  </channel>
+</rss>

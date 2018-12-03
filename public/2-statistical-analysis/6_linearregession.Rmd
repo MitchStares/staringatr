@@ -1,0 +1,102 @@
+---
+title: "Linear Regression"
+weight: 23
+date: '2018-11-10'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+```{r message=FALSE, warning=FALSE, include=FALSE}
+weeds<-read.csv("../../resources/datafiles/weeds.csv")
+library(tidyverse)
+weeds <- rename(weeds, flowers = flowers.m3)
+frogsp<-read.csv("../../resources/datafiles/frogs.csv", header=TRUE)
+enviro<-read.csv("../../resources/datafiles/frog_environmental.csv", header=TRUE)
+insect <- read.csv("../../resources/datafiles/insecticide.csv", header=TRUE)
+tadpoles <- read.csv("../../resources/datafiles/tadpoles.csv", header=TRUE)
+
+weeds.aov <- aov(flowers~species, data=weeds)
+
+insect.aov<-aov(species.richness~fragment, data=insect)
+shapiro.test(insect.aov$residuals)
+bartlett.test(species.richness ~ fragment, data=insect)
+```
+
+Linear regression is one of the most highly used statistical techniques in all of life and earth sciences. It is used to model the relationship between a response (Y) variable and a explanatory (X) variable. A linear regression is a special case of a linear model whereby both the response and explanatory variables are continuous. The ANOVA we just conducted is still considered as a linear model since the response variable is a linear (additive) combination of the effects of the explanatory variables.  
+
+Since we have already conducted an ANOVA, a linear model will be a peice of cake!  
+
+{{% notice info %}}
+For this, we will be using the **tadpoles.csv** dataset.
+{{% /notice %}}
+```{r}
+str(tadpoles) # three columns, all continuous
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+tadpoles$reeds<-factor(tadpoles$reeds)
+```
+Automatically, upon reading the tadpoles dataset, we have an issue. Our **reeds** column should actually be a category, so we need to read that in as a factor. There is argument here for reeds to be ordinal, but for ease of interpretation, we will stick to just a factor.   
+
+{{% notice info %}}
+Make **reeds** into a factor
+{{% /notice %}}
+
+Once everything is input correctly, we can begin our analysis
+```{r}
+tadpoles.lm <- lm(abundance ~ pondsize, data = tadpoles) # constructing a linear model
+```
+
+The `lm()` command creates a linear model object. In this example we are testing the effect of pondsize on tadpole abundance using a linear regression.  
+
+It is worth noting that the `lm()` command can be used to perform an anova, but the `aov()` command cannot be used for regressions. Give it a try by using `lm` on our last analysis and use the `anova` command, as well as the `summary()` command on the created object.  
+
+```{r}
+summary(tadpoles.lm) # summarising the newly created linear model object
+```
+
+The estimates for the coefficients give you the slope and the intercept (much like JMP). In this example, the regression equation would be:
+
+     Abundance = 23.8251 + 1.7261*pondize + error  
+
+The `summary()` printout gives us a lot of useful information, so we need to narrow down what is most important. The t-value and p-value for each coefficient indicate significance. We dont really care about the intercept. What we do care about is if the other coefficient (pondsize) is significant, indicating an effect of the explanatory variable on the reponse. Because of the positive estimate (1.7261) we can identify that an increase in pondsizeis associated with a significant increase in tadpole abundance.  
+
+While the t and p-values indicate a significant association, the R^2 value tells us the strength of the association. In this case, the proportion of variation explained by the explanatory variable is 33.52%.  
+
+#### Assumptions  
+
+To test assumptions for linear regression, we need to test the same assumptions we tested for the ANOVA. The only slight exception here is the pattern/appearance of the residuals in the fitted v.s residuals plot AND, we cant use bartlett's or levene's tests.
+
+```{r}
+plot(tadpoles.lm, 1)
+```
+
+In this plot we are looking for an even "shotgun" like appearance in the residuals. We want an even dispersal around the grand mean. In this example, we have a spread of redisuals that does not appear to follow any non-linear trends. 
+There is no point trying to fit a straight line through data that is curved. If there is strong patterning in your residuals, try log-transforming your response or, fit a polynomial function (e.g. quadratic).  
+
+Click the link below to see a nice interactive app that demonstrates what patterns of residuals you would expect with linear and curved relationships:  
+
+Linear regression diagnostics
+https://gallery.shinyapps.io/slr_diag/  
+
+**Test your normality before moving on.**  
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+par(mfrow = c(1,2)) # This code put two plots in the same window
+hist(tadpoles.lm$residuals)
+plot(tadpoles.lm, 2)
+dev.off()
+
+shapiro.test(tadpoles.lm$residuals)
+```
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+tadpoles.lm2 <- lm(abundance~pondsize+reeds, data=tadpoles) 
+anova(tadpoles.lm2)
+summary(tadpoles.lm2)
+qplot(pondsize, abundance, data=tadpoles, xlab="Pondsize (m)", ylab="Tadpole Abundance")
+```

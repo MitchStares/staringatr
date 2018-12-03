@@ -1,0 +1,33 @@
+---
+title: "Facetting"
+author: "Mitchell Stares"
+weight: 55
+date: "2018-12-03"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>Facetting is the process of dividing a plot into subplots based on the values of a discrete variable. In the context of the <strong>Iris</strong> scatterplots, we can split by species across multiple plots.</p>
+<pre class="r"><code>ggplot(iris, aes(x=Sepal.Length, y=Petal.Length)) +
+  geom_point() +
+  facet_grid(.~Species)</code></pre>
+<p><img src="/3-The-Grammar-of-Graphics/Multi-plots/1_facetting_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>As you can see, <code>facet_grid()</code> splits our single plot into a number of plots equal to the levels of the factor we specify. The syntax behind <code>facet_grid()</code> specifies our “rows” and “columns” for our plots separated by a <strong>~</strong> tilde. E.g. <code>facet_grid(row~column)</code>.
+If we dont have a factor for one of the column/row arguments, we just place a full stop.</p>
+<p>A better example of this is using <code>facet_wrap()</code> with our weeds bar graph. <code>facet_wrap()</code> sorts the graphs into a rectangular layout by default.</p>
+<pre class="r"><code>weeds.bar2 &lt;- ggplot(weeds.summarise2, aes(x=species, y=mean, fill=species))+
+  geom_bar(stat=&quot;identity&quot;, show.legend=F, colour=&quot;black&quot;)+
+  labs(x=&quot;Weed Species&quot;, y= expression(Flowers~(m^3)))+
+  theme(panel.background = element_blank(), panel.grid = element_blank(), axis.line = element_line(colour = &quot;black&quot;, size=1), axis.text = element_text(colour=&quot;lightsteelblue4&quot;, size=12), axis.title = element_text(colour=&quot;steelblue&quot;, size=14, face=&quot;bold&quot;))+
+  scale_fill_manual(values = c(&quot;lightblue&quot;, &quot;steelblue&quot;, &quot;darkslateblue&quot;))+
+  geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width=0.5)+
+  ylim(0, 50)+
+  facet_wrap(~soil)
+
+weeds.bar2</code></pre>
+<p><img src="/3-The-Grammar-of-Graphics/Multi-plots/1_facetting_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>As you can see, we have facetted by soil, creating two bar graphs of species by flowers, for each level of soil.
+With <code>facet_wrap()</code> we only specify one variable. This is useful for factors with many levels as it will automatically wrap to multiple rows. That is to say, instead of having 5 plots in a single row it might place 3 in the top row and 2 in the bottom.</p>

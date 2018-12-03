@@ -1,0 +1,83 @@
+---
+title: "Viewing your data"
+weight: 9
+date: '2018-10-30'
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+weeds<-read.csv("../../resources/datafiles/weeds.csv")
+```
+Now we have become acquainted with our working directories and the R environment, its time to explore our newely imported data. For this, we will be using the **weeds** dataset.
+Ensure your data is loaded in and then either use the **View()** command:  
+
+```{r eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+weeds <- read.csv("weeds.csv")
+View(weeds)
+# This will open up a new tab to view your data
+```
+    
+or click the variable name in the environment window.  
+  
+![](/images/view.png)  
+
+This should bring up a separate tab in Rstudio which you should be able to see the 4 columns (weeds, soil, species & flowers.m3).   
+Now we can see our data, we can investigate the way R has input our data. The best thing to do is to ensure your categorical variables are categorical, and our continuous are continuous, much like we do in programs like JMP.  
+
+![](/images/jmp_factor.png) 
+
+In JMP, we have the icons to identify **categorical/nominal, ordinal** or **continuous**. In R, all we do is run a single line of code to view the same thing across the different columns.  
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+str(weeds)
+# str stands for "structure" and will tell us the formats of each data column, as well as the number of levels when we have a factor (categorical) column
+```
+  
+`str()` also shows us the number of levels we have in a factor. So if we put in a bad dataset with different capitalisations or misspellings on factor levels, we can identify here how many we want vs. how many we have. Its a quick and easy way to assess your data.  
+
+As you can see in the **weeds** example, we have *weeds, soil* & *species* as factors (categorical) and *flowers.m3* as an integer (one of many continuous data types, in this case, whole numbers).  
+
+**We will follow up on how to fix an incorrect column shortly**
+
+Other data viewing commands can be used to view certain aspects of your data without bringing up the entire data set in a new tab. These are as follows:  
+
+```{r}
+head(weeds) # This will show the top few rows of your data so you can check it without loading the entire table
+
+tail(weeds) # The same as head() but shows the bottom rows
+
+dim(weeds) # This gives you the number of rows and columns
+
+# You can also use nrow(weeds) or ncol(weeds) to get them separately
+
+names(weeds) # Gives you the column names. 
+# I use this when I want the exact name for a column when I am writing analyses (you will see later how useful this can be)
+
+summary(weeds) # Gives you summary statistics for each column
+
+# This will also come in handy later for statistical analysis 
+
+```
+  
+As you can see, there are many ways to view data within R. Some of these are useful for huge datasets (> 10k rows) as the `view()` command can put strain on your computer. Using `head()` or `tail()` to view aspects of the data is useful as it reduces how much is displayed.  
+{{% notice question %}}
+**After reading in dataset, use the summary() command with the "insecticide"" dataset to answer the following questions:**  
+**Question: What is the minimum value for species richness?**
+{{% /notice %}}
+
+{{% expand Answer %}}
+**1**
+{{% /expand %}}  
+
+{{% notice question %}}
+**Question: What is the maximum value for species richness?**
+{{% /notice %}}
+
+{{% expand Answer %}}
+**20**
+{{% /expand %}}

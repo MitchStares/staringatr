@@ -1,0 +1,67 @@
+---
+title: "Scatter plots"
+author: "Mitchell Stares"
+weight: 51
+date: "2018-11-13"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+
+```
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+tadpoles <- read.csv("../../../resources/datafiles/tadpoles.csv", header=TRUE)
+tadpoles$reeds<-factor(tadpoles$reeds)
+```
+
+{{% notice info %}}
+For this section, we will be using the **tadpoles.csv** data set
+{{% /notice %}}
+
+The second dataset we analysed tadpole abundance in different sized ponds using a linear model/regression. Plotting linear regressions is really straightforward, but can be done a couple of different ways, depending on what you wish to accomplish. 
+
+First, let's run the basic analysis again (excluding the reeds factor). 
+
+```{r}
+tadpoles.lm <- lm(abundance ~ pondsize, data = tadpoles)
+summary(tadpoles.lm)
+```
+
+For this, we will be setting up a scatter plot (geom_point) of our points and then adding the line separately.  
+```{r}
+ggplot(tadpoles, aes(x=pondsize, y=abundance)) +
+  geom_point()
+```
+
+Thats our basic scatter plot. Simply using the `geom_point()` we covered breifly in the basic plots section.  
+
+From here, we can customise our points using a variety of arguments within `geom_point()`. 
+
+#### Colour
+
+Colouring our points can be done in two ways. We can use the colour commands within our aesthetics and colour by a factor in our dataset, or, we can colour all the points within `geom_point()`. Lets cover the `aes()` commands.  
+
+```{r}
+ggplot(tadpoles, aes(x=pondsize, y=abundance, colour=reeds, shape = reeds)) +
+  geom_point()
+```
+
+As we covered in the basic plotting section, changing the colour and shape of points can be done through the use of "colour" and "shape" arguments within the aesthetics of ggplot or any geometric object (e.g. geom_point). To change the colour of these manually simply use `scale_colour_manual()` or `scale_shape_manual()` like so:
+
+```{r}
+ggplot(tadpoles, aes(x=pondsize, y=abundance, colour=reeds, shape = reeds)) +
+  geom_point()+
+  scale_colour_manual(values = c("mediumspringgreen", "forestgreen", "black"))+
+  scale_shape_manual(values = c(15, 16, 17))
+```
+
+Each of the scale commands requires you to list the colours/shapes within a concatenated (c) list. This will be all most of you will ever need so simply copy those lines and replace/add values as you need. 
+
+* [Colours can be found here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)  
+* [Shapes can be found here](http://www.sthda.com/sthda/RDoc/figure/graphs/r-plot-pch-symbols-points-in-r.png)  
+![Shapes](/images/shapes.png?height=15pc&width=15pc)
+

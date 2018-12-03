@@ -1,0 +1,46 @@
+---
+title: "Background"
+author: "Mitchell Stares"
+weight: 36
+date: "2018-11-11"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+
+```
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+iris.box <- ggplot(iris, aes(x=Species,y=Sepal.Length)) +
+  geom_boxplot()
+iris.hist <- ggplot(iris, aes(x=Sepal.Length)) +
+  geom_histogram()
+iris.scatter <- ggplot(iris, aes(x=Sepal.Length, y=Petal.Length, colour=Species)) +
+  geom_point()
+```
+
+The plot and legend background colours can be changed using the following:  
+
+Theme argument                                       | Description  
+-----------------------------------------------------|---------------------------------------------  
+panel.background = element_rect(insert changes here) |This changes the background of the main plot itself. We need element_rect() as it is a rectangle geometric object.   
+legend.background = element_rect(insert changes here) |This will change the main area of the legend.  
+legend.key = element_rect(insert changes here) |This will change the small boxes that each of the factors levels are identified with.  
+
+For all arguments, you can replace the element_rect(), element_line() etc. with element_blank() to remove it.  
+
+Within each of the element_rect() we can change various things. The most common ones are:
+
+Element argument | Description  
+-----------------|--------------------------
+fill = "colour" | This will change the overall colour of the object.  
+colour = "colour" | This will change the outline of the rectangle.  
+size = number | This will change the size/thickness of font and lines.  
+
+Each of the "colour" arguments can be a specified a number of ways. The most common way is using one of the MANY predefined colours within R. A quick run down of these can be found [here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf). For any of these, just put the name as it is spelt in that guide in quotations.  
+```{r}
+iris.scatter + theme(panel.background = element_rect(fill="lavender", colour="red"), legend.background = element_rect(fill="lavender", colour="yellow", size=1), legend.key = element_rect(fill = "gray50", colour = "green", size = 0.5)) 
+```

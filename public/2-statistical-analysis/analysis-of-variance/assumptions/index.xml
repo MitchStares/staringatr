@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Assumptions on Staring at R</title>
+    <link>/2-statistical-analysis/analysis-of-variance/assumptions/</link>
+    <description>Recent content in Assumptions on Staring at R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 10 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/2-statistical-analysis/analysis-of-variance/assumptions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Normality</title>
+      <link>/2-statistical-analysis/analysis-of-variance/assumptions/1_normality/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2-statistical-analysis/analysis-of-variance/assumptions/1_normality/</guid>
+      <description>Normality can be tested in two basic ways. Through visual inspection of residuals in a normal quantile (QQ) plot and histogram, OR, through a mathematical test such as a shapiro-wilks test.
+To produce the two graphs for visual inspection of residuals we use the following commands:
+plot(weeds.aov, 2) # Normal quantile plotThe normal qq plot should display the residuals along the dotted line in a straight manner. In this example, it is pretty straight :)</description>
+    </item>
+    
+    <item>
+      <title>Homogeneity of Variance</title>
+      <link>/2-statistical-analysis/analysis-of-variance/assumptions/2_homogeneity/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2-statistical-analysis/analysis-of-variance/assumptions/2_homogeneity/</guid>
+      <description>Homogeneity of variance is the other main assumption we are concerned with when conducting an ANOVA. Homogeneity of variance is the assumption that the variance between groups is relatively even. That is to say, all groups have similar variation between them. Similar to the assumption of normality, there are two ways to test homogeneity, a visual inspection of residuals and a statistical test.
+To conduct a visual inspection of the residuals we simply use the following:</description>
+    </item>
+    
+  </channel>
+</rss>
