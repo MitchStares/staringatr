@@ -27,7 +27,7 @@ To export your document to another file type, simply click the knit button to dr
 
 ### Chunk options 
 
-Most of the time when knitting a document, there are some chunks you will not want the code to display in. Rstudio has built in options to display just the code, just the output or neither. You can find these in the handy (R Markdown reference sheet)[https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf] 
+Most of the time when knitting a document, there are some chunks you will not want the code to display in. Rstudio has built in options to display just the code, just the output or neither. You can find these in the handy [R Markdown reference sheet](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)  
 
 ```{r Chunk example, echo=FALSE}
 
