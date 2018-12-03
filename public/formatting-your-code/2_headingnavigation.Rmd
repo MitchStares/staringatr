@@ -26,7 +26,7 @@ The easiest way to make your code more readable and navigable is to place some h
 ```
 Once knitted (**and outside a code chunk), these will appear in a large font text like so:  
 
-![](images/hashtags.png?width=30pc)
+![](/images/hashtags.png?width=30pc)
 
 Even without these **knitted** into another document format, these are still useful in your document.  
 
@@ -35,12 +35,12 @@ Even without these **knitted** into another document format, these are still use
 These will not only help in dividing up your document, but will assist in navigating it. Navigating code can be painful at the best of times but when there are hundreds (or even thousands) of lines of code, it's pure hell. The navigation tools in R studio are very useful when this happens.  
 
 
-![](images/Navigation.png?width=30)  
+![](/images/Navigation.png?width=30)  
 
 
 Clicking this navigation button (where is says Headings) will bring up a list of all the **# headings** you have throughout your document, along with all the code chunks. The second method of navigating is by using the **document outline** window located at the edge of your window near the **run** button.  
 
-![](images/documentoutline.png?width=30pc)
+![](/images/documentoutline.png?width=30pc)
 
 The document outline button is the one that looks like a list (next to the "pokeball" button). As you can see, this will list all your headings in the document, but wont list any of you coding chunks.  
 

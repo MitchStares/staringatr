@@ -22,7 +22,7 @@ This is done by writing the name we want for our chunk directly after the **r** 
 ```
 
 
-![](images/chunkname.png?width=30pc)
+![](/images/chunkname.png?width=30pc)
 
 
 In addition to this, we can also use "headings" in our coding chunks to help organise sections of chunks. This is done by placing anything inside four hashtags. e.g. **#### ANOVA ####**. Once you place 4 on either side of something inside a chunk, it will appear in the navigation tab. **Personally, I dont use this, but I will use hashtag like headings or a row of -'s to separate parts of code**.
