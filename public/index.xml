@@ -423,6 +423,54 @@ In this scenario, our data is measuring whether a nest was attacked or not in ar
     </item>
     
     <item>
+      <title>Using your notebook efficiently</title>
+      <link>/formatting-your-code/1_notebookefficiency/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/formatting-your-code/1_notebookefficiency/</guid>
+      <description>R notebook/markdown files are a fantastic solution for working with R scripts. Compared to a normal R script it allows room to write in plain text without needing a whole lot of hashtags in front of sentances. For most, this is where the use of R markdown documents ends. However, there are a number of extra uses for markdown documents that may increase your efficiency and skills within the R environment.</description>
+    </item>
+    
+    <item>
+      <title>Headings and Navigation</title>
+      <link>/formatting-your-code/2_headingnavigation/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/formatting-your-code/2_headingnavigation/</guid>
+      <description>When working in a R markdown document (R markdown or R notebook) there are a number of ways to change the appearance of text within these non-coding regions.
+The easiest way to make your code more readable and navigable is to place some headings before different sections of your code. This is simply done by placing a # (hashtag) before your heading on its own line. e.g. # Heading. Because this is not on its own line, it will not default to a heading.</description>
+    </item>
+    
+    <item>
+      <title>Code Chunks</title>
+      <link>/formatting-your-code/3_codechunks/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/formatting-your-code/3_codechunks/</guid>
+      <description>Along with navigating by headings, we can also navigate by code chunks. Within the navigation tab you will probably see all the code chunks listed “Chunk 1”, “Chunk 2”, “Chunk 3” etc. To make this easier, we can actually name our chunks to help with this navigation.
+This is done by writing the name we want for our chunk directly after the r within our wing brackets { }, like so: {r chunk name}.</description>
+    </item>
+    
+    <item>
+      <title>Annotating code</title>
+      <link>/formatting-your-code/4_annotations/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/formatting-your-code/4_annotations/</guid>
+      <description>Annotating your code is crazy important for a number of reasons. The main reason is for you personally when you look back on what you have coded. It helps to explain in detail what a line, chunk or even section of code is trying to accomplish.
+Behind every great R statistician is a library of annotated code they will “repurpose”. Some of the best resources you can have for working with R (or any coding language for that fact) is previous work that you have carefully annotated and explained in your own words.</description>
+    </item>
+    
+    <item>
+      <title>Knitting to word, html and pdf</title>
+      <link>/formatting-your-code/5_knitting/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/formatting-your-code/5_knitting/</guid>
+      <description>KnittingThe process of knitting a document is one of the main benefits behind using a markdown style document. While markdown documents are aesthetically pleasing environment to code in, the ability to export your work to a different file type is very handy. The use of code chunks and non-coding regions means we can output all of our work in our markdown file to a pdf, word or html with the click of a button (and sometimes some formatting).</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>/datasets/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

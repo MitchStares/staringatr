@@ -1,0 +1,33 @@
+---
+title: "Annotating code"
+author: "Mitchell Stares"
+weight: 64
+date: "2018-12-03"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p>Annotating your code is crazy important for a number of reasons. The main reason is for you personally when you look back on what you have coded. It helps to explain in detail what a line, chunk or even section of code is trying to accomplish.<br />
+Behind every great R statistician is a library of annotated code they will “repurpose”. Some of the best resources you can have for working with R (or any coding language for that fact) is previous work that you have carefully annotated and explained in your own words.</p>
+<p>This is also helpful for other people who read you code. Explaining what a line of code is doing can be useful for other who are looking to adapt your work to their own. It also helps when showing the code to a collaborator, supervisor or someone else who might be marking/critising your work :)</p>
+<p>The easiest ways to annotate code is inside the chunk using #’s.</p>
+<pre class="r"><code>#### Data Modification ####
+
+data &lt;- read.csv(&quot;filename.csv&quot;) 
+# reading in the data file
+
+#### ANOVA ####
+
+data_anova &lt;- aov(something.important ~ something.else, data=data) 
+# constructing an anova object with something.important as the Y variable
+# and something.else as the x variable
+
+#### Linear Regression ####
+
+data_lm &lt;- lm(something.important ~ something.continuous, data=data) 
+# constructing a linear model object using the lm() command. </code></pre>
+<p>This is pretty excruciating detail but it helps. Most people you would be sending code to should be fairly familiar with basic functions so you would adapt your annotations accordingly. Any code I am producing for a learning resource will be annotated within an inch of its life so that way the information is there if it is needed.</p>
+<p>The other alternative is to annotate or discuss your code chunks in the non-coding regions above or below the chunk. This allows longer sentances of writing without having a <strong>#</strong> at the start of every line.</p>

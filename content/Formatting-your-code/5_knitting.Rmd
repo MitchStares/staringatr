@@ -1,0 +1,45 @@
+---
+title: "Knitting to word, html and pdf"
+author: "Mitchell Stares"
+weight: 65
+date: "2018-12-03"
+output: blogdown::html_page
+editor_options:
+  chunk_output_type: console
+---
+```{r knitr options, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(tidyverse)
+```
+
+## Knitting
+
+![](images/knitting.jpg?width=30pc)
+
+The process of **knitting** a document is one of the main benefits behind using a markdown style document. While markdown documents are aesthetically pleasing environment to code in, the ability to export your work to a different file type is very handy. The use of code chunks and non-coding regions means we can output all of our work in our markdown file to a pdf, word or html with the click of a button (and sometimes some formatting).  
+
+{{% notice tip %}}
+When knitting your document, R will run from top to bottom from a "blank" environment. Your code will need to be organised and have all the libraries, data and manipulations in order. If R encounters a dataset or object that is not generated in your code before this, it will stop the knitting process.
+{{% /notice %}}
+
+To export your document to another file type, simply click the knit button to drop down the menu and click your preferred file type.  
+
+![](images/knitr.png?width=30pc) 
+
+### Chunk options 
+
+Most of the time when knitting a document, there are some chunks you will not want the code to display in. Rstudio has built in options to display just the code, just the output or neither. You can find these in the handy (R Markdown reference sheet)[https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf] 
+
+```{r Chunk example, echo=FALSE}
+
+```
+
+![](images/chunkoptions.png?width=30pc)  
+
+As you can see in this example, the small settings cog on the right-hand side of your code chunk displays a few preset options for chunk behaviour. You can name your chunk here, set multiple options for display behaviour and even turn off warnings and messages (**highly advised when knitting**).  
+
+When selecting the output only option, it added the `echo=FALSE` option to our winged bracket chunk setup. These options are all listed in the **R Markdown reference sheet** and coding these directly adds more customisation than the preset options in the menu. 
+
+
+
