@@ -13,8 +13,10 @@ editor_options:
 
 <p>One of the most frequent data manipulations for working within R is joining multiple data sets together. The most common example of this is combining species abundance (or some other variable of interest) with external sources on the environmental conditions, such as BOM data (temperature, precipitation etc.) or GPS data.</p>
 <p>To do most statistical analyses, data needs to be in the same data frame. So joining the datasets is an “easy” way to do so outside of excel.</p>
-<p>{{% notice info %}} For this exercise, we will be working with the BIOL365 Frog Data to combine the species matrix with environmental data.<br />
-<strong>Download the “frogs.csv” and “frog_environmental.csv”&quot; files and read them in to R without the row.names argument</strong> {{% /notice %}}</p>
+<p>{{% notice info %}}
+For this exercise, we will be working with the BIOL365 Frog Data to combine the species matrix with environmental data.<br />
+<strong>Download the “frogs.csv” and “frog_environmental.csv”" files and read them in to R without the row.names argument</strong>
+{{% /notice %}}</p>
 <pre class="r"><code>frogsp&lt;-read.csv(&quot;frogs.csv&quot;, header=TRUE)
 enviro&lt;-read.csv(&quot;frog_environmental.csv&quot;, header=TRUE)</code></pre>
 <p>For a complete join of both datasets, when there are the same number of rows in the exact same order, we can use the <code>bind_cols()</code> function.</p>

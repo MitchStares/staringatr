@@ -11,14 +11,18 @@ editor_options:
 
 <p>Linear regression is one of the most highly used statistical techniques in all of life and earth sciences. It is used to model the relationship between a response (Y) variable and a explanatory (X) variable. A linear regression is a special case of a linear model whereby both the response and explanatory variables are continuous. The ANOVA we just conducted is still considered as a linear model since the response variable is a linear (additive) combination of the effects of the explanatory variables.</p>
 <p>Since we have already conducted an ANOVA, a linear model will be a peice of cake!</p>
-<p>{{% notice info %}} For this, we will be using the <strong>tadpoles.csv</strong> dataset. {{% /notice %}}</p>
+<p>{{% notice info %}}
+For this, we will be using the <strong>tadpoles.csv</strong> dataset.
+{{% /notice %}}</p>
 <pre class="r"><code>str(tadpoles) # three columns, all continuous</code></pre>
 <pre><code>## &#39;data.frame&#39;:    24 obs. of  3 variables:
 ##  $ reeds    : int  1 1 1 1 1 1 1 1 2 2 ...
 ##  $ pondsize : int  45 60 20 45 56 16 37 49 50 16 ...
 ##  $ abundance: int  120 201 136 128 178 55 156 150 89 25 ...</code></pre>
 <p>Automatically, upon reading the tadpoles dataset, we have an issue. Our <strong>reeds</strong> column should actually be a category, so we need to read that in as a factor. There is argument here for reeds to be ordinal, but for ease of interpretation, we will stick to just a factor.</p>
-<p>{{% notice info %}} Make <strong>reeds</strong> into a factor {{% /notice %}}</p>
+<p>{{% notice info %}}
+Make <strong>reeds</strong> into a factor
+{{% /notice %}}</p>
 <p>Once everything is input correctly, we can begin our analysis</p>
 <pre class="r"><code>tadpoles.lm &lt;- lm(abundance ~ pondsize, data = tadpoles) # constructing a linear model</code></pre>
 <p>The <code>lm()</code> command creates a linear model object. In this example we are testing the effect of pondsize on tadpole abundance using a linear regression.</p>
@@ -51,8 +55,10 @@ editor_options:
 <p>To test assumptions for linear regression, we need to test the same assumptions we tested for the ANOVA. The only slight exception here is the pattern/appearance of the residuals in the fitted v.s residuals plot AND, we cant use bartlett’s or levene’s tests.</p>
 <pre class="r"><code>plot(tadpoles.lm, 1)</code></pre>
 <p><img src="/2-Statistical-Analysis/6_linearregession_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>In this plot we are looking for an even “shotgun” like appearance in the residuals. We want an even dispersal around the grand mean. In this example, we have a spread of redisuals that does not appear to follow any non-linear trends. There is no point trying to fit a straight line through data that is curved. If there is strong patterning in your residuals, try log-transforming your response or, fit a polynomial function (e.g. quadratic).</p>
+<p>In this plot we are looking for an even “shotgun” like appearance in the residuals. We want an even dispersal around the grand mean. In this example, we have a spread of redisuals that does not appear to follow any non-linear trends.
+There is no point trying to fit a straight line through data that is curved. If there is strong patterning in your residuals, try log-transforming your response or, fit a polynomial function (e.g. quadratic).</p>
 <p>Click the link below to see a nice interactive app that demonstrates what patterns of residuals you would expect with linear and curved relationships:</p>
-<p>Linear regression diagnostics <a href="https://gallery.shinyapps.io/slr_diag/" class="uri">https://gallery.shinyapps.io/slr_diag/</a></p>
+<p>Linear regression diagnostics
+<a href="https://gallery.shinyapps.io/slr_diag/" class="uri">https://gallery.shinyapps.io/slr_diag/</a></p>
 <p><strong>Test your normality before moving on.</strong></p>
 </div>

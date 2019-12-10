@@ -1,8 +1,4 @@
 @charset "UTF-8";
-
-/* Tags */
-@import "tags.css";
-
 #top-github-link, #body #breadcrumbs {
     position: relative;
     top: 50%;
@@ -261,7 +257,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 #sidebar ul.topics ul ul {
     padding-bottom: 0;
 }
-#sidebar ul.topics li.parent ul, #sidebar ul.topics > li.active ul {
+#sidebar ul.topics li.parent > ul {
     display: block;
 }
 #sidebar ul.topics > li > a {
@@ -512,7 +508,7 @@ div.notices.info p {
     background: #FFF2DB;
 }
 div.notices.info p:first-child:after {
-    content: 'Info';
+    content: 'Instruction';
 }
 div.notices.warning p {
     border-top: 30px solid rgba(217, 83, 79, 0.8);
@@ -534,6 +530,13 @@ div.notices.tip p {
 }
 div.notices.tip p:first-child:after {
     content: 'Tip';
+}
+div.notices.question p {
+    border-top: 30px solid #666666;
+    background: #A1A9AF;
+}
+div.notices.question p:first-child:after {
+  content: 'Question';
 }
 
 /* attachments shortcode */
@@ -646,7 +649,7 @@ code + .copy-to-clipboard {
 pre {
     padding: 1rem;
     margin: 2rem 0;
-    background: #282c34;
+    background: #1d1f21;
     border: 0;
     border-radius: 2px;
     line-height: 1.15;
@@ -1078,7 +1081,7 @@ pre .copy-to-clipboard {
     position: absolute;
     right: 4px;
     top: 4px;
-    background-color: #949bab;
+    background-color: #4d5257;
     color: #ccc;
     border-radius: 2px;
 }
@@ -1130,3 +1133,5 @@ pre .copy-to-clipboard:hover {
 #searchResults {
     text-align: left;
 }
+
+/*# sourceMappingURL=theme.css.map */

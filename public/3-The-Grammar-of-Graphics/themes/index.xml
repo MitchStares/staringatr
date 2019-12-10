@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Customising your graph on Staring at R</title>
@@ -28,7 +28,7 @@ We can simply add items to our current graph object by adding the + sign. Keep i
       
       <guid>/3-the-grammar-of-graphics/themes/5_axislines/</guid>
       <description>To change the axis lines and ticks (lines above each number on an axis) use the following.
-Theme argumentDescriptionaxis.line = element_line(insert changes here)This will change both axes lines.axis.line.x = element_line(insert changes here)This will change just the x axis.axis.line.y = element_line(insert changes here)This will change just the y axis.axis.ticks = element_line(insert changes here)Change both axes ticks.</description>
+Theme argumentDescriptionaxis.line = element_line(insert changes here)This will change both axes lines.axis.line.x = element_line(insert changes here)This will change just the x axis.axis.line.y = element_line(insert changes here)This will change just the y axis.axis.ticks = element_line(insert changes here)Change both axes ticks.</description>
     </item>
     
     <item>
@@ -48,7 +48,7 @@ We can simply add items to our current graph object by adding the + sign. Keep i
       
       <guid>/3-the-grammar-of-graphics/themes/6_grids/</guid>
       <description>So far, our graph does not have the original ggplot grid lines because we removed them in our original graph. Before we start changing these, let’s save our beautiful masterpiece to an object/variable to simplify the theme() changing.
-iris.scatter &amp;lt;- iris.scatter + theme(panel.background = element_rect(fill=&amp;quot;lavender&amp;quot;, colour=&amp;quot;red&amp;quot;), legend.background = element_rect(fill=&amp;quot;lavender&amp;quot;, colour=&amp;quot;yellow&amp;quot;, size=1), legend.key = element_rect(fill = &amp;quot;gray50&amp;quot;, colour = &amp;quot;green&amp;quot;, size = 0.5)) +theme(axis.line.x = element_line(colour = &amp;quot;skyblue&amp;quot;, size=2), axis.</description>
+iris.scatter &amp;lt;- iris.scatter + theme(panel.background = element_rect(fill=&amp;quot;lavender&amp;quot;, colour=&amp;quot;red&amp;quot;), legend.background = element_rect(fill=&amp;quot;lavender&amp;quot;, colour=&amp;quot;yellow&amp;quot;, size=1), legend.key = element_rect(fill = &amp;quot;gray50&amp;quot;, colour = &amp;quot;green&amp;quot;, size = 0.5)) +theme(axis.line.x = element_line(colour = &amp;quot;skyblue&amp;quot;, size=2), axis.line.y = element_line(colour=&amp;quot;deeppink&amp;quot;, size = 2), axis.</description>
     </item>
     
     <item>

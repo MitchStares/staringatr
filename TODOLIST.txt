@@ -1,34 +1,17 @@
 To Do List
-	High priority
-	
 - Reference each page with the resources things came from (mostly environmentalcomputing.net)
-- Put a page of other resources (data carpentry, environmentalcomputing.net etc.)
-- Fix all the typos and issues!
-- ggplot basic syntax page. Make the example code clear that it is just for syntax purposes and will not actually run. 
-- Add a homepage button somewhere
-- Continue fixing all of the files (data manipulation -> )
-
------------------------------------------------------------------------------------------------------------------------------------------
-
-	Medium priority
-	
 - Data manipulation - 3_columns - include changing things to numeric, mention how this happens computationally. Change the name to be more reflective of changing columns
+- Continue fixing all of the files (data manipulation -> )
 - Fix up homepage
 - Put an about page for me, the website and uow etc. 
+- Put a page of other resources (data carpentry, environmentalcomputing.net etc.)
+- Work on website tutorials, manuscript/writing tutorials, GIS tutorials, multivariate tutorials
 - Put tags on files for the search bar
-- Add drop down function for menu without refreshing page (basically docdock, but preferably without having to change hugo theme)
-- Move the proper examples and finalising your plot to the base menu of graphing (rather than nested within barplots or customising). 
-
-------------------------------------------------------------------------------------------------------------------------------------------
-
-	Low priority
-	
 - Fix up the index for assumptions and analysis of variance. 
 	- include what assumptions are and why they are important. 
 - Replot the themes section so all of the themes are smaller and arranged in a grid with text below to show the command. 
 - Reorganise the graph section to have the fundamentals, foundations and then each geometric type, then things like time series, animated etc. 
-- Add more to saving multiple graphs with cowplot, ggpubr. 
-	- Add extra functions of ggpubr, e.g. combining plots across columns, adding tables & text
+- Add facetting and saving multiple graphs with cowplot, ggpubr, ggarrange, gridextra etc.
+- Add drop down function for menu without refreshing page (basically docdock, but preferably without having to change hugo theme)
 - Add a section to formatting your code about document outlines. Placing libraries first, then data read in and then data manipulation, analysis and graphs
 	- Inlcude the different ways to outline this, by hypothesis, or all at once. 
-- Work on website tutorials, manuscript/writing tutorials, GIS tutorials, multivariate tutorials

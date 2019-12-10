@@ -10,7 +10,9 @@ editor_options:
 
 
 
-<p>{{% notice info %}} For this section, we will be using the <strong>tadpoles.csv</strong> data set {{% /notice %}}</p>
+<p>{{% notice info %}}
+For this section, we will be using the <strong>tadpoles.csv</strong> data set
+{{% /notice %}}</p>
 <p>The second dataset we analysed tadpole abundance in different sized ponds using a linear model/regression. Plotting linear regressions is really straightforward, but can be done a couple of different ways, depending on what you wish to accomplish.</p>
 <p>First, let’s run the basic analysis again (excluding the reeds factor).</p>
 <pre class="r"><code>tadpoles.lm &lt;- lm(abundance ~ pondsize, data = tadpoles)

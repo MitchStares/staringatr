@@ -13,8 +13,8 @@ defaultContentLanguageInSubdir= true
   description = "Documentation for Hugo Learn Theme"
   author = "Mathieu Cornic"
   showVisitedLinks = true
-  disableBreadcrumb = false
-  disableNextPrev = false
+  disableBreadcrumb = true
+  disableNextPrev = true
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
@@ -26,7 +26,7 @@ weight = 1
 languageName = "English"
 
 [[Languages.en.menu.shortcuts]]
-name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+name = "<i class='fab fa-fw fa-github'></i> Github repo"
 identifier = "ds"
 url = "https://github.com/matcornic/hugo-theme-learn"
 weight = 10
@@ -53,7 +53,7 @@ weight = 2
 languageName = "Français"
 
 [[Languages.fr.menu.shortcuts]]
-name = "<i class='fab fa-fw fa-github'></i> Repo GitHub"
+name = "<i class='fab fa-fw fa-github'></i> Repo Github"
 identifier = "ds"
 url = "https://github.com/matcornic/hugo-theme-learn"
 weight = 10

@@ -44,10 +44,13 @@ editor_options:
   geom_smooth(method=lm) </code></pre>
 <p><img src="/3-The-Grammar-of-Graphics/Scatter-plots/2_plottinglines_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>This time, we plot three lines by using the reeds factor. You can change the colouring and shape of each of the lines using the same commands as with points and bars.</p>
-<p>{{% notice note %}} You dont need to specify the aesthetic variables in the ggplot command, you can do so in each separate <strong>geom</strong> line by using aes(). This means you can produce three lines using colour in geom_smooth, but keep the points normal in geom_point. This is the same across all ggplot graphs {{% /notice %}}</p>
+<p>{{% notice note %}}
+You dont need to specify the aesthetic variables in the ggplot command, you can do so in each separate <strong>geom</strong> line by using aes(). This means you can produce three lines using colour in geom_smooth, but keep the points normal in geom_point. This is the same across all ggplot graphs
+{{% /notice %}}</p>
 <p>This is an example of that point.</p>
 <pre class="r"><code>ggplot(tadpoles) +
   geom_point(aes(x=pondsize, y=abundance))+
   geom_smooth(aes(x=pondsize, y=abundance, colour = reeds), method=lm) </code></pre>
-<p><img src="/3-The-Grammar-of-Graphics/Scatter-plots/2_plottinglines_files/figure-html/unnamed-chunk-7-1.png" width="672" /> You can see in this example, that the points are black, while the three lines are coloured by reeds.</p>
+<p><img src="/3-The-Grammar-of-Graphics/Scatter-plots/2_plottinglines_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+You can see in this example, that the points are black, while the three lines are coloured by reeds.</p>
 </div>

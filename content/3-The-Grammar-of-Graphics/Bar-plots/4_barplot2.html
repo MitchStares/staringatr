@@ -18,7 +18,7 @@ Firstly, we will run our summarise command, adding the soil column into our <cod
 <pre class="r"><code>ggplot(weeds.summarise2, aes(x=soil, y=mean, fill=species)) +
   geom_bar(stat=&quot;identity&quot;)</code></pre>
 <p><img src="/3-The-Grammar-of-Graphics/Bar-plots/4_barplot2_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>However, you can see the bar graph has stacked the species ontop of one another. To fix this, include the <code>position=&quot;dodge&quot;</code> argument in your <code>geom_bar()</code>, like so.</p>
+<p>However, you can see the bar graph has stacked the species ontop of one another. To fix this, include the <code>position="dodge"</code> argument in your <code>geom_bar()</code>, like so.</p>
 <pre class="r"><code>ggplot(weeds.summarise2, aes(x=soil, y=mean, fill=species)) + 
   geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;)</code></pre>
 <p><img src="/3-The-Grammar-of-Graphics/Bar-plots/4_barplot2_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
@@ -40,5 +40,5 @@ Firstly, we will run our summarise command, adding the soil column into our <cod
   geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;)+
   geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width = 0.5, position=position_dodge(0.9))</code></pre>
 <p><img src="/3-The-Grammar-of-Graphics/Bar-plots/4_barplot2_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>To alter the position of our errorbars we include the <code>position=position_dodge(0.9)</code> argument to match our original <code>position=&quot;dodge&quot;</code> in our bar line. You will notice these two arguments have different values and syntax. The standard <code>position=&quot;dodge&quot;</code> does work for the errorbars, but I have had very mixed results. The <code>position=position_dodge(0.9)</code> is slightly more annoying, but tends to work alot more. The 0.9 value is the default for the errorbars and refers to the distance between the middle errorbar and the left and/or right errobars when dodged. If your errobar comes out a little “funky”, modify this value.</p>
+<p>To alter the position of our errorbars we include the <code>position=position_dodge(0.9)</code> argument to match our original <code>position="dodge"</code> in our bar line. You will notice these two arguments have different values and syntax. The standard <code>position="dodge"</code> does work for the errorbars, but I have had very mixed results. The <code>position=position_dodge(0.9)</code> is slightly more annoying, but tends to work alot more. The 0.9 value is the default for the errorbars and refers to the distance between the middle errorbar and the left and/or right errobars when dodged. If your errobar comes out a little “funky”, modify this value.</p>
 </div>

@@ -34,7 +34,8 @@ iris.scatter.proper &lt;- iris.scatter.proper + plottheme +
 
 ## Displaying our graph ##
 iris.scatter.proper</code></pre>
-<p><img src="/3-The-Grammar-of-Graphics/Themes/8_properexamples_files/figure-html/unnamed-chunk-2-1.png" width="672" /> Pretty cool example of changing things around for the “better”. You might notice a few extra things I have changed in this graph.</p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/8_properexamples_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+Pretty cool example of changing things around for the “better”. You might notice a few extra things I have changed in this graph.</p>
 <p>In the <code>aes()</code> section at the start, I introduced the shape command which changes the shape for each level of a factor. Doing this alongside colour= allows us to change the colour and symbol of the points themselves.<br />
 Further down, I then changed the colour of the points using <code>scale_colour_manual()</code> and adding the colour values for the levels in order. There are many different ways you can do this, but I find this works the best. There are scale_manual commands for fill, group, shape etc.</p>
 <p>In the <code>theme()</code> section, I covered most things we have done so far but added an additional argument to legend.text and plot.title. This is the face argument which allows us to add italics, bold or others to our text.</p>

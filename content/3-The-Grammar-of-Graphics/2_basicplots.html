@@ -19,9 +19,12 @@ editor_options:
   geom_boxplot()
 
 iris.box # We have to run a line with the name of the plot object to view the graph. </code></pre>
-<p><img src="/3-The-Grammar-of-Graphics/2_basicplots_files/figure-html/unnamed-chunk-3-1.png" width="672" /> So far, pretty straight forward.</p>
+<p><img src="/3-The-Grammar-of-Graphics/2_basicplots_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+So far, pretty straight forward.</p>
 <p>You will notice I saved the ggplot() graph to an object called <strong>iris.box</strong>. Because I saved the plot to an object, I have to run the object name to view the plot. This is identical to using the command <code>print(iris.box)</code>.</p>
-<p>{{% notice note %}} ggplot graphs do no need to be saved as an object. You can run all of the commands singularly or as a group. The graph will still be produced. I personally prefer to save them to an object. {{% /notice %}}</p>
+<p>{{% notice note %}}
+ggplot graphs do no need to be saved as an object. You can run all of the commands singularly or as a group. The graph will still be produced. I personally prefer to save them to an object.
+{{% /notice %}}</p>
 <p>Now let’s look at some others, such as a <strong>histogram.</strong></p>
 <pre class="r"><code>iris.hist &lt;- ggplot(iris, aes(x=Sepal.Length)) +
   geom_histogram()

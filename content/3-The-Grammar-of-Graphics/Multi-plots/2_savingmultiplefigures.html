@@ -11,7 +11,9 @@ editor_options:
 
 
 <p>While facetting is useful, sometimes we need to save multiple different plots into one image. There are a number of ways to accomplish this and each have their benefits.</p>
-<p>{{% notice note %}} This section will only cover the <strong>“ggpubr”</strong> package. This is my personal choice for combining plots and accomplishes everything I need for publication quality figures. It should be noted that there are a plethora of packages that all accomplish a similar task (e.g. “cowplot”, “grid” and “gridExtra”) each with their own unique features and syntax. {{% /notice %}}</p>
+<p>{{% notice note %}}
+This section will only cover the <strong>“ggpubr”</strong> package. This is my personal choice for combining plots and accomplishes everything I need for publication quality figures. It should be noted that there are a plethora of packages that all accomplish a similar task (e.g. “cowplot”, “grid” and “gridExtra”) each with their own unique features and syntax.
+{{% /notice %}}</p>
 <p>For these examples, we will be using the weeds datasets, producing 2 graphs, one with species on the x-axis and one with soil, just to demonstrate this usage in a publication setting. <strong>I have already setup each of the graphs separately, using similar code as the bargraph tutorials, just changing the x-axis (for the most part).</strong></p>
 <p>ggpubr is a popular solution, particularly for those utlising <strong>ggplot2</strong> for their plotting needs. The main feature from this package is <code>ggarrange()</code> which will help arrange plots and allows further customisation in removing labels (for shared x or y axes), combining legends and even labelling each plot.</p>
 <p><strong>Let’s start with an example</strong></p>
@@ -35,7 +37,8 @@ ggsave(&quot;arrangedplot.png&quot;, arrange)</code></pre>
 <p>The next feature most people will need when combining multiple plots together is labelling each plot with a letter in order to refer to a specific figure in text or in the caption. Again, this is really easy and just requires a single addition to our <code>ggarrange()</code>.</p>
 <pre class="r"><code>ggarrange(weeds.bar.species, weeds.bar.soil, ncol = 2, nrow = 1, labels = &quot;AUTO&quot;)</code></pre>
 <p><img src="/3-The-Grammar-of-Graphics/Multi-plots/2_savingmultiplefigures_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p><code>ggarrange()</code> simply needs the “labels” argument to add to each of the plot. These can be specified using <strong>“AUTO”</strong> for automatic uppercase lettering, or <strong>“auto”</strong> for automatic lower case lettering. Alternatively, you can specify your own custom letters using <strong>c(“A”, “B”)</strong> specifying your labels inside the concatinated brackets.</p>
+<p><code>ggarrange()</code> simply needs the “labels” argument to add to each of the plot.
+These can be specified using <strong>“AUTO”</strong> for automatic uppercase lettering, or <strong>“auto”</strong> for automatic lower case lettering. Alternatively, you can specify your own custom letters using <strong>c(“A”, “B”)</strong> specifying your labels inside the concatinated brackets.</p>
 <p>You may have noticed that I removed the <code>rremove()</code> command during that last ggarrange. This is due to the way <code>ggarrange()</code> places its labels. To fix this, we can add the <code>hjust =</code> argument to our function, but its a little annoying.</p>
 <pre class="r"><code># Default with no hjust
 ggarrange(weeds.bar.species, weeds.bar.species + rremove(&quot;ylab&quot;), ncol = 2, nrow = 1, labels  = &quot;AUTO&quot;) </code></pre>

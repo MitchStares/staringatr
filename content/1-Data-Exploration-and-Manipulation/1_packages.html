@@ -15,24 +15,18 @@ editor_options:
 <div id="to-install-a-package-into-r-there-are-two-options" class="section level4">
 <h4>To install a package into R there are two options:</h4>
 <p><strong>Option 1</strong> is to select the packages tab in the help/viewer window &amp; click the install button.</p>
-<div class="figure">
-<img src="/images/packages.png" />
-
-</div>
+<p><img src="/images/packages.png" /></p>
 <p>Then type the package name in the packages box (<em>note: ensure that it is installing from Repository/CRAN</em>)</p>
-<div class="figure">
-<img src="/images/install.png" />
-
-</div>
+<p><img src="/images/install.png" /></p>
 <p><strong>Option 2</strong> is to use the following code, replacing the “tidyverse” with the package of your choice. <strong>This should be used in the console</strong>, rather than the script window as you only need to install the package once.</p>
 <pre class="r"><code>install.packages(&quot;tidyverse&quot;)</code></pre>
 <p>Once you have installed <strong>tidyverse</strong>, simply load it into your current workspace with the following command <strong>(in your script)</strong></p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<p>{{% notice tip %}} In general, it is good practice to place the <strong>library()</strong> commands for your whole document at the top before anything else. This allows people reading your code to load in any packages they will need at the beginning before anything else. {{% /notice %}}</p>
+<p>{{% notice tip %}}
+In general, it is good practice to place the <strong>library()</strong> commands for your whole document at the top before anything else. This allows people reading your code to load in any packages they will need at the beginning before anything else.
+{{% /notice %}}</p>
 <p>For example, here is the first few lines of one of my own scripts:</p>
-<div class="figure">
-<img src="/images/libraries.png" />
-
-</div>
-<p>This shows the reader of my code what packages need to be installed to run my analysis. I also write notes to myself to remind myself what specific packages are for. Once you start accumulating packages, its hard to remember what each one does. I find this particularly useful for packages I only use for a particular function (such as the agricolae package which I use for tukeys letter reports).</p>
+<p><img src="/images/libraries.png" /></p>
+<p>This shows the reader of my code what packages need to be installed to run my analysis. I
+also write notes to myself to remind myself what specific packages are for. Once you start accumulating packages, its hard to remember what each one does. I find this particularly useful for packages I only use for a particular function (such as the agricolae package which I use for tukeys letter reports).</p>
 </div>

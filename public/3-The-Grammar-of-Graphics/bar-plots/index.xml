@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bar plots on Staring at R</title>
@@ -17,7 +17,7 @@
       <pubDate>Sun, 11 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/3-the-grammar-of-graphics/bar-plots/1_barplots/</guid>
-      <description>For this section, we will be using the weedsdataset where we performed a two-factor ANOVA
+      <description>For this section, we will be using the weeds dataset where we performed a two-factor ANOVA
  For a quick reminder:
 weeds.aov2 &amp;lt;- aov(flowers ~ species * soil, data = weeds)anova(weeds.aov2)## Analysis of Variance Table## ## Response: flowers## Df Sum Sq Mean Sq F value Pr(&amp;gt;F) ## species 2 2368.6 1184.31 9.1016 0.0005203 ***## soil 1 238.5 238.52 1.8331 0.1830080 ## species:soil 2 155.0 77.52 0.</description>
     </item>
@@ -28,8 +28,9 @@ weeds.aov2 &amp;lt;- aov(flowers ~ species * soil, data = weeds)anova(weeds.aov
       <pubDate>Mon, 12 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/3-the-grammar-of-graphics/bar-plots/2_errorbars/</guid>
-      <description>Error bars are a simply addition to your graph, utilising their own geometric command geom_errorbar(). To add the error bars, we use the following command
-ggplot(weeds.summarise, aes(x=species, y=mean)) +geom_bar(stat=&amp;quot;identity&amp;quot;)+geom_errorbar(aes(ymin = mean-se, ymax = mean+se))This is suprisingly simple. All we do is specify the aesthetic (aes) where we compute our minimum and maximum y values for our bars as our mean column +/- our standard error column.</description>
+      <description>Error bars are a simply addition to your graph, utilising their own geometric command geom_errorbar().To add the error bars, we use the following command
+ggplot(weeds.summarise, aes(x=species, y=mean)) +geom_bar(stat=&amp;quot;identity&amp;quot;)+geom_errorbar(aes(ymin = mean-se, ymax = mean+se))This is suprisingly simple. All we do is specify the aesthetic (aes) where we compute our minimum and maximum y values for our bars as our mean column +/- our standard error column.
+We can further customise our errorbars through the use of a few arguments.</description>
     </item>
     
     <item>

@@ -65,7 +65,9 @@ summary(weeds.aov.log)</code></pre>
 ## Residuals    42  5.349  0.1274                    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>{{% notice note %}} If you are testing assumptions, you must run the <code>aov()</code> (or general analysis) again with the new transformation and then extract residuals. {{% /notice %}}</p>
+<p>{{% notice note %}}
+If you are testing assumptions, you must run the <code>aov()</code> (or general analysis) again with the new transformation and then extract residuals.
+{{% /notice %}}</p>
 <pre class="r"><code>shapiro.test(log(weeds.aov$residuals)) #### DO NOT DO THIS!! ####</code></pre>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
@@ -79,12 +81,23 @@ summary(weeds.aov.log)</code></pre>
 ## data:  weeds.aov.log$residuals
 ## W = 0.97792, p-value = 0.4951</code></pre>
 <p>See how those are different? The same thing applies to square root (sqrt) or square/cubic transformations (^2, ^3).</p>
-<p>{{% notice question %}} Construct a Two-factor ANOVA (with interaction) on the Insecticide dataset and answer the following:<br />
+<p>{{% notice question %}}
+Construct a Two-factor ANOVA (with interaction) on the Insecticide dataset and answer the following:<br />
 <strong>1. Is the data normal?</strong><br />
-{{% /notice %}} {{% expand Answer %}} <strong>NO</strong> {{% /expand %}}</p>
-<p>{{% notice question %}} <strong>2. What is the p-value for the Bartlett’s test?</strong><br />
-{{% /notice %}} {{% expand Answer %}} 0.1339<br />
+{{% /notice %}}
+{{% expand Answer %}}
+<strong>NO</strong>
 {{% /expand %}}</p>
-<p>{{% notice question %}} <strong>3. Without transforming to normalise, what is the p-value for the interaction term?</strong><br />
-{{% /notice %}} {{% expand Answer %}} 0.03275 {{% /expand %}}</p>
+<p>{{% notice question %}}
+<strong>2. What is the p-value for the Bartlett’s test?</strong><br />
+{{% /notice %}}
+{{% expand Answer %}}
+0.1339<br />
+{{% /expand %}}</p>
+<p>{{% notice question %}}
+<strong>3. Without transforming to normalise, what is the p-value for the interaction term?</strong><br />
+{{% /notice %}}
+{{% expand Answer %}}
+0.03275
+{{% /expand %}}</p>
 </div>

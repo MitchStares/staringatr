@@ -9,21 +9,16 @@ editor_options:
 
 
 
-<p>Now we have become acquainted with our working directories and the R environment, its time to explore our newely imported data. For this, we will be using the <strong>weeds</strong> dataset. Ensure your data is loaded in and then either use the <strong>View()</strong> command:</p>
+<p>Now we have become acquainted with our working directories and the R environment, its time to explore our newely imported data. For this, we will be using the <strong>weeds</strong> dataset.
+Ensure your data is loaded in and then either use the <strong>View()</strong> command:</p>
 <pre class="r"><code>weeds &lt;- read.csv(&quot;weeds.csv&quot;)
 View(weeds)
 # This will open up a new tab to view your data</code></pre>
 <p>or click the variable name in the environment window.</p>
-<div class="figure">
-<img src="/images/view.png" />
-
-</div>
+<p><img src="/images/view.png" /></p>
 <p>This should bring up a separate tab in Rstudio which you should be able to see the 4 columns (weeds, soil, species &amp; flowers.m3).<br />
 Now we can see our data, we can investigate the way R has input our data. The best thing to do is to ensure your categorical variables are categorical, and our continuous are continuous, much like we do in programs like JMP.</p>
-<div class="figure">
-<img src="/images/jmp_factor.png" />
-
-</div>
+<p><img src="/images/jmp_factor.png" /></p>
 <p>In JMP, we have the icons to identify <strong>categorical/nominal, ordinal</strong> or <strong>continuous</strong>. In R, all we do is run a single line of code to view the same thing across the different columns.</p>
 <pre class="r"><code>str(weeds)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    48 obs. of  4 variables:
@@ -70,8 +65,16 @@ summary(weeds) # Gives you summary statistics for each column</code></pre>
 ##                                            Max.   :57.00</code></pre>
 <pre class="r"><code># This will also come in handy later for statistical analysis </code></pre>
 <p>As you can see, there are many ways to view data within R. Some of these are useful for huge datasets (&gt; 10k rows) as the <code>view()</code> command can put strain on your computer. Using <code>head()</code> or <code>tail()</code> to view aspects of the data is useful as it reduces how much is displayed.<br />
-{{% notice question %}} <strong>After reading in dataset, use the summary() command with the “insecticide”&quot; dataset to answer the following questions:</strong><br />
-<strong>Question: What is the minimum value for species richness?</strong> {{% /notice %}}</p>
-<p>{{% expand Answer %}} <strong>1</strong> {{% /expand %}}</p>
-<p>{{% notice question %}} <strong>Question: What is the maximum value for species richness?</strong> {{% /notice %}}</p>
-<p>{{% expand Answer %}} <strong>20</strong> {{% /expand %}}</p>
+{{% notice question %}}
+<strong>After reading in dataset, use the summary() command with the “insecticide”" dataset to answer the following questions:</strong><br />
+<strong>Question: What is the minimum value for species richness?</strong>
+{{% /notice %}}</p>
+<p>{{% expand Answer %}}
+<strong>1</strong>
+{{% /expand %}}</p>
+<p>{{% notice question %}}
+<strong>Question: What is the maximum value for species richness?</strong>
+{{% /notice %}}</p>
+<p>{{% expand Answer %}}
+<strong>20</strong>
+{{% /expand %}}</p>

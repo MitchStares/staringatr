@@ -14,7 +14,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 Now that we have successfully have a project and notebook, we can start to read in data.  
 
-The first thing with R is that working with normal excel files is quite difficult. So we always work with **comma separated values** or **.CSV** files. When saving an excel sheet, just *save as* and select *.csv (comma delimited)* as the file type. *note: .csv's can only save a single sheet, not the whole excel workbook*  
+The first thing with R is that working with normal Excel files is quite difficult. So we always work with **comma separated values** or **.CSV** files. When saving an excel sheet, just *save as* and select *.csv (comma delimited)* as the file type. *note: .csv's can only save a single sheet, not the whole excel workbook*  
 
 When saving, Excel will inform you that some features may not save with a .csv. This shouldn't be a problem for you, but read these to make sure.  
 
@@ -23,7 +23,7 @@ Importing our data into R allows us to not only analyse and graph the data, but 
 For these tutorials, all data will be csv files (unless otherwise specified).
 
 {{% notice info %}}
-Download the "weeds" and "insecticide" datasets from the **Datasets** tab and save them to your project folder.
+Download the "weeds" and "insecticide" datasets from the **Datasets** tab (to your left in the website, not R) and save them to your project folder.
 {{% /notice %}}  
 
 ```{r eval=FALSE, include=FALSE}

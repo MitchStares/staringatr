@@ -10,7 +10,9 @@ editor_options:
 
 
 
-<p>{{% notice info %}} For this section, we will be using the <strong>weeds</strong> dataset where we performed a two-factor ANOVA {{% /notice %}}</p>
+<p>{{% notice info %}}
+For this section, we will be using the <strong>weeds</strong> dataset where we performed a two-factor ANOVA
+{{% /notice %}}</p>
 <p>For a quick reminder:</p>
 <pre class="r"><code>weeds.aov2 &lt;- aov(flowers ~ species * soil, data = weeds)
 anova(weeds.aov2)</code></pre>
@@ -26,11 +28,11 @@ anova(weeds.aov2)</code></pre>
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>From this, only Species was significant. For this dataset with a continuous Y and categorical X we would plot a bargraph.</p>
 <p>There are three main ways to display a bar/column graph, <code>geom_col()</code>, <code>geom_bar()</code> and <code>stat_summary()</code>. I will cover each of them in some depth, showing the benefits to each. Here is a quick breakdown to begin.</p>
-<table style="width:26%;">
+<table>
 <colgroup>
-<col width="8%" />
-<col width="8%" />
-<col width="9%" />
+<col width="31%" />
+<col width="31%" />
+<col width="37%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -79,4 +81,6 @@ anova(weeds.aov2)</code></pre>
 weeds.bar</code></pre>
 <p><img src="/3-The-Grammar-of-Graphics/Bar-plots/1_barplots_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>So, now we have our graph in a “nicer” format, we can see that there are some cruical points of information missing from this graph. Most notably, the errorbars and letters or some other notation that denotes statistical differences between the levels (i.e. Tukeys HSD results).</p>
-<p>{{% notice note %}} To remove the legend like I have, include the <code>show.legend</code> argument in your <code>geom_bar()</code> command and set it to false. e.g. <code>geom_bar(stat=&quot;identity&quot;, show.legend=F)</code> {{% /notice %}}</p>
+<p>{{% notice note %}}
+To remove the legend like I have, include the <code>show.legend</code> argument in your <code>geom_bar()</code> command and set it to false. e.g. <code>geom_bar(stat="identity", show.legend=F)</code>
+{{% /notice %}}</p>

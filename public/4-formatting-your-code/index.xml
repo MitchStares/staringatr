@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Formatting your code on Staring at R</title>
@@ -27,7 +27,7 @@
       
       <guid>/4-formatting-your-code/2_headingnavigation/</guid>
       <description>When working in a R markdown document (R markdown or R notebook) there are a number of ways to change the appearance of text within these non-coding regions.
-The easiest way to make your code more readable and navigable is to place some headings before different sections of your code. This is simply done by placing a # (hashtag) before your heading on its own line. e.g. # Heading. Because this is not on its own line, it will not default to a heading.</description>
+The easiest way to make your code more readable and navigable is to place some headings before different sections of your code. This is simply done by placing a # (hashtag) before your heading on its own line. e.g. # Heading. Because this is not on its own line, it will not default to a heading.</description>
     </item>
     
     <item>

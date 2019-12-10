@@ -14,10 +14,10 @@ editor_options:
 <pre class="r"><code>iris.scatter &lt;- iris.scatter + theme(panel.background = element_rect(fill=&quot;lavender&quot;, colour=&quot;red&quot;), legend.background = element_rect(fill=&quot;lavender&quot;, colour=&quot;yellow&quot;, size=1), legend.key = element_rect(fill = &quot;gray50&quot;, colour = &quot;green&quot;, size = 0.5)) +
   theme(axis.line.x = element_line(colour = &quot;skyblue&quot;, size=2), axis.line.y = element_line(colour=&quot;deeppink&quot;, size = 2), axis.title.x = element_text(colour=&quot;forestgreen&quot;, size=14), axis.title.y = element_text(colour = &quot;gold&quot;, size=8), axis.ticks = element_blank())</code></pre>
 <p>To change the grid lines on your plot, it is done with the following:</p>
-<table style="width:51%;">
+<table>
 <colgroup>
-<col width="22%" />
-<col width="29%" />
+<col width="42%" />
+<col width="57%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -38,8 +38,10 @@ editor_options:
 </table>
 <p>Again, using the same principals of colour and size for these ones.</p>
 <pre class="r"><code>iris.scatter + theme(panel.grid.major = element_line(colour=&quot;aquamarine&quot;, size=1), panel.grid.minor = element_line(colour=&quot;slategray2&quot;, size=2)) </code></pre>
-<p><img src="/3-The-Grammar-of-Graphics/Themes/6_grids_files/figure-html/unnamed-chunk-3-1.png" width="672" /> Just like we did before, we can make all of these our own custom theme by directing them to an object.</p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/6_grids_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+Just like we did before, we can make all of these our own custom theme by directing them to an object.</p>
 <pre class="r"><code>masterpiece &lt;- theme(panel.background = element_rect(fill=&quot;lavender&quot;, colour=&quot;red&quot;), legend.background = element_rect(fill=&quot;lavender&quot;, colour=&quot;yellow&quot;, size=1), legend.key = element_rect(fill = &quot;gray50&quot;, colour = &quot;green&quot;, size = 0.5), axis.line.x = element_line(colour = &quot;skyblue&quot;, size=2), axis.line.y = element_line(colour=&quot;deeppink&quot;, size = 2), axis.title.x = element_text(colour=&quot;forestgreen&quot;, size=14), axis.title.y = element_text(colour = &quot;gold&quot;, size=8), axis.ticks = element_blank(), panel.grid.major = element_line(colour=&quot;aquamarine&quot;, size=1), panel.grid.minor = element_line(colour=&quot;slategray2&quot;, size=2))</code></pre>
 <p>Now let’s add that to our boxplot.</p>
-<pre class="{r]}"><code>iris.box + masterpiece</code></pre>
-<p>A true work of art!</p>
+<pre class="r"><code>iris.box + masterpiece</code></pre>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/6_grids_files/figure-html/]-1.png" width="672" />
+A true work of art!</p>

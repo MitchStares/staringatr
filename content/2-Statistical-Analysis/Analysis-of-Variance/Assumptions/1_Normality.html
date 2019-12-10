@@ -16,8 +16,10 @@ editor_options:
 <p><img src="/2-Statistical-Analysis/Analysis-of-Variance/Assumptions/1_Normality_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>The normal qq plot should display the residuals along the dotted line in a straight manner. In this example, it is pretty straight :)</p>
 <p>Plotting the <code>aov()</code> object will generate 4 plots. The QQ plot is the second, so we can just specify the second one to avoid the other 3.</p>
-<p>Try removing the 2 and comma and see what the plot command does on its own. It does this because it is being applied to a statistical object (i.e. <code>aov()</code> ).</p>
-<p>{{% notice %}} The plot command (without specifying 1-4) may require you to press “ENTER” in the console for each plot. Make sure to look in the console after running this command {{% /notice %}}</p>
+<p>Try removing the 2 and comma and see what the plot command does on its own. It does this because it is being applied to a statistical object (i.e. <code>aov()</code> ).</p>
+<p>{{% notice %}}
+The plot command (without specifying 1-4) may require you to press “ENTER” in the console for each plot. Make sure to look in the console after running this command
+{{% /notice %}}</p>
 <p>We can also produce a histogram of the residuals:</p>
 <pre class="r"><code>hist(weeds.aov$residuals) # Histogram of residuals</code></pre>
 <p><img src="/2-Statistical-Analysis/Analysis-of-Variance/Assumptions/1_Normality_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
@@ -30,8 +32,11 @@ par(mfrow = c(1,2)) # This code put two plots in the same window
 hist(weeds.aov$residuals)
 plot(weeds.aov, 2)</code></pre>
 <p><img src="/2-Statistical-Analysis/Analysis-of-Variance/Assumptions/1_Normality_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>{{% notice warning %}} If your using a notebook, the par() command wont work. Click the settings cog and select “chunk output in console”.<br />
-If your future graphs keep using this two plot window, use the following command in the console to stop it. <code>dev.off()</code> {{% /notice %}}</p>
+<p>{{% notice warning %}}
+If your using a notebook, the par() command wont work. Click the settings cog and select “chunk output in console”.<br />
+If your future graphs keep using this two plot window, use the following command in the console to stop it.
+<code>dev.off()</code>
+{{% /notice %}}</p>
 <p>Running a shapiro-wilks test is a similar story. To produce a shapiro-wilks test requires the following code:</p>
 <pre class="r"><code>shapiro.test(weeds.aov$residuals) # run a shapiro-wilks test on the residuals column of our anova object using the shapiro.test() function</code></pre>
 <pre><code>## 
@@ -41,5 +46,9 @@ If your future graphs keep using this two plot window, use the following command
 ## W = 0.98282, p-value = 0.6993</code></pre>
 <p>With a shapiro-wilks test, if the result is significant, this means our data is NOT-NORMAL. In our case our data is normal.<br />
 You should be aware that the shapiro-wilks test is very sensitive to departures from normality and is often considered a “harsh” test. There are many other options for testing normality through an empirical test. Most people prefer to stick with visual inspections of residuals to avoid this.</p>
-<p>{{% notice question %}} <strong>What is the shapiro-wilks p-value for an anova of species richness and fragment in the “Insecticide” dataset</strong> {{% /notice %}}</p>
-<p>{{% expand Answer %}} <strong>0.01113</strong> {{% /expand %}}</p>
+<p>{{% notice question %}}
+<strong>What is the shapiro-wilks p-value for an anova of species richness and fragment in the “Insecticide” dataset</strong>
+{{% /notice %}}</p>
+<p>{{% expand Answer %}}
+<strong>0.01113</strong>
+{{% /expand %}}</p>

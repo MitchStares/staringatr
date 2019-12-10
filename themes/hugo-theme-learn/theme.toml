@@ -13,9 +13,9 @@ min_version = 0.25
 
 [author]
   name = "Mathieu Cornic"
-  homepage = "https://matcornic.github.io/"
+  homepage = "http://matcornic.github.io/"
 
 [original]
   name = "Grav Learn"
-  homepage = "https://learn.getgrav.org/"
+  homepage = "http://learn.getgrav.org/"
   repo = "https://github.com/getgrav/grav-learn"

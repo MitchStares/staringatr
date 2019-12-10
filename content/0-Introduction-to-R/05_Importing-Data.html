@@ -11,19 +11,25 @@ editor_options:
 
 
 <p>Now that we have successfully have a project and notebook, we can start to read in data.</p>
-<p>The first thing with R is that working with normal excel files is quite difficult. So we always work with <strong>comma separated values</strong> or <strong>.CSV</strong> files. When saving an excel sheet, just <em>save as</em> and select <em>.csv (comma delimited)</em> as the file type. <em>note: .csv’s can only save a single sheet, not the whole excel workbook</em></p>
+<p>The first thing with R is that working with normal Excel files is quite difficult. So we always work with <strong>comma separated values</strong> or <strong>.CSV</strong> files. When saving an excel sheet, just <em>save as</em> and select <em>.csv (comma delimited)</em> as the file type. <em>note: .csv’s can only save a single sheet, not the whole excel workbook</em></p>
 <p>When saving, Excel will inform you that some features may not save with a .csv. This shouldn’t be a problem for you, but read these to make sure.</p>
 <p>Importing our data into R allows us to not only analyse and graph the data, but do manipulations, like create new columns using formulae, rearranging, rename and even removing columns &amp; rows without modifying our original data file. This is incredibly useful to maintain the original raw data, allowing you to share the data and R script with collaborators across a wide range of platforms.</p>
 <p>For these tutorials, all data will be csv files (unless otherwise specified).</p>
-<p>{{% notice info %}} Download the “weeds” and “insecticide” datasets from the <strong>Datasets</strong> tab and save them to your project folder. {{% /notice %}}</p>
+<p>{{% notice info %}}
+Download the “weeds” and “insecticide” datasets from the <strong>Datasets</strong> tab (to your left in the website, not R) and save them to your project folder.
+{{% /notice %}}</p>
 <p><strong>Use the following code within a chunk to enter your data into R:</strong></p>
 <pre class="r"><code>read.csv(&quot;weeds.csv&quot;)</code></pre>
-<p>{{% notice tip%}} The file needs to be in your set working directory. If it is not, you need the full filepath. You can skip the working directory step by using the full file path. e.g. “C:/Users/Mitch/Documents/R/weeds.csv”<br />
+<p>{{% notice tip%}}
+The file needs to be in your set working directory. If it is not, you need the full filepath.
+You can skip the working directory step by using the full file path.
+e.g. “C:/Users/Mitch/Documents/R/weeds.csv”<br />
 This can be copied from file explorer, but make sure the slash’s are / and not<br />
 {{% /notice %}}</p>
 <p>This alone will just read the data in its basic form into R. If we want to call on this later we need to save the datafile or “data frame” to a variable of our choosing. By saving different functions in R to a variable/object we reduce the amount of work we need to do later. Instead of typing <em>“group_data_2018_complete.csv”</em> everytime, we can instead just call it <em>“data”, “X”</em> or even <em>“skittles”</em> and type that when we refer to the data.<br />
 I personally would choose something a little more descriptive than just “data”, as it can get confusing when working with multiple data sets</p>
-<p>{{% notice note %}} Assigning a function in R to a variable is one of the most important aspects of coding in R.<br />
+<p>{{% notice note %}}
+Assigning a function in R to a variable is one of the most important aspects of coding in R.<br />
 {{% /notice %}}</p>
 <p><strong>This is done by the following:</strong></p>
 <pre class="r"><code>weeds &lt;- read.csv(&#39;weeds.csv&#39;)
@@ -46,7 +52,8 @@ weeds &lt;- read.csv(&#39;weeds.csv&#39;, header=TRUE, row.names=1)
 
 weeds &lt;- read.csv(&#39;weeds.csv&#39;, header=TRUE)</code></pre>
 <p>Once your data is imported into R and saved as an object, either click the object in the Workspace/environment or use <code>View(weeds)</code></p>
-<p>{{% notice question %}} <strong>What is the argument of <code>read.csv()</code> I would need to use to make the <em>sites</em> column my row names in the <em>“sitedata”</em> dataset?</strong><br />
+<p>{{% notice question %}}
+<strong>What is the argument of <code>read.csv()</code> I would need to use to make the <em>sites</em> column my row names in the <em>“sitedata”</em> dataset?</strong><br />
 {{% /notice %}}</p>
 <pre><code>##   sites type
 ## 1  WAM5 plan
@@ -55,5 +62,6 @@ weeds &lt;- read.csv(&#39;weeds.csv&#39;, header=TRUE)</code></pre>
 ## 4  WBT4  rip
 ## 5  WCS2  rip
 ## 6  WCS3  iso</code></pre>
-<p>{{% expand "Answer" %}} <strong>row.names=1</strong><br />
-<strong>full command:</strong> <code>read.csv(&quot;sitedata.csv&quot;, row.names=1)</code></p>
+<p>{{% expand "Answer" %}}
+<strong>row.names=1</strong><br />
+<strong>full command:</strong> <code>read.csv("sitedata.csv", row.names=1)</code></p>

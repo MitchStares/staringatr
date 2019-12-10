@@ -11,8 +11,7 @@ This site is a series of self-guided tutorials on using the R statistical packag
 * Setting up your file system and working environment in a reproducable manner  
 * Viewing and manipulating your data 
 * Statistical analysis, covering analysis of variance, linear regressions and generalised linear models (more to come!)  
-* Visualisation of your results using an iterative graphing approach  
-* Spatial analysis and map creation (**work in progress**)  
+* Visualisation of your results using an iterative graphing approach
 
 I am entirely self-taught through online tutorials, textbooks and advice from colleagues. The best advice I can give is to put in the time and effort. Force yourself to work through problems in R, rather than resorting to excel or your known statistical package. Spending the time to learn R and using it frequently will reinforce lessons and how to utilise code, this goes for all coding languages.  
 

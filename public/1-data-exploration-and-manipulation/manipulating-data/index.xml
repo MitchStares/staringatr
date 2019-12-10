@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Manipulating data on Staring at R</title>
@@ -6,7 +6,7 @@
     <description>Recent content in Manipulating data on Staring at R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 10 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 31 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/1-data-exploration-and-manipulation/manipulating-data/index.xml" rel="self" type="application/rss+xml" />
     
@@ -28,7 +28,8 @@ Personally, this is my favourite function in R as I hate captials, fullstops and
       
       <guid>/1-data-exploration-and-manipulation/manipulating-data/2_mutate/</guid>
       <description>One of the most common data manipulations is adding a new column to your dataset. This is great for transforming data, while also keeping the original. This could be used to combine multiple columns into one or perform mathematical calculations involving multiple columns with the results in a separate column.
-We will start out with a few simple methods in base R, and then move to the dplyr method.</description>
+We will start out with a few simple methods in base R, and then move to the dplyr method.
+##Log Transformation##weeds$log_flowers &amp;lt;- log(weeds$flowers) # Base Rweeds &amp;lt;- mutate(weeds, log_flowers = log(flowers)) # Dplyr# Each of these creates a new column which is the log of the flowers column.</description>
     </item>
     
     <item>
