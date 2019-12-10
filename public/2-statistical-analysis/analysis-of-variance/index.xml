@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Analysis of Variance on Staring at R</title>
@@ -28,7 +28,7 @@ By using the aov() command, we can create an object that tells summary(), plot()
       
       <guid>/2-statistical-analysis/analysis-of-variance/3_anovaresults/</guid>
       <description>Once we know our data is normal and we have our aov() object, we can use one of two commands on this object to generate our statistical result. The normal way to do so is to use the anova() command.
-anova(weeds.aov) # run an anova on the object## Analysis of Variance Table## ## Response: flowers## Df Sum Sq Mean Sq F value Pr(&amp;gt;F) ## species 2 2368.6 1184.</description>
+anova(weeds.aov) # run an anova on the object## Analysis of Variance Table## ## Response: flowers## Df Sum Sq Mean Sq F value Pr(&amp;gt;F) ## species 2 2368.</description>
     </item>
     
     <item>

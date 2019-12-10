@@ -45,7 +45,7 @@ HSD.test(weeds.aov2, &quot;species&quot;, console=TRUE)</code></pre>
   geom_bar(stat=&quot;identity&quot;)+
   geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width = 0.5)+
   geom_text(label = c(&quot;A&quot;, &quot;B&quot;, &quot;B&quot;), aes(y = c(28.5, 41, 44.5), x = species), size = 6)</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Bar-plots/3_tukeys_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Bar-plots/3_tukeys_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <pre class="r"><code># try including the geom_text() in your original weeds.bar code. </code></pre>
 <p>Adding notation is done through <code>geom_text()</code>. We need to specify the labels (in order from left -&gt; right) along with the aesthetic coordinates on the x and y axis. The X axis we can direct it to our original x axis data (species) and it will sit in the centre of the column. The Y coordinates are the location on the Y axis the text should sit.</p>
 <p>This method is very finicky but is a great method if you are looking to plot one letter/symbol on the graph. You can add multiple <code>geom_text()</code> commands if needed.</p>
@@ -55,5 +55,5 @@ HSD.test(weeds.aov2, &quot;species&quot;, console=TRUE)</code></pre>
   geom_errorbar(aes(ymin = mean-se, ymax = mean+se), width = 0.5)+
   geom_text(label = c(&quot;A&quot;, &quot;B&quot;, &quot;B&quot;), aes(y = mean+se, x = species),vjust = -0.5, size = 6)+ 
   ylim(0, 50)</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Bar-plots/3_tukeys_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Bar-plots/3_tukeys_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>We simply specify our Y coordinates as the top of our error bar (mean + se) and use the <strong>vjust</strong> (vertical ajustment) argument to move it slightly above the bar. You might have to change your ylim to display the last letter, which got cut off.</p>

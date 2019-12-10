@@ -15,9 +15,7 @@ editor_options:
 <p>GLMs do make some important assumptions which we will need to check when we construct the model.<br />
 Our binomial (logistic regression) does have some assumptions, but thankfully it is fairly resiliant and we dont need to test them. For any other distribution (poisson, gamma etc.) these are cruical.</p>
 <p>It is important to note that part of fitting a GLM is using a <strong>link function</strong>. I won’t be explaining these in detail (yet), all you need to know is the default link method for binomial data is the <strong>logit()</strong> method. For more information see <code>?family</code>.</p>
-<p>{{% notice info %}}
-For this analysis, we will be using the <strong>nestpredation.csv</strong> dataset
-{{% /notice %}}</p>
+<p>{{% notice info %}} For this analysis, we will be using the <strong>nestpredation.csv</strong> dataset {{% /notice %}}</p>
 <pre class="r"><code>str(nest) # view the structure</code></pre>
 <pre><code>## &#39;data.frame&#39;:    20 obs. of  2 variables:
 ##  $ shrubcover  : int  16 20 11 15 19 31 5 12 9 10 ...

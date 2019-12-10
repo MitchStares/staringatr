@@ -14,12 +14,12 @@ editor_options:
 <pre class="r"><code>iris.scatter &lt;- iris.scatter + labs(x = &quot;Sepal Length (cm)&quot;, y = &quot;Petal Length (cm)&quot;)
 
 iris.scatter</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Themes/7_axislabels_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/7_axislabels_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>If we wish to add a title to our plot (not overly common in publications) we can use the following.</p>
 <pre class="r"><code>iris.scatter &lt;- iris.scatter + labs(title= &quot;Relationship between petal and sepal length&quot;) 
 
 iris.scatter</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Themes/7_axislabels_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/7_axislabels_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>After trying to use these <code>labs()</code> commands you will start to realise it hates anything slightly symbolic (subscript, superscript, degrees etc.). To fix this is simple, but clumsy in how its executed. The following code uses the <code>expression()</code> argument to solve these issues.<br />
 I have written a x-axis label that does not make sense, in an effort to display the most common issues. These are a few of my own, so they do not make any sense with the given graph.</p>
 <pre class="r"><code>iris.scatter &lt;- ggplot(iris, aes(x=Sepal.Length, y=Petal.Length, colour=Species)) +
@@ -27,7 +27,7 @@ I have written a x-axis label that does not make sense, in an effort to display 
   labs(x = expression(Sepal~Length[cm]), y = expression(Petal~Length^cm))+
   labs(title = expression(Sepal~by~Petal~at~&quot;20&quot;*degree*C))
 iris.scatter</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Themes/7_axislabels_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/7_axislabels_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>This example, while nonsensical, demonstrates some of the major quirks with the <code>expression()</code> argument/command.<br />
 Across all of the expression arguments, we specify a space between characters/words by using a tilde <strong>~</strong>. In our x axis, we specify a subscript (lower) by using square brackets <strong>[]</strong>. Anything inside these will be placed below the preceeding character. Similarly, we specify superscript by using the caret <strong>^</strong> to denote power. Anything placed after will be placed above the preceeding character.</p>
 <p>In the title line, (note that I had to place the title on a separate line…ggplot is precious sometimes) we see quotations around the 20. This is because expression does not appreciate anything starting with a number. The next thing is the use of both “degree” and the asterix __*__. The asterix is used when we need to write something like “degree” or “pi” to specify a symbol, but when we want it to be next to something, like a C for degree*C.</p>

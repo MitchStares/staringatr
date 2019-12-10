@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introduction to R on Staring at R</title>
@@ -17,7 +17,7 @@
       <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/0-introduction-to-r/01_r-studio-and-the-coding-environment/</guid>
-      <description>IntroductionThis module will provide an introduction into the R statisitical environment, going through the basics of data analysis and graphing for publication quality results.By the end of this module, you should be able to:
+      <description>IntroductionThis module will provide an introduction into the R statisitical environment, going through the basics of data analysis and graphing for publication quality results. By the end of this module, you should be able to:
 Understand and use the R studio working environmentImport and manipulate data filesUndertake linear (ANOVA, regression) and generalised linear (logistic regression) models and associated assumptions/comparisonsUndertake basic multivariate techniques (PCA, MDS)Construct bar plots and scatterplots in ggplotWhat is R?</description>
     </item>
     

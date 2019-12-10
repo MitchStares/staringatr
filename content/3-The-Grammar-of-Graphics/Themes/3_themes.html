@@ -13,21 +13,21 @@ editor_options:
 <p>The easiest way to quickly modify your graph is to add one of the preset <code>theme()</code> commands. I will add each of them to the graph which will replace the previous theme.</p>
 <p>We can simply add items to our current graph object by adding the <strong>+</strong> sign. Keep in mind that if you dont “resave” it to the object, it wont stick around. If you want to keep a theme, either add it into the original ggplot command, or save it to the same or a new object.</p>
 <pre class="r"><code>iris.scatter + theme_bw()</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre class="r"><code>iris.scatter + theme_classic()</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
 <pre class="r"><code>iris.scatter + theme_dark() </code></pre>
-<p><img src="/The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-3.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-3.png" width="672" /></p>
 <pre class="r"><code>iris.scatter + theme_gray() # The default ggplot theme</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-4.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-4.png" width="672" /></p>
 <pre class="r"><code>iris.scatter + theme_minimal()</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-5.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-5.png" width="672" /></p>
 <pre class="r"><code>iris.scatter + theme_light()</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-6.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-6.png" width="672" /></p>
 <pre class="r"><code>iris.scatter + theme_linedraw()</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-7.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-7.png" width="672" /></p>
 <pre class="r"><code>iris.scatter + theme_void()</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-8.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-2-8.png" width="672" /></p>
 <p>Pretty significant changes to the graphs appearance with little effort.</p>
 <p>Of course, we can modify all the individual components of a theme without using one of the presets.</p>
 <p>The best way to show this would be to look at the <code>?theme</code> (help) window for this one. The general format for this is as follows.</p>
@@ -39,9 +39,8 @@ editor_options:
   theme(plot.title = element_text(color=&quot;blue&quot;, size=12))
 
 iris.scatter</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>Within the <code>theme()</code> command, we simply call the feature we want to change, followed by how we want to change it.
-For the panel grids and background, we call <code>element_blank()</code> to make it blank. Changing that to <code>element_line()</code> for the grids, and <code>element_rect()</code> for the background would change them to lines and rectangle, respectively. From there we could pick colour, size etc.</p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Within the <code>theme()</code> command, we simply call the feature we want to change, followed by how we want to change it. For the panel grids and background, we call <code>element_blank()</code> to make it blank. Changing that to <code>element_line()</code> for the grids, and <code>element_rect()</code> for the background would change them to lines and rectangle, respectively. From there we could pick colour, size etc.</p>
 <p>In the axis.text lines, we are setting the text colour to “black” and the font size to 12.</p>
 <p>Now obviously, this is pretty daunting. But, you dont have to specify everything. You can very easily use one of the above preset themes (e.g. theme_minimal) and change one or two other things, such as axis line colour etc.</p>
 <p>To save yourself writing all of the above <code>theme()</code> commands everytime you do a graph, you can save your favourite custom settings to its own object and add that to your graphs. Like so:</p>
@@ -52,5 +51,5 @@ For the panel grids and background, we call <code>element_blank()</code> to make
 iris.scatter &lt;- iris.scatter + simpletheme # then, just add that object to our graph</code></pre>
 <p>For example, let’s add those custom theme settings to our boxplot we generated earlier.</p>
 <pre class="r"><code>iris.box + simpletheme</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Themes/3_themes_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Ok, so that was alot of information that probably doesn’t make sense, so let’s break that down into its components.</p>

@@ -91,7 +91,7 @@ text.actor {
 /** Section styling */
 .section {
   stroke: none;
-  opacity: 1;
+  opacity: 0.2;
 }
 .section0 {
   fill: rgba(102, 102, 255, 0.49);
@@ -258,6 +258,9 @@ text.actor {
   font-family: 'trebuchet ms', verdana, arial;
   font-size: 14px;
 }
+.node.clickable {
+  cursor: pointer;
+}
 div.mermaidTooltip {
   position: absolute;
   text-align: center;
@@ -271,3 +274,4 @@ div.mermaidTooltip {
   pointer-events: none;
   z-index: 100;
 }
+

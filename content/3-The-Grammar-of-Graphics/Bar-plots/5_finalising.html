@@ -22,13 +22,12 @@ editor_options:
   ylim(0, 50)
 
 weeds.bar</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Bar-plots/5_finalising_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Bar-plots/5_finalising_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Once we are satisfied with our final product, we can save it as a image file to our current working directory. Simply plot the graph again, by calling the object name, then use the <code>ggsave()</code> command like so.</p>
 <pre class="r"><code>weeds.bar #producing the graph again
 
 ggsave(&quot;weeds_bargraph.png&quot;) # specify the name and filetype (.jpeg, .png, .tif etc.). You can also specify the width and heigh of your final image</code></pre>
 <p><code>ggsave()</code> will save the last plot you produced into your current working directory. You need to specify the name (in my case “weeds_bargraph”) and the filetype (.jpeg in my example). By default, it should save a 7 cm x 7cm image. If you want to change that, use the <code>width =</code> or <code>height =</code> arguments, like so. For higher resolution images, try <strong>.tif</strong></p>
 <pre class="r"><code>ggsave(&quot;weeds_bargraph.jpeg&quot;, width=9, height=7)</code></pre>
-<p>I wanted a slightly wider figure but it’s personal preference.
-For very large or faceted graphs, you will need to change the width and height.</p>
+<p>I wanted a slightly wider figure but it’s personal preference. For very large or faceted graphs, you will need to change the width and height.</p>
 <p>And there we have it! We have produced and saved our own graph. This may have seemed daughting or a long process, but it’s very methodical once you get used to it. For an easier time, just use one of the preset theme commands like <code>theme_minimal()</code> to do all the aesthetical work for you :)</p>

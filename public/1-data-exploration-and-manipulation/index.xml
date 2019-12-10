@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Exploration and Manipulation on Staring at R</title>
@@ -6,7 +6,7 @@
     <description>Recent content in Data Exploration and Manipulation on Staring at R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 26 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/1-data-exploration-and-manipulation/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,9 +27,9 @@ Now for the majority of this module, we will be working with a package called Ti
       <pubDate>Tue, 30 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/1-data-exploration-and-manipulation/2_viewingdata/</guid>
-      <description>Now we have become acquainted with our working directories and the R environment, its time to explore our newely imported data. For this, we will be using the weeds dataset.Ensure your data is loaded in and then either use the View() command:
+      <description>Now we have become acquainted with our working directories and the R environment, its time to explore our newely imported data. For this, we will be using the weeds dataset. Ensure your data is loaded in and then either use the View() command:
 weeds &amp;lt;- read.csv(&amp;quot;weeds.csv&amp;quot;)View(weeds)# This will open up a new tab to view your dataor click the variable name in the environment window.
-This should bring up a separate tab in Rstudio which you should be able to see the 4 columns (weeds, soil, species &amp;amp; flowers.</description>
+This should bring up a separate tab in Rstudio which you should be able to see the 4 columns (weeds, soil, species &amp;amp; flowers.</description>
     </item>
     
     <item>

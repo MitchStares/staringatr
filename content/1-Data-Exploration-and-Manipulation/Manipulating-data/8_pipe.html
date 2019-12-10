@@ -20,9 +20,7 @@ You start with the data you want to apply the functions to, followed by a pipe <
   summarise(max(flowers))</code></pre>
 <p>You simply start with the data you want to apply the functions to, followed by a pipe. After each pipe you must go to the next line (sorta).<br />
 In this example, we grouped the data by species and soil, then performed the summarise function to generate the max number for each combination</p>
-<p>{{% notice note %}}
-<strong>You will notice, that because we specified the data in the first line, we did not have to specify the data in the other lines, only the columns</strong>
-{{% /notice %}}</p>
+<p>{{% notice note %}} <strong>You will notice, that because we specified the data in the first line, we did not have to specify the data in the other lines, only the columns</strong> {{% /notice %}}</p>
 <pre class="r"><code>new_data &lt;- weeds %&gt;% 
   mutate(binary = soil == &quot;sandstone&quot;) %&gt;% 
   filter(weeds == &quot;native&quot;)</code></pre>

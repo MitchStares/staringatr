@@ -13,7 +13,7 @@ editor_options:
 <p>Homogeneity of variance is the other main assumption we are concerned with when conducting an ANOVA. Homogeneity of variance is the assumption that the variance between groups is relatively even. That is to say, all groups have similar variation between them. Similar to the assumption of normality, there are two ways to test homogeneity, a visual inspection of residuals and a statistical test.</p>
 <p>To conduct a visual inspection of the residuals we simply use the following:</p>
 <pre class="r"><code>plot(weeds.aov, 1) # using plot number 1 this time</code></pre>
-<p><img src="/Statistical-Analysis/Analysis-of-Variance/Assumptions/2_Homogeneity_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/2-Statistical-Analysis/Analysis-of-Variance/Assumptions/2_Homogeneity_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Heterogenous variances are indicated by a non-random pattern in the residuals vs fitted plot. We look for an even spread of residuals along the Y axis for each of the levels in the X axis. We know species contains 3 levels (“Comprosma”, “Oleria” &amp; “Pultenaea”) so we should see three columns of dots, with an even spread along the Y axis.</p>
 <p>The other way to test this is to use a statistical test, such as a Cochrans or Bartletts test. For this module, we will be taking a departure from the typical Cochran’s Test as there are other tests that (in my personal opinion) are more useful and WAY easier to conduct in R. The first of these will be a Bartlett’s test.</p>
 <pre class="r"><code>bartlett.test(flowers ~ species, data = weeds)</code></pre>
@@ -31,9 +31,4 @@ leveneTest(flowers ~ species, data=weeds)</code></pre>
 ## group  2  0.3131 0.7327
 ##       45</code></pre>
 <p>Again, simple and easy to use. Our P value is not significant which agrees with the Bartlett’s test result.</p>
-<p>{{% notice question %}}
-<strong>What is the bartlett p-value for the species richness by fragment analysis in the Insecticide dataset?</strong>
-{{% /notice %}}
-{{% expand Answer %}}
-0.1022
-{{% /expand %}}</p>
+<p>{{% notice question %}} <strong>What is the bartlett p-value for the species richness by fragment analysis in the Insecticide dataset?</strong> {{% /notice %}} {{% expand Answer %}} 0.1022 {{% /expand %}}</p>

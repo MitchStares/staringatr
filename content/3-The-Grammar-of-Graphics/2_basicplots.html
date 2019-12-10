@@ -19,34 +19,31 @@ editor_options:
   geom_boxplot()
 
 iris.box # We have to run a line with the name of the plot object to view the graph. </code></pre>
-<p><img src="/The-Grammar-of-Graphics/2_basicplots_files/figure-html/unnamed-chunk-3-1.png" width="672" />
-So far, pretty straight forward.</p>
+<p><img src="/3-The-Grammar-of-Graphics/2_basicplots_files/figure-html/unnamed-chunk-3-1.png" width="672" /> So far, pretty straight forward.</p>
 <p>You will notice I saved the ggplot() graph to an object called <strong>iris.box</strong>. Because I saved the plot to an object, I have to run the object name to view the plot. This is identical to using the command <code>print(iris.box)</code>.</p>
-<p>{{% notice note %}}
-ggplot graphs do no need to be saved as an object. You can run all of the commands singularly or as a group. The graph will still be produced. I personally prefer to save them to an object.
-{{% /notice %}}</p>
+<p>{{% notice note %}} ggplot graphs do no need to be saved as an object. You can run all of the commands singularly or as a group. The graph will still be produced. I personally prefer to save them to an object. {{% /notice %}}</p>
 <p>Now let’s look at some others, such as a <strong>histogram.</strong></p>
 <pre class="r"><code>iris.hist &lt;- ggplot(iris, aes(x=Sepal.Length)) +
   geom_histogram()
 
 iris.hist</code></pre>
-<p><img src="/The-Grammar-of-Graphics/2_basicplots_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/2_basicplots_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>That’s pretty ugly, but a simple addition of <strong>binwidth=“value”</strong> will fix that. Binwidth refers to the width of each bin, or bar, in the frequency histogram. A bin width of 0.5 means each bar of the histogram will be equal to 0.5 on the x axis (e.g. 4, 4.5, 5, 5.5 etc).</p>
 <pre class="r"><code>iris.hist &lt;- ggplot(iris, aes(x=Sepal.Length)) +
   geom_histogram(binwidth = 0.5)
 
 iris.hist</code></pre>
-<p><img src="/The-Grammar-of-Graphics/2_basicplots_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/2_basicplots_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Now let’s look at a <strong>scatterplot</strong>.</p>
 <pre class="r"><code>iris.scatter &lt;- ggplot(iris, aes(x=Sepal.Length,y=Petal.Length)) + 
   geom_point()
 
 iris.scatter</code></pre>
-<p><img src="/The-Grammar-of-Graphics/2_basicplots_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/2_basicplots_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>The cool thing we can do with scatterplots is colour the points by a categorical feature such as Species. This is done by adding <strong>colour = “categorical variable name”</strong> in the aes brackets of the <code>ggplot()</code> command.</p>
 <pre class="r"><code>iris.scatter &lt;- ggplot(iris, aes(x=Sepal.Length, y=Petal.Length, colour=Species)) +
   geom_point()
 iris.scatter</code></pre>
-<p><img src="/The-Grammar-of-Graphics/2_basicplots_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/2_basicplots_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Much better. And it even adds a legend for us.</p>
 <p>Now we have this basic setup, we can start adding things to our graph. Due to the immense amount of customisations for our graphs, I will break these down in to sections as much as possible and explain as I go. We will work with the iris dataset for a while before moving to our analysed datasets.</p>

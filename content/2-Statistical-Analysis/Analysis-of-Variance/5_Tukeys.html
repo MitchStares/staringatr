@@ -66,5 +66,5 @@ HSD.test(weeds.aov, &quot;species&quot;, console=TRUE) # HSD.test() requires you
 <p>As mentioned, this specific Tukey’s function can only do a single specified factor (to my knowledge). These Tukey’s tests are options for single factor significance. For an interaction significance, you will need to consider alternative post-hoc methods.</p>
 <p>An interesting method of visualising the interaction term is using the <code>interaction.plot()</code> command. Specifying the three columns you want to see. I find this useful for linear regressions, not so much for categorical data.</p>
 <pre class="r"><code>interaction.plot(weeds$species, weeds$weeds, weeds$flowers)</code></pre>
-<p><img src="/Statistical-Analysis/Analysis-of-Variance/5_Tukeys_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/2-Statistical-Analysis/Analysis-of-Variance/5_Tukeys_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>In this example, we see the increase in number of flowers, with a markedly higher increase in native. The significant increase in species is only present in Oleria in native areas.</p>

@@ -10,23 +10,21 @@ editor_options:
 
 
 
-<p>{{% notice info %}}
-For this section, we will be using the <strong>nestpredation.csv</strong> data set
-{{% /notice %}}</p>
+<p>{{% notice info %}} For this section, we will be using the <strong>nestpredation.csv</strong> data set {{% /notice %}}</p>
 <p>In our third dataset, we analysed the nest predation dataset using a generalised linear model with a binomial distribution, also known as a Logistic Regression.</p>
 <p>In this scenario, our data is measuring whether a nest was attacked or not in areas of different shrubcover. When we analyse this using a GLM, it is calculating the probability of a nest being attacked, given different values of shrubcover. As such, we need to plot this in a similar manner.</p>
 <p>First let’s demonstrate what happens when we don’t take the binomial distribution into account.</p>
 <pre class="r"><code>ggplot(nest, aes(x=shrubcover, y=nestattacked)) + 
   geom_point()</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Scatter-plots/3_logisticregression_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Scatter-plots/3_logisticregression_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Notice how it has plotted the points at either 0 or 1 for each of the corresponding shrubcover values. This does not tell us anything about the likelihood of a nest being attacked given a value of shrubcover.</p>
 <p>There are multiple methods for producing this plot. The one we will be using generates the relationship between our variables in the code itself.</p>
 <pre class="r"><code>ggplot(nest,aes(x=shrubcover, y=nestattacked)) +
   geom_smooth(method = glm, method.args= list(family=&quot;binomial&quot;))</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Scatter-plots/3_logisticregression_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Scatter-plots/3_logisticregression_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>This method utilises the <code>geom_smooth()</code> function we were using for our linear model. This time we specify the glm relationship in the method argument, instead of lm. We also need to include a second argument called <code>method.args</code> which stands for method arguments, or, additional arguments for the method we have specified. We need to include this so we can inform our code that our distribution (family) is binomial. By including this, we produce our probability curve</p>
 <p>As before, we can edit all of the things we did with the linear line because we are using the same command <code>geom_smooth()</code>. Like removing our errorbars.</p>
 <pre class="r"><code>ggplot(nest,aes(x=shrubcover, y=nestattacked)) +
   geom_point()+
   geom_smooth(method = glm, method.args= list(family=&quot;binomial&quot;), se=FALSE)</code></pre>
-<p><img src="/The-Grammar-of-Graphics/Scatter-plots/3_logisticregression_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/3-The-Grammar-of-Graphics/Scatter-plots/3_logisticregression_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
