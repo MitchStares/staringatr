@@ -9,4 +9,4 @@ chapter: true
 
 #### This section is still a work in progress  
 
-Mapping the world around you! Here we will learn how to map survey sites, create interactive, web-based maps, as conduct simple spatial analysis free from the clutches of ArcGIS, using the same syntax you have been learning so far.  
+Mapping the world around you! Here we will learn how to map survey sites, create interactive, web-based maps, and conduct simple spatial analysis free from the clutches of ArcGIS - **All using the same syntax you have been learning so far.**  
