@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spatial Analysis in R on Staring at R</title>
+    <link>/5-spatial-analysis-in-r/</link>
+    <description>Recent content in Spatial Analysis in R on Staring at R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 10 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/5-spatial-analysis-in-r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quizlite_test</title>
+      <link>/5-spatial-analysis-in-r/example/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/5-spatial-analysis-in-r/example/</guid>
+      <description>library(quizlite)quiz_db &amp;lt;- list(counterFormat = &amp;#39;Question %current of %total&amp;#39;,questions = list(list(q= &amp;#39;A sample question?&amp;#39;,options= c(&amp;#39;Answer 1&amp;#39;, &amp;#39;Answer 2&amp;#39;, &amp;#39;Answer 3&amp;#39;, &amp;#39;Answer 4&amp;#39;),correctIndex = 1,correctResponse = &amp;#39;Custom correct response.&amp;#39;,incorrectResponse = &amp;#39;Custom incorrect response.&amp;#39;),list(q= &amp;#39;A new question?&amp;#39;,options= c(&amp;#39;Answer 1&amp;#39;, &amp;#39;Answer 2&amp;#39;),correctIndex = 0,correctResponse = &amp;#39;Custom correct response.&amp;#39;,incorrectResponse = &amp;#39;Custom incorrect response.&amp;#39;)))quizlite_knit(quiz_db, width = &amp;quot;100%&amp;quot;, height = 400, units = &amp;quot;cm&amp;quot;)</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/5-spatial-analysis-in-r/assests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/5-spatial-analysis-in-r/assests/</guid>
+      <description>body{background-color:white;}     .quiz-container { padding: 1em; max-width: 100%; margin: 1em auto; background: #e0e0e0; } .quiz-container a { text-decoration: none; color: #333; } #quiz-header, #quiz-start-screen, #quiz-results-screen, #quiz-counter { text-align: center; } .question { font-size: 1.25em; } .answers{ list-style: none; padding: 0; } .answers a { display: block; padding: 0.5em 1em; margin-bottom: 0.5em; background: #fff; border-radius: 10px; transition: 0.25s; } .answers a:hover { background:#009688; } .answers a.correct { background: #090; } .</description>
+    </item>
+    
+  </channel>
+</rss>
